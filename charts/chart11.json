@@ -1,0 +1,162 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Language Enrolments Relative to Historical Average (2012–2024)",
+    "width": 750,
+    "height": 400,
+    "data": {
+        "url": "data/nsw_language_analysis_ready.csv",
+        "format": {
+            "type": "csv",
+            "parse": {
+                "year": "number",
+                "enrolments": "number"
+            }
+        }
+    },
+    "params": [
+        {
+            "name": "school_selection",
+            "value": "Secondary (Years 7–9)",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "Primary",
+                    "Secondary (Years 7–9)"
+                ],
+                "name": "School Level: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum.school_level === school_selection"
+        },
+        {
+            "filter": {
+                "field": "language",
+                "oneOf": [
+                    "Japanese",
+                    "French",
+                    "Chinese (Mandarin)",
+                    "Italian",
+                    "Spanish",
+                    "Arabic"
+                ]
+            }
+        },
+        {
+            "aggregate": [
+                {
+                    "op": "sum",
+                    "field": "enrolments",
+                    "as": "annual_enrolments"
+                }
+            ],
+            "groupby": [
+                "year",
+                "language"
+            ]
+        },
+        {
+            "joinaggregate": [
+                {
+                    "op": "mean",
+                    "field": "annual_enrolments",
+                    "as": "historical_average"
+                }
+            ],
+            "groupby": [
+                "language"
+            ]
+        },
+        {
+            "filter": "datum.historical_average > 0"
+        },
+        {
+            "calculate": "((datum.annual_enrolments - datum.historical_average) / datum.historical_average) * 100",
+            "as": "difference_percent"
+        }
+    ],
+    "mark": {
+        "type": "rect",
+        "stroke": "white",
+        "strokeWidth": 2
+    },
+    "encoding": {
+        "x": {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year",
+            "sort": "ascending",
+            "axis": {
+                "labelAngle": 0
+            }
+        },
+        "y": {
+            "field": "language",
+            "type": "nominal",
+            "title": "Language",
+            "sort": [
+                "Japanese",
+                "French",
+                "Chinese (Mandarin)",
+                "Italian",
+                "Spanish",
+                "Arabic"
+            ]
+        },
+        "color": {
+            "field": "difference_percent",
+            "type": "quantitative",
+            "title": "Difference from Average (%)",
+            "scale": {
+                "domainMid": 0,
+                "scheme": "redblue",
+                "reverse": true
+            },
+            "legend": {
+                "gradientLength": 250
+            }
+        },
+        "tooltip": [
+            {
+                "field": "language",
+                "type": "nominal",
+                "title": "Language"
+            },
+            {
+                "field": "year",
+                "type": "ordinal",
+                "title": "Year"
+            },
+            {
+                "field": "annual_enrolments",
+                "type": "quantitative",
+                "title": "Enrolments",
+                "format": ","
+            },
+            {
+                "field": "historical_average",
+                "type": "quantitative",
+                "title": "Historical Average",
+                "format": ",.0f"
+            },
+            {
+                "field": "difference_percent",
+                "type": "quantitative",
+                "title": "Difference from Average",
+                "format": "+.1f"
+            }
+        ]
+    },
+    "config": {
+        "view": {
+            "stroke": null
+        },
+        "axis": {
+            "labelFontSize": 11,
+            "titleFontSize": 12
+        }
+    }
+}

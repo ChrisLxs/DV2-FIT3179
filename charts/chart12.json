@@ -1,0 +1,179 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Primary vs Secondary Language Enrolment Gaps (2024)",
+    "width": 750,
+    "height": 500,
+    "data": {
+        "url": "data/nsw_language_analysis_ready.csv",
+        "format": {
+            "type": "csv",
+            "parse": {
+                "year": "number",
+                "enrolments": "number"
+            }
+        }
+    },
+    "transform": [
+        {
+            "filter": "datum.year === 2024"
+        },
+        {
+            "aggregate": [
+                {
+                    "op": "sum",
+                    "field": "enrolments",
+                    "as": "total_enrolments"
+                }
+            ],
+            "groupby": [
+                "language",
+                "school_level"
+            ]
+        },
+        {
+            "pivot": "school_level",
+            "value": "total_enrolments",
+            "groupby": [
+                "language"
+            ]
+        },
+        {
+            "filter": "isValid(datum['Primary']) && isValid(datum['Secondary (Years 7–9)'])"
+        },
+        {
+            "calculate": "datum['Primary'] - datum['Secondary (Years 7–9)']",
+            "as": "enrolment_gap"
+        },
+        {
+            "calculate": "abs(datum.enrolment_gap)",
+            "as": "absolute_gap"
+        },
+        {
+            "calculate": "datum.enrolment_gap >= 0 ? 'More Primary Enrolments' : 'More Secondary Enrolments'",
+            "as": "gap_direction"
+        },
+        {
+            "window": [
+                {
+                    "op": "row_number",
+                    "as": "gap_rank"
+                }
+            ],
+            "sort": [
+                {
+                    "field": "absolute_gap",
+                    "order": "descending"
+                }
+            ]
+        },
+        {
+            "filter": "datum.gap_rank <= 12"
+        }
+    ],
+    "encoding": {
+        "y": {
+            "field": "language",
+            "type": "nominal",
+            "title": "Language",
+            "sort": {
+                "field": "absolute_gap",
+                "order": "descending"
+            },
+            "axis": {
+                "labelLimit": 190
+            }
+        },
+        "x": {
+            "field": "enrolment_gap",
+            "type": "quantitative",
+            "title": "Enrolment Gap (Primary − Secondary)",
+            "axis": {
+                "format": ","
+            }
+        },
+        "color": {
+            "field": "gap_direction",
+            "type": "nominal",
+            "title": "Enrolment Gap",
+            "scale": {
+                "domain": [
+                    "More Primary Enrolments",
+                    "More Secondary Enrolments"
+                ],
+                "range": [
+                    "#2A9D8F",
+                    "#E76F51"
+                ]
+            }
+        },
+        "tooltip": [
+            {
+                "field": "language",
+                "type": "nominal",
+                "title": "Language"
+            },
+            {
+                "field": "Primary",
+                "type": "quantitative",
+                "title": "Primary Enrolments",
+                "format": ","
+            },
+            {
+                "field": "Secondary (Years 7–9)",
+                "type": "quantitative",
+                "title": "Secondary Enrolments",
+                "format": ","
+            },
+            {
+                "field": "enrolment_gap",
+                "type": "quantitative",
+                "title": "Primary − Secondary",
+                "format": "+,"
+            }
+        ]
+    },
+    "layer": [
+        {
+            "mark": {
+                "type": "rule",
+                "color": "#666666",
+                "strokeDash": [
+                    4,
+                    4
+                ]
+            },
+            "encoding": {
+                "x": {
+                    "datum": 0
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "rule",
+                "strokeWidth": 2
+            },
+            "encoding": {
+                "x": {
+                    "datum": 0
+                },
+                "x2": {
+                    "field": "enrolment_gap"
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "point",
+                "filled": true,
+                "size": 130
+            }
+        }
+    ],
+    "config": {
+        "view": {
+            "stroke": null
+        }
+    }
+}

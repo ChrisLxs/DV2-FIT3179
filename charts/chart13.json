@@ -1,0 +1,148 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Geographic Distribution of NSW Government Schools (2026)",
+    "width": 750,
+    "height": 580,
+    "projection": {
+        "type": "mercator",
+        "center": [149.0, -33.0],
+        "scale": 1600
+    },
+    "params": [
+        {
+            "name": "school_type_selection",
+            "value": "All Schools",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "All Schools",
+                    "Primary School",
+                    "Secondary School",
+                    "Central/Community School",
+                    "Schools for Specific Purposes",
+                    "Environmental Education Centre",
+                    "Infants School",
+                    "Other School"
+                ],
+                "name": "School Type: "
+            }
+        }
+    ],
+    "layer": [
+        {
+            "data": {
+                "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "countries"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "#F1F5F9",
+                "stroke": "#94A3B8",
+                "strokeWidth": 0.8
+            }
+        },
+        {
+            "data": {
+                "url": "data/nsw_schools_locations.csv",
+                "format": {
+                    "type": "csv",
+                    "parse": {
+                        "Latitude": "number",
+                        "Longitude": "number",
+                        "latest_year_enrolment_FTE": "number"
+                    }
+                }
+            },
+            "transform": [
+                {
+                    "filter": "school_type_selection === 'All Schools' || datum.Level_of_schooling === school_type_selection"
+                },
+                {
+                    "filter": "isValid(datum.Latitude) && isValid(datum.Longitude)"
+                }
+            ],
+            "mark": {
+                "type": "circle",
+                "size": 28,
+                "opacity": 0.6,
+                "stroke": "#FFFFFF",
+                "strokeWidth": 0.3
+            },
+            "encoding": {
+                "longitude": {
+                    "field": "Longitude",
+                    "type": "quantitative"
+                },
+                "latitude": {
+                    "field": "Latitude",
+                    "type": "quantitative"
+                },
+                "color": {
+                    "field": "Level_of_schooling",
+                    "type": "nominal",
+                    "title": "School Type",
+                    "scale": {
+                        "domain": [
+                            "Primary School",
+                            "Secondary School",
+                            "Central/Community School",
+                            "Schools for Specific Purposes",
+                            "Environmental Education Centre",
+                            "Infants School",
+                            "Other School"
+                        ],
+                        "range": [
+                            "#2563EB",
+                            "#F97316",
+                            "#16A34A",
+                            "#9333EA",
+                            "#0891B2",
+                            "#DB2777",
+                            "#64748B"
+                        ]
+                    },
+                    "legend": {
+                        "labelLimit": 230
+                    }
+                },
+                "tooltip": [
+                    {
+                        "field": "School_name",
+                        "type": "nominal",
+                        "title": "School"
+                    },
+                    {
+                        "field": "Level_of_schooling",
+                        "type": "nominal",
+                        "title": "School Type"
+                    },
+                    {
+                        "field": "Town_suburb",
+                        "type": "nominal",
+                        "title": "Suburb"
+                    },
+                    {
+                        "field": "LGA",
+                        "type": "nominal",
+                        "title": "Local Government Area"
+                    },
+                    {
+                        "field": "latest_year_enrolment_FTE",
+                        "type": "quantitative",
+                        "title": "Latest Enrolment (FTE)",
+                        "format": ",.0f"
+                    }
+                ]
+            }
+        }
+    ],
+    "config": {
+        "view": {
+            "stroke": null
+        }
+    }
+}

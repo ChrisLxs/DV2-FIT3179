@@ -1,0 +1,84 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "NSW Government School Counts by Local Government Area",
+    "width": 750,
+    "height": 650,
+    "data": {
+        "url": "data/nsw_lga_school_counts.geojson",
+        "format": {
+            "type": "json",
+            "property": "features"
+        }
+    },
+    "projection": {
+        "type": "mercator"
+    },
+    "params": [
+        {
+            "name": "minimum_schools",
+            "value": 0,
+            "bind": {
+                "input": "range",
+                "min": 0,
+                "max": 50,
+                "step": 5,
+                "name": "Highlight LGAs with at least: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "calculate": "datum.properties.school_count",
+            "as": "school_count"
+        },
+        {
+            "calculate": "datum.properties.abb_name",
+            "as": "lga_name"
+        },
+        {
+            "calculate": "datum.school_count >= minimum_schools",
+            "as": "meets_threshold"
+        }
+    ],
+    "mark": {
+        "type": "geoshape",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 0.5
+    },
+    "encoding": {
+        "color": {
+            "condition": {
+                "test": "datum.meets_threshold",
+                "field": "school_count",
+                "type": "quantitative",
+                "title": "Number of Schools",
+                "scale": {
+                    "scheme": "blues"
+                },
+                "legend": {
+                    "orient": "right"
+                }
+            },
+            "value": "#E5E7EB"
+        },
+        "tooltip": [
+            {
+                "field": "lga_name",
+                "type": "nominal",
+                "title": "Local Government Area"
+            },
+            {
+                "field": "school_count",
+                "type": "quantitative",
+                "title": "Government Schools",
+                "format": ","
+            }
+        ]
+    },
+    "config": {
+        "view": {
+            "stroke": null
+        }
+    }
+}

@@ -1,0 +1,179 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Changes in Language Enrolments: 2012 vs 2024",
+    "width": 750,
+    "height": 420,
+    "data": {
+        "url": "data/nsw_language_analysis_ready.csv",
+        "format": {
+            "type": "csv",
+            "parse": {
+                "year": "number",
+                "enrolments": "number"
+            }
+        }
+    },
+    "params": [
+        {
+            "name": "school_selection",
+            "value": "Secondary (Years 7–9)",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "Primary",
+                    "Secondary (Years 7–9)"
+                ],
+                "name": "School Level: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum.school_level === school_selection"
+        },
+        {
+            "filter": {
+                "field": "year",
+                "oneOf": [2012, 2024]
+            }
+        },
+        {
+            "filter": {
+                "field": "language",
+                "oneOf": [
+                    "Japanese",
+                    "French",
+                    "Chinese (Mandarin)",
+                    "Italian",
+                    "Spanish"
+                ]
+            }
+        },
+        {
+            "aggregate": [
+                {
+                    "op": "sum",
+                    "field": "enrolments",
+                    "as": "total_enrolments"
+                }
+            ],
+            "groupby": ["language", "year"]
+        },
+        {
+            "pivot": "year",
+            "value": "total_enrolments",
+            "groupby": ["language"]
+        },
+        {
+            "filter": "isValid(datum['2012']) && isValid(datum['2024'])"
+        },
+        {
+            "calculate": "datum['2024'] - datum['2012']",
+            "as": "change"
+        }
+    ],
+    "encoding": {
+        "y": {
+            "field": "language",
+            "type": "nominal",
+            "title": null,
+            "sort": "ascending"
+        }
+    },
+    "layer": [
+        {
+            "mark": {
+                "type": "rule",
+                "strokeWidth": 3,
+                "color": "#A0A0A0"
+            },
+            "encoding": {
+                "x": {
+                    "field": "2012",
+                    "type": "quantitative",
+                    "title": "Number of Enrolments"
+                },
+                "x2": {
+                    "field": "2024"
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "point",
+                "filled": true,
+                "size": 130,
+                "color": "#4C78A8"
+            },
+            "encoding": {
+                "x": {
+                    "field": "2012",
+                    "type": "quantitative"
+                },
+                "tooltip": [
+                    {
+                        "field": "language",
+                        "type": "nominal"
+                    },
+                    {
+                        "field": "2012",
+                        "type": "quantitative",
+                        "title": "2012 Enrolments",
+                        "format": ","
+                    },
+                    {
+                        "field": "2024",
+                        "type": "quantitative",
+                        "title": "2024 Enrolments",
+                        "format": ","
+                    },
+                    {
+                        "field": "change",
+                        "type": "quantitative",
+                        "title": "Change",
+                        "format": "+,"
+                    }
+                ]
+            }
+        },
+        {
+            "mark": {
+                "type": "point",
+                "filled": true,
+                "size": 130,
+                "color": "#F58518"
+            },
+            "encoding": {
+                "x": {
+                    "field": "2024",
+                    "type": "quantitative"
+                },
+                "tooltip": [
+                    {
+                        "field": "language",
+                        "type": "nominal"
+                    },
+                    {
+                        "field": "2012",
+                        "type": "quantitative",
+                        "title": "2012 Enrolments",
+                        "format": ","
+                    },
+                    {
+                        "field": "2024",
+                        "type": "quantitative",
+                        "title": "2024 Enrolments",
+                        "format": ","
+                    },
+                    {
+                        "field": "change",
+                        "type": "quantitative",
+                        "title": "Change",
+                        "format": "+,"
+                    }
+                ]
+            }
+        }
+    ]
+}

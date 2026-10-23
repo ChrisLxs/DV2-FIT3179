@@ -1,0 +1,13 @@
+year,language_count,calculated_total,published_total,difference,status,source_file
+2012,25,64163,64163.0,0.0,PASS,2012-language-participation-years-7-9-by-gender-and-school-year.csv
+2013,34,65514,,,NO PUBLISHED TOTAL,2013-language-participation-years-7-9-by-gender-and-school-year.csv
+2014,25,64163,64163.0,0.0,PASS,2014-language-participation-years-7-9-by-gender-and-school-year.csv
+2015,38,67245,67245.0,0.0,PASS,2015-language-participation-years-7-9-by-gender-and-school-year.csv
+2016,35,66758,66758.0,0.0,PASS,2016-language-participation-years-7-9-by-gender-and-school-year.csv
+2017,36,67838,67838.0,0.0,PASS,2017-language-participation-yr7-9.csv
+2018,39,63582,63582.0,0.0,PASS,table-20-2018-language-participation-years-7-to-9.csv
+2019,43,65363,65363.0,0.0,PASS,table-20-2019-language-participation-years-7-to-9.csv
+2020,44,66751,66751.0,0.0,PASS,table-20-2020-language-participation-years-7-to-9.csv
+2021,44,64993,64993.0,0.0,PASS,table-20-2021-language-participation-years-7-to-9.csv
+2023,44,62883,62883.0,0.0,PASS,2023-language-participation-years-7-9.csv
+2024,44,62262,62262.0,0.0,PASS,2024-language-participation-years-7-9.csv

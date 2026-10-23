@@ -1,0 +1,100 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Primary vs Secondary Language Enrolments (2024)",
+    "width": 750,
+    "height": 450,
+    "data": {
+        "url": "data/nsw_language_analysis_ready.csv",
+        "format": {
+            "type": "csv",
+            "parse": {
+                "year": "number",
+                "enrolments": "number"
+            }
+        }
+    },
+    "transform": [
+        {
+            "filter": "datum.year === 2024"
+        },
+        {
+            "filter": {
+                "field": "language",
+                "oneOf": [
+                    "Japanese",
+                    "French",
+                    "Chinese (Mandarin)",
+                    "Italian",
+                    "Spanish"
+                ]
+            }
+        },
+        {
+            "aggregate": [
+                {
+                    "op": "sum",
+                    "field": "enrolments",
+                    "as": "total_enrolments"
+                }
+            ],
+            "groupby": [
+                "language",
+                "school_level"
+            ]
+        }
+    ],
+    "mark": {
+        "type": "bar"
+    },
+    "encoding": {
+        "x": {
+            "field": "language",
+            "type": "nominal",
+            "title": "Language",
+            "axis": {
+                "labelAngle": -30
+            }
+        },
+        "xOffset": {
+            "field": "school_level",
+            "type": "nominal",
+            "sort": [
+                "Primary",
+                "Secondary (Years 7–9)"
+            ]
+        },
+        "y": {
+            "field": "total_enrolments",
+            "type": "quantitative",
+            "title": "Number of Enrolments"
+        },
+        "color": {
+            "field": "school_level",
+            "type": "nominal",
+            "title": "School Level",
+            "sort": [
+                "Primary",
+                "Secondary (Years 7–9)"
+            ]
+        },
+        "tooltip": [
+            {
+                "field": "language",
+                "type": "nominal",
+                "title": "Language"
+            },
+            {
+                "field": "school_level",
+                "type": "nominal",
+                "title": "School Level"
+            },
+            {
+                "field": "total_enrolments",
+                "type": "quantitative",
+                "title": "Enrolments",
+                "format": ","
+            }
+        ]
+    }
+}

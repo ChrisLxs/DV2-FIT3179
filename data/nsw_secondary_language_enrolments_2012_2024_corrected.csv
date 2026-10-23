@@ -1,0 +1,452 @@
+year,language,enrolments
+2012,Japanese,22534
+2012,French,15628
+2012,Italian,5913
+2012,Chinese (Mandarin),4988
+2012,Indonesian,4138
+2012,German,3992
+2012,Spanish,2600
+2012,Korean,816
+2012,Arabic,732
+2012,Latin,722
+2012,Greek (Modern),719
+2012,Vietnamese,324
+2012,Wiradjuri,196
+2012,Gumbaynggir,180
+2012,Chinese (Cantonese),158
+2012,Dhurga,157
+2012,Gamilaraay,132
+2012,Turkish,97
+2012,Paakantji / Barkindji,55
+2012,Hebrew,45
+2012,Greek (Classical),10
+2012,Wailwan,10
+2012,Auslan,7
+2012,Russian,5
+2012,Yuwaalaraay,5
+2013,Japanese,22636
+2013,French,17439
+2013,Chinese (Mandarin),5385
+2013,Italian,5095
+2013,German,4428
+2013,Indonesian,3634
+2013,Spanish,2647
+2013,Korean,768
+2013,Greek (Modern),679
+2013,Arabic,626
+2013,Latin,580
+2013,Vietnamese,352
+2013,Gumbaynggir,244
+2013,Wiradjuri,189
+2013,Dhurga,185
+2013,Turkish,116
+2013,Barkindji/Paakantyi,78
+2013,Macedonian,71
+2013,Yuwaalaraay,50
+2013,Gamilaraay,48
+2013,Polish,42
+2013,Serbian,38
+2013,Fijian,34
+2013,Hebrew,32
+2013,Hindi,28
+2013,Greek (Classical),22
+2013,Bengali,19
+2013,Croatian,15
+2013,Portuguese,8
+2013,Armenian,7
+2013,Maltese,6
+2013,Hungarian,5
+2013,Khmer,4
+2013,Russian,4
+2014,Japanese,22534
+2014,French,15628
+2014,Italian,5913
+2014,Chinese (Mandarin),4988
+2014,Indonesian,4138
+2014,German,3992
+2014,Spanish,2600
+2014,Korean,816
+2014,Arabic,732
+2014,Latin,722
+2014,Greek (Modern),719
+2014,Vietnamese,324
+2014,Wiradjuri,196
+2014,Gumbaynggir,180
+2014,Chinese (Cantonese),158
+2014,Dhurga,157
+2014,Gamilaraay,132
+2014,Turkish,97
+2014,Paakantji / Barkindji,55
+2014,Hebrew,45
+2014,Greek (Classical),10
+2014,Wailwan,10
+2014,Auslan,7
+2014,Russian,5
+2014,Yuwaalaraay,5
+2015,Japanese,23948
+2015,French,16732
+2015,Italian,5780
+2015,Chinese (Mandarin),5638
+2015,Indonesian,4365
+2015,German,3406
+2015,Spanish,2355
+2015,Latin,908
+2015,Korean,772
+2015,Arabic,699
+2015,Greek (Modern),584
+2015,Gumbaynggir,435
+2015,Wiradjuri,316
+2015,Vietnamese,272
+2015,Gamilaraay,222
+2015,Dhurga,179
+2015,Hindi,70
+2015,Macedonian,66
+2015,Hebrew,64
+2015,Turkish,60
+2015,Ngemba / Ngiyampaa,59
+2015,Paakantji / Barkindji,58
+2015,Serbian,50
+2015,Polish,37
+2015,Yuwaalaraay,29
+2015,Wergaia,28
+2015,Croatian,25
+2015,Punjabi,14
+2015,Filipino,12
+2015,Khmer,12
+2015,Bengali,11
+2015,Armenian,8
+2015,Sign Languages,7
+2015,Hungarian,6
+2015,Greek (Classical),5
+2015,Maltese,5
+2015,Russian,5
+2015,Portuguese,3
+2016,Japanese,25084
+2016,French,16330
+2016,Chinese (Mandarin),5177
+2016,Italian,5121
+2016,Indonesian,3768
+2016,German,3500
+2016,Spanish,2577
+2016,Korean,851
+2016,Arabic,822
+2016,Latin,757
+2016,Greek (Modern),521
+2016,Wiradjuri,444
+2016,Gumbaynggir,338
+2016,Vietnamese,321
+2016,Gamilaraay,274
+2016,Chinese (Cantonese),184
+2016,Dhurga,182
+2016,Macedonian,78
+2016,Serbian,78
+2016,Hebrew,55
+2016,Paakantji / Barkindji,54
+2016,Polish,42
+2016,Turkish,38
+2016,Ngemba / Ngiyampaa,32
+2016,Bengali,21
+2016,Filipino,18
+2016,Croatian,16
+2016,Armenian,14
+2016,Gathang,14
+2016,Khmer,14
+2016,Russian,11
+2016,Hungarian,7
+2016,Yuwaalaraay,7
+2016,Hindi,5
+2016,Portuguese,3
+2017,Japanese,25472
+2017,French,16267
+2017,Italian,5473
+2017,Chinese (Mandarin),5176
+2017,Indonesian,3603
+2017,German,3438
+2017,Spanish,2950
+2017,Korean,875
+2017,Latin,825
+2017,Arabic,771
+2017,Wiradjuri,548
+2017,Greek (Modern),478
+2017,Gumbaynggir,390
+2017,Vietnamese,342
+2017,Gamilaraay,253
+2017,Dhurga,195
+2017,Gathang,168
+2017,Hebrew,87
+2017,Turkish,69
+2017,Paakantji / Barkindji,67
+2017,Serbian,64
+2017,Hindi,51
+2017,Macedonian,50
+2017,Ngemba / Ngiyampaa,46
+2017,Yuwaalaraay,40
+2017,Punjabi,35
+2017,Polish,18
+2017,Filipino,17
+2017,Russian,16
+2017,Auslan,16
+2017,Bengali,12
+2017,Greek (Classical),10
+2017,Khmer,9
+2017,Hungarian,3
+2017,Armenian,3
+2017,Portuguese,1
+2018,Japanese,24792
+2018,French,14207
+2018,Chinese (Mandarin),5265
+2018,Italian,5216
+2018,Indonesian,3174
+2018,German,3034
+2018,Spanish,2866
+2018,Korean,903
+2018,Latin,745
+2018,Arabic,590
+2018,Greek (Modern),520
+2018,Wiradjuri,487
+2018,Gumbaynggir,404
+2018,Gathang,269
+2018,Dhurga,199
+2018,Vietnamese,179
+2018,Gamilaraay,86
+2018,Ngemba / Ngiyampaa,77
+2018,Hebrew,76
+2018,Macedonian,71
+2018,Paakantji / Barkindji,64
+2018,Hindi,57
+2018,Turkish,56
+2018,Wonarua,47
+2018,Yuwaalaraay / Yuwaalayaay,41
+2018,Serbian,32
+2018,Norfolk Language,26
+2018,Filipino,18
+2018,Punjabi,16
+2018,Russian,16
+2018,Greek (Classical),10
+2018,Polish,8
+2018,Tamil,8
+2018,Wailwan,6
+2018,Maltese,5
+2018,Armenian,4
+2018,Bengali,4
+2018,Hungarian,2
+2018,Khmer,2
+2019,Japanese,26143
+2019,French,14461
+2019,Chinese (Mandarin),5579
+2019,Italian,5384
+2019,Spanish,3330
+2019,Indonesian,2811
+2019,German,2306
+2019,Korean,933
+2019,Latin,689
+2019,Arabic,681
+2019,Wiradjuri,530
+2019,Greek (modern),474
+2019,Gumbaynggir / Gumbanggir,426
+2019,Dhurga,238
+2019,Gamilaraay / Gamilaroi / Kamilaroi,209
+2019,Vietnamese,196
+2019,Gathang / Kattang,156
+2019,Sign Languages,91
+2019,Paakantji / Barkindji,75
+2019,Hindi,66
+2019,Macedonian,64
+2019,Serbian,58
+2019,Ngemba / Ngiyampaa,57
+2019,Polish,49
+2019,Nagarabal / Ngoorabul / Yugambal,45
+2019,Turkish,43
+2019,Yuwaalaraay / Yuwaalayaay,40
+2019,Punjabi,30
+2019,Norf'k-Pitcairn,25
+2019,Russian,24
+2019,Hebrew,23
+2019,Filipino,22
+2019,Croatian,22
+2019,Greek (classical),20
+2019,Tamil,16
+2019,Armenian,9
+2019,Auslan,8
+2019,Bosnian,7
+2019,Bengali,6
+2019,Maltese,6
+2019,Khmer,4
+2019,Portuguese,4
+2019,Hungarian,3
+2020,Japanese,27362
+2020,French,14651
+2020,Italian,5522
+2020,Chinese (Mandarin),5318
+2020,Spanish,3304
+2020,Indonesian,2740
+2020,German,2039
+2020,Latin,861
+2020,Korean,760
+2020,Greek (Modern),636
+2020,Wiradjuri,615
+2020,Gumbaynggir / Gumbanggir,491
+2020,Gamilaraay / Gamilaroi / Kamilaroi,427
+2020,Arabic,423
+2020,Dhurga,231
+2020,Vietnamese,195
+2020,Gathang / Kattang,158
+2020,Dharawal / Tharawal,134
+2020,Filipino,110
+2020,Nagarabal / Ngoorabul / Yugambal,91
+2020,Paakantji / Barkindji,79
+2020,Ngemba / Ngiyampaa,60
+2020,Macedonian,57
+2020,Serbian,54
+2020,Yuwaalaraay / Yuwaalayaay,43
+2020,Chinese (Cantonese),43
+2020,Turkish,38
+2020,Polish,36
+2020,Wonnarua,33
+2020,Sign Languages,28
+2020,Russian,27
+2020,Hindi,27
+2020,Punjabi,24
+2020,Japanese Life Skills,24
+2020,Hebrew,20
+2020,Croatian,20
+2020,Greek (Classical),15
+2020,Tamil,13
+2020,Bosnian,10
+2020,Portuguese,9
+2020,Wailwan,8
+2020,Armenian,7
+2020,Maltese,5
+2020,Bengali,3
+2021,Japanese,26308
+2021,French,14333
+2021,Italian,5380
+2021,Chinese (Mandarin),4627
+2021,Spanish,3781
+2021,Indonesian,2480
+2021,German,2126
+2021,Korean,1383
+2021,Latin,702
+2021,Wiradjuri,671
+2021,Greek (Modern),638
+2021,Gumbaynggir / Gumbanggir,356
+2021,Arabic,327
+2021,Gamilaraay / Gamilaroi / Kamilaroi,308
+2021,Dhurga,199
+2021,Vietnamese,187
+2021,Gathang / Kattang,150
+2021,Wamba Wamba,102
+2021,Auslan,98
+2021,Nagarabal / Ngoorabul / Yugambal,90
+2021,Wonnarua,86
+2021,Paakantji / Barkindji,75
+2021,Macedonian,70
+2021,Serbian,59
+2021,Ngemba / Ngiyampaa,58
+2021,Chinese (Cantonese),54
+2021,Turkish,50
+2021,Punjabi,45
+2021,Polish,39
+2021,Yuwaalaraay / Yuwaalayaay,33
+2021,Hindi,26
+2021,Norf'K-Pitcairn,24
+2021,Darkinjung / Darkinyung,21
+2021,Hebrew,18
+2021,Russian,15
+2021,Greek (Classical),13
+2021,Armenian,11
+2021,Bosnian,11
+2021,Portuguese,11
+2021,Croatian,10
+2021,Wailwan,10
+2021,Samoan,5
+2021,Maltese,2
+2021,Thai,1
+2023,Japanese,25368
+2023,French,12894
+2023,Chinese (Mandarin),5035
+2023,Italian,4785
+2023,Spanish,4262
+2023,German,2149
+2023,Indonesian,1638
+2023,Korean,1322
+2023,Greek (Modern),679
+2023,Latin,653
+2023,Gamilaraay / Gamilaroi / Kamilaroi / Gomeroi,525
+2023,Wiradjuri,484
+2023,Gumbaynggirr,385
+2023,Arabic,330
+2023,Auslan,284
+2023,Chinese (Cantonese),279
+2023,Dhurga,277
+2023,Gathang / Kattang,261
+2023,Vietnamese,168
+2023,Hindi,145
+2023,Dharug / Darug,129
+2023,Awabakal,113
+2023,Wamba Wamba,93
+2023,Bundjalung,87
+2023,Paakantji / Barkindji,78
+2023,Ngemba / Ngiyampaa,67
+2023,Punjabi,66
+2023,Macedonian,58
+2023,Serbian,55
+2023,Turkish,42
+2023,Yuwaalaraay / Yuwaalayaay,40
+2023,Polish,36
+2023,Sign Languages,18
+2023,Hebrew,17
+2023,Wailwan,16
+2023,Armenian,10
+2023,Russian,9
+2023,Greek (Classical),6
+2023,Bosnian,5
+2023,Croatian,5
+2023,Khmer,4
+2023,Portuguese,3
+2023,Spanish Single Course,2
+2023,Japanese Single Course,1
+2024,Japanese,25305
+2024,French,13340
+2024,Chinese (Mandarin),5515
+2024,Italian,4004
+2024,Spanish,3663
+2024,German,2322
+2024,Korean,1503
+2024,Indonesian,1256
+2024,Latin,633
+2024,Wiradjuri,580
+2024,Greek (Modern),553
+2024,Gamilaraay / Gamilaroi / Kamilaroi / Gomeroi,496
+2024,Arabic,371
+2024,Gumbaynggirr,311
+2024,Dharug / Darug,308
+2024,Gathang / Kattang,243
+2024,Hindi,208
+2024,Auslan,198
+2024,Dhurga,186
+2024,Bundjalung,172
+2024,Awabakal,147
+2024,Wamba Wamba,91
+2024,Vietnamese,90
+2024,Sign Languages,82
+2024,Punjabi,77
+2024,Paakantji / Barkindji,75
+2024,Ngemba / Ngiyampaa,74
+2024,Malaysian,72
+2024,Serbian,71
+2024,Dhanggatti / Dunghutti / Dainggatti / Thunghutti,63
+2024,Macedonian,55
+2024,Turkish,34
+2024,Yuwaalaraay / Yuwaalayaay,33
+2024,Hebrew,23
+2024,Polish,22
+2024,Wailwan,19
+2024,Greek (Classical),18
+2024,Croatian,13
+2024,Armenian,12
+2024,Russian,9
+2024,Bosnian,5
+2024,Portuguese,5
+2024,Fijian,4
+2024,Khmer,1

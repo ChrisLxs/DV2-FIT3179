@@ -1,0 +1,163 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Initial Popularity vs Enrolment Growth (2012–2024)",
+    "width": 750,
+    "height": 450,
+    "data": {
+        "url": "data/nsw_language_analysis_ready.csv",
+        "format": {
+            "type": "csv",
+            "parse": {
+                "year": "number",
+                "enrolments": "number"
+            }
+        }
+    },
+    "params": [
+        {
+            "name": "school_selection",
+            "value": "Secondary (Years 7–9)",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "Primary",
+                    "Secondary (Years 7–9)"
+                ],
+                "name": "School Level: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum.school_level === school_selection"
+        },
+        {
+            "filter": "datum.year === 2012 || datum.year === 2024"
+        },
+        {
+            "aggregate": [
+                {
+                    "op": "sum",
+                    "field": "enrolments",
+                    "as": "annual_enrolments"
+                }
+            ],
+            "groupby": [
+                "language",
+                "year"
+            ]
+        },
+        {
+            "pivot": "year",
+            "value": "annual_enrolments",
+            "groupby": [
+                "language"
+            ]
+        },
+        {
+            "filter": "isValid(datum['2012']) && isValid(datum['2024']) && datum['2012'] > 0"
+        },
+        {
+            "calculate": "((datum['2024'] - datum['2012']) / datum['2012']) * 100",
+            "as": "percentage_change"
+        },
+        {
+            "calculate": "datum.percentage_change >= 0 ? 'Increase' : 'Decrease'",
+            "as": "growth_direction"
+        }
+    ],
+    "layer": [
+        {
+            "mark": {
+                "type": "rule",
+                "color": "#777777",
+                "strokeDash": [
+                    5,
+                    5
+                ],
+                "strokeWidth": 1
+            },
+            "encoding": {
+                "y": {
+                    "datum": 0
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "circle",
+                "size": 110,
+                "opacity": 0.8,
+                "stroke": "white",
+                "strokeWidth": 1
+            },
+            "encoding": {
+                "x": {
+                    "field": "2012",
+                    "type": "quantitative",
+                    "title": "Enrolments in 2012",
+                    "scale": {
+                        "zero": true
+                    },
+                    "axis": {
+                        "format": "~s"
+                    }
+                },
+                "y": {
+                    "field": "percentage_change",
+                    "type": "quantitative",
+                    "title": "Enrolment Change (%)",
+                    "axis": {
+                        "format": "+.0f"
+                    }
+                },
+                "color": {
+                    "field": "growth_direction",
+                    "type": "nominal",
+                    "title": "Change",
+                    "scale": {
+                        "domain": [
+                            "Increase",
+                            "Decrease"
+                        ],
+                        "range": [
+                            "#2A9D8F",
+                            "#E76F51"
+                        ]
+                    }
+                },
+                "tooltip": [
+                    {
+                        "field": "language",
+                        "type": "nominal",
+                        "title": "Language"
+                    },
+                    {
+                        "field": "2012",
+                        "type": "quantitative",
+                        "title": "2012 Enrolments",
+                        "format": ","
+                    },
+                    {
+                        "field": "2024",
+                        "type": "quantitative",
+                        "title": "2024 Enrolments",
+                        "format": ","
+                    },
+                    {
+                        "field": "percentage_change",
+                        "type": "quantitative",
+                        "title": "Change (%)",
+                        "format": "+.1f"
+                    }
+                ]
+            }
+        }
+    ],
+    "config": {
+        "view": {
+            "stroke": null
+        }
+    }
+}

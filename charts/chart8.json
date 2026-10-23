@@ -1,0 +1,100 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Variation in Language Enrolments Across Years (2012–2024)",
+    "width": 750,
+    "height": 400,
+    "data": {
+        "url": "data/nsw_language_analysis_ready.csv",
+        "format": {
+            "type": "csv",
+            "parse": {
+                "year": "number",
+                "enrolments": "number"
+            }
+        }
+    },
+    "params": [
+        {
+            "name": "school_selection",
+            "value": "Secondary (Years 7–9)",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "Primary",
+                    "Secondary (Years 7–9)"
+                ],
+                "name": "School Level: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum.school_level === school_selection"
+        },
+        {
+            "filter": {
+                "field": "language",
+                "oneOf": [
+                    "Japanese",
+                    "French",
+                    "Chinese (Mandarin)",
+                    "Italian",
+                    "Spanish",
+                    "Arabic"
+                ]
+            }
+        },
+        {
+            "aggregate": [
+                {
+                    "op": "sum",
+                    "field": "enrolments",
+                    "as": "annual_enrolments"
+                }
+            ],
+            "groupby": [
+                "year",
+                "language"
+            ]
+        }
+    ],
+    "mark": {
+        "type": "boxplot",
+        "extent": "min-max",
+        "size": 35
+    },
+    "encoding": {
+        "y": {
+            "field": "language",
+            "type": "nominal",
+            "title": "Language",
+            "sort": [
+                "Japanese",
+                "French",
+                "Chinese (Mandarin)",
+                "Italian",
+                "Spanish",
+                "Arabic"
+            ]
+        },
+        "x": {
+            "field": "annual_enrolments",
+            "type": "quantitative",
+            "title": "Annual Language Enrolments",
+            "scale": {
+                "zero": true
+            }
+        },
+        "color": {
+            "field": "language",
+            "type": "nominal",
+            "legend": null
+        }
+    },
+    "config": {
+        "view": {
+            "stroke": null
+        }
+    }
+}

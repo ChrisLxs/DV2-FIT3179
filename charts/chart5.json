@@ -1,0 +1,164 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "How Have Language Popularity Rankings Changed?",
+    "width": 750,
+    "height": 450,
+    "data": {
+        "url": "data/nsw_language_analysis_ready.csv",
+        "format": {
+            "type": "csv",
+            "parse": {
+                "year": "number",
+                "enrolments": "number"
+            }
+        }
+    },
+    "params": [
+        {
+            "name": "school_selection",
+            "value": "Secondary (Years 7–9)",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "Primary",
+                    "Secondary (Years 7–9)"
+                ],
+                "name": "School Level: "
+            }
+        },
+        {
+            "name": "language_selection",
+            "value": "All Languages",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "All Languages",
+                    "Japanese",
+                    "French",
+                    "Chinese (Mandarin)",
+                    "Italian",
+                    "Spanish"
+                ],
+                "name": "Highlight Language: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum.school_level === school_selection"
+        },
+        {
+            "aggregate": [
+                {
+                    "op": "sum",
+                    "field": "enrolments",
+                    "as": "total_enrolments"
+                }
+            ],
+            "groupby": [
+                "year",
+                "language"
+            ]
+        },
+        {
+            "window": [
+                {
+                    "op": "rank",
+                    "as": "rank"
+                }
+            ],
+            "sort": [
+                {
+                    "field": "total_enrolments",
+                    "order": "descending"
+                }
+            ],
+            "groupby": [
+                "year"
+            ]
+        },
+        {
+            "filter": "datum.rank <= 10"
+        }
+    ],
+    "encoding": {
+        "x": {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year",
+            "sort": "ascending"
+        },
+        "y": {
+            "field": "rank",
+            "type": "quantitative",
+            "title": "Language Ranking",
+            "scale": {
+                "domain": [1, 10],
+                "reverse": true
+            },
+            "axis": {
+                "tickMinStep": 1
+            }
+        },
+        "color": {
+            "field": "language",
+            "type": "nominal",
+            "title": "Language"
+        },
+        "detail": {
+            "field": "language"
+        },
+        "opacity": {
+            "condition": {
+                "test": "language_selection === 'All Languages' || datum.language === language_selection",
+                "value": 1
+            },
+            "value": 0.12
+        },
+        "tooltip": [
+            {
+                "field": "year",
+                "type": "ordinal",
+                "title": "Year"
+            },
+            {
+                "field": "language",
+                "type": "nominal",
+                "title": "Language"
+            },
+            {
+                "field": "rank",
+                "type": "quantitative",
+                "title": "Rank"
+            },
+            {
+                "field": "total_enrolments",
+                "type": "quantitative",
+                "title": "Enrolments",
+                "format": ","
+            }
+        ]
+    },
+    "layer": [
+        {
+            "mark": {
+                "type": "line",
+                "strokeWidth": 3,
+                "point": false
+            }
+        },
+        {
+            "mark": {
+                "type": "point",
+                "filled": true,
+                "size": 65
+            }
+        }
+    ],
+    "config": {
+        "view": {
+            "stroke": null
+        }
+    }
+}

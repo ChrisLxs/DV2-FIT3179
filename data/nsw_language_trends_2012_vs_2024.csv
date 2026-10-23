@@ -1,0 +1,111 @@
+school_level,language,enrolments_2012,enrolments_2024,absolute_change,percentage_change,comparison_status
+Primary,Chinese (Mandarin),18672.0,13625.0,-5047.0,-27.0,Both years reported
+Primary,Arabic,9194.0,8854.0,-340.0,-3.7,Both years reported
+Primary,Italian,14165.0,7904.0,-6261.0,-44.2,Both years reported
+Primary,Vietnamese,5816.0,4262.0,-1554.0,-26.7,Both years reported
+Primary,Dharawal / Tharawal,,3183.0,,,2024 only; do not infer 2012 zero
+Primary,Dharug / Darug,,3155.0,,,2024 only; do not infer 2012 zero
+Primary,Greek,4195.0,2743.0,-1452.0,-34.6,Both years reported
+Primary,French,7445.0,2652.0,-4793.0,-64.4,Both years reported
+Primary,Wiradjuri,1255.0,2266.0,1011.0,80.6,Both years reported
+Primary,Gamilaraay / Gamilaroi / Kamilaroi / Gomeroi,,2247.0,,,2024 only; do not infer 2012 zero
+Primary,Japanese,4592.0,2202.0,-2390.0,-52.0,Both years reported
+Primary,Korean,1521.0,2201.0,680.0,44.7,Both years reported
+Primary,Gumbaynggirr,,1848.0,,,2024 only; do not infer 2012 zero
+Primary,Bundjalung,238.0,1619.0,1381.0,580.3,Both years reported
+Primary,Spanish,1539.0,1195.0,-344.0,-22.4,Both years reported
+Primary,Dhanggatti / Dunghutti / Dainggatti / Thunghutti,,1177.0,,,2024 only; do not infer 2012 zero
+Primary,Hindi,173.0,1009.0,836.0,483.2,Both years reported
+Primary,Indonesian,3472.0,908.0,-2564.0,-73.8,Both years reported
+Primary,Assyrian,665.0,736.0,71.0,10.7,Both years reported
+Primary,Punjabi,395.0,716.0,321.0,81.3,Both years reported
+Primary,Gathang / Kattang,,602.0,,,2024 only; do not infer 2012 zero
+Primary,Dhurga,,558.0,,,2024 only; do not infer 2012 zero
+Primary,Bengali,328.0,515.0,187.0,57.0,Both years reported
+Primary,Urdu,122.0,491.0,369.0,302.5,Both years reported
+Primary,Tamil,134.0,469.0,335.0,250.0,Both years reported
+Primary,Khmer,511.0,405.0,-106.0,-20.7,Both years reported
+Primary,Hebrew,572.0,320.0,-252.0,-44.1,Both years reported
+Primary,Macedonian,835.0,304.0,-531.0,-63.6,Both years reported
+Primary,Dari,300.0,273.0,-27.0,-9.0,Both years reported
+Primary,Paakantji / Barkindji,,257.0,,,2024 only; do not infer 2012 zero
+Primary,Greek (Modern),18.0,243.0,225.0,1250.0,Both years reported
+Primary,Awabakal,,213.0,,,2024 only; do not infer 2012 zero
+Primary,Turkish,567.0,212.0,-355.0,-62.6,Both years reported
+Primary,Ngemba / Ngiyampaa,,204.0,,,2024 only; do not infer 2012 zero
+Primary,Yuwaalaraay / Yuwaalayaay,,196.0,,,2024 only; do not infer 2012 zero
+Primary,Telugu,,187.0,,,2024 only; do not infer 2012 zero
+Primary,Nepali,,175.0,,,2024 only; do not infer 2012 zero
+Primary,Auslan,224.0,164.0,-60.0,-26.8,Both years reported
+Primary,Gujarati,,159.0,,,2024 only; do not infer 2012 zero
+Primary,Serbian,175.0,113.0,-62.0,-35.4,Both years reported
+Primary,Russian,96.0,61.0,-35.0,-36.5,Both years reported
+Primary,Wahlubal,,61.0,,,2024 only; do not infer 2012 zero
+Primary,Anaiwan / Anewan,,46.0,,,2024 only; do not infer 2012 zero
+Primary,Samoan,501.0,31.0,-470.0,-93.8,Both years reported
+Primary,Bandjalang,,19.0,,,2024 only; do not infer 2012 zero
+Primary,Greek (Classical),,12.0,,,2024 only; do not infer 2012 zero
+Primary,Farsi,57.0,8.0,-49.0,-86.0,Both years reported
+Primary,Fijian,,8.0,,,2024 only; do not infer 2012 zero
+Primary,Muruwari / Murrawarri,,5.0,,,2024 only; do not infer 2012 zero
+Primary,Barkindji/Paakantyi,40.0,,,,2012 only; do not infer 2024 zero
+Primary,Dhanggatti,44.0,,,,2012 only; do not infer 2024 zero
+Primary,Gamilaraay,122.0,,,,2012 only; do not infer 2024 zero
+Primary,German,1087.0,,,,2012 only; do not infer 2024 zero
+Primary,Githabul,82.0,,,,2012 only; do not infer 2024 zero
+Primary,Gumbaynggir,405.0,,,,2012 only; do not infer 2024 zero
+Primary,Lao,37.0,,,,2012 only; do not infer 2024 zero
+Primary,Maori,152.0,,,,2012 only; do not infer 2024 zero
+Primary,Maori (Cook Island),89.0,,,,2012 only; do not infer 2024 zero
+Primary,Paakantyi/Barkindji,24.0,,,,2012 only; do not infer 2024 zero
+Primary,Portuguese,393.0,,,,2012 only; do not infer 2024 zero
+Primary,Tongan,202.0,,,,2012 only; do not infer 2024 zero
+Primary,Wadi Wadi,76.0,,,,2012 only; do not infer 2024 zero
+Secondary (Years 7–9),Japanese,22534.0,25305.0,2771.0,12.3,Both years reported
+Secondary (Years 7–9),French,15628.0,13340.0,-2288.0,-14.6,Both years reported
+Secondary (Years 7–9),Chinese (Mandarin),4988.0,5515.0,527.0,10.6,Both years reported
+Secondary (Years 7–9),Italian,5913.0,4004.0,-1909.0,-32.3,Both years reported
+Secondary (Years 7–9),Spanish,2600.0,3663.0,1063.0,40.9,Both years reported
+Secondary (Years 7–9),German,3992.0,2322.0,-1670.0,-41.8,Both years reported
+Secondary (Years 7–9),Korean,816.0,1503.0,687.0,84.2,Both years reported
+Secondary (Years 7–9),Indonesian,4138.0,1256.0,-2882.0,-69.6,Both years reported
+Secondary (Years 7–9),Latin,722.0,633.0,-89.0,-12.3,Both years reported
+Secondary (Years 7–9),Wiradjuri,196.0,580.0,384.0,195.9,Both years reported
+Secondary (Years 7–9),Greek (Modern),719.0,553.0,-166.0,-23.1,Both years reported
+Secondary (Years 7–9),Gamilaraay / Gamilaroi / Kamilaroi / Gomeroi,,496.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Arabic,732.0,371.0,-361.0,-49.3,Both years reported
+Secondary (Years 7–9),Gumbaynggirr,,311.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Dharug / Darug,,308.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Gathang / Kattang,,243.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Hindi,,208.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Auslan,7.0,198.0,191.0,2728.6,Both years reported
+Secondary (Years 7–9),Dhurga,157.0,186.0,29.0,18.5,Both years reported
+Secondary (Years 7–9),Bundjalung,,172.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Awabakal,,147.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Wamba Wamba,,91.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Vietnamese,324.0,90.0,-234.0,-72.2,Both years reported
+Secondary (Years 7–9),Sign Languages,,82.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Punjabi,,77.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Paakantji / Barkindji,55.0,75.0,20.0,36.4,Both years reported
+Secondary (Years 7–9),Ngemba / Ngiyampaa,,74.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Malaysian,,72.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Serbian,,71.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Dhanggatti / Dunghutti / Dainggatti / Thunghutti,,63.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Macedonian,,55.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Turkish,97.0,34.0,-63.0,-64.9,Both years reported
+Secondary (Years 7–9),Yuwaalaraay / Yuwaalayaay,,33.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Hebrew,45.0,23.0,-22.0,-48.9,Both years reported
+Secondary (Years 7–9),Polish,,22.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Wailwan,10.0,19.0,9.0,90.0,Both years reported
+Secondary (Years 7–9),Greek (Classical),10.0,18.0,8.0,80.0,Both years reported
+Secondary (Years 7–9),Croatian,,13.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Armenian,,12.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Russian,5.0,9.0,4.0,80.0,Both years reported
+Secondary (Years 7–9),Bosnian,,5.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Portuguese,,5.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Fijian,,4.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Khmer,,1.0,,,2024 only; do not infer 2012 zero
+Secondary (Years 7–9),Chinese (Cantonese),158.0,,,,2012 only; do not infer 2024 zero
+Secondary (Years 7–9),Gamilaraay,132.0,,,,2012 only; do not infer 2024 zero
+Secondary (Years 7–9),Gumbaynggir,180.0,,,,2012 only; do not infer 2024 zero
+Secondary (Years 7–9),Yuwaalaraay,5.0,,,,2012 only; do not infer 2024 zero

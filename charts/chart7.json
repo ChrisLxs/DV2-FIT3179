@@ -1,0 +1,139 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Language Enrolment Trends by Individual Language",
+    "data": {
+        "url": "data/nsw_language_analysis_ready.csv",
+        "format": {
+            "type": "csv",
+            "parse": {
+                "year": "number",
+                "enrolments": "number"
+            }
+        }
+    },
+    "params": [
+        {
+            "name": "school_selection",
+            "value": "Secondary (Years 7–9)",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "Primary",
+                    "Secondary (Years 7–9)"
+                ],
+                "name": "School Level: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum.school_level === school_selection"
+        },
+        {
+            "filter": {
+                "field": "language",
+                "oneOf": [
+                    "Japanese",
+                    "French",
+                    "Chinese (Mandarin)",
+                    "Italian",
+                    "Spanish",
+                    "Arabic"
+                ]
+            }
+        },
+        {
+            "aggregate": [
+                {
+                    "op": "sum",
+                    "field": "enrolments",
+                    "as": "total_enrolments"
+                }
+            ],
+            "groupby": [
+                "year",
+                "language"
+            ]
+        }
+    ],
+    "facet": {
+        "field": "language",
+        "type": "nominal",
+        "title": null,
+        "sort": [
+            "Japanese",
+            "French",
+            "Chinese (Mandarin)",
+            "Italian",
+            "Spanish",
+            "Arabic"
+        ],
+        "header": {
+            "labelFontSize": 13,
+            "labelFontWeight": "bold"
+        }
+    },
+    "columns": 3,
+    "spacing": 15,
+    "spec": {
+        "width": 190,
+        "height": 160,
+        "mark": {
+            "type": "line",
+            "point": true,
+            "strokeWidth": 2.5,
+            "color": "#4C78A8"
+        },
+        "encoding": {
+            "x": {
+                "field": "year",
+                "type": "ordinal",
+                "title": "Year",
+                "sort": "ascending",
+                "axis": {
+                    "labelAngle": -45,
+                    "labelFontSize": 9
+                }
+            },
+            "y": {
+                "field": "total_enrolments",
+                "type": "quantitative",
+                "title": "Enrolments",
+                "scale": {
+                    "zero": true
+                },
+                "axis": {
+                    "format": "~s",
+                    "labelFontSize": 10
+                }
+            },
+            "tooltip": [
+                {
+                    "field": "language",
+                    "type": "nominal"
+                },
+                {
+                    "field": "year",
+                    "type": "ordinal"
+                },
+                {
+                    "field": "total_enrolments",
+                    "type": "quantitative",
+                    "title": "Enrolments",
+                    "format": ","
+                }
+            ]
+        }
+    },
+    "resolve": {
+        "scale": {
+            "y": "independent"
+        }
+    },
+    "config": {
+        "view": {
+            "stroke": null
+        }
+    }
+}

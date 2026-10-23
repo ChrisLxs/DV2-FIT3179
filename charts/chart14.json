@@ -1,0 +1,151 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Government School Concentration by NSW Local Government Area",
+    "width": 750,
+    "height": 580,
+    "projection": {
+        "type": "mercator",
+        "center": [149.0, -33.0],
+        "scale": 1600
+    },
+    "params": [
+        {
+            "name": "school_type_selection",
+            "value": "All Schools",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "All Schools",
+                    "Primary School",
+                    "Secondary School",
+                    "Central/Community School",
+                    "Schools for Specific Purposes",
+                    "Environmental Education Centre",
+                    "Infants School",
+                    "Other School"
+                ],
+                "name": "School Type: "
+            }
+        },
+        {
+            "name": "minimum_schools",
+            "value": 1,
+            "bind": {
+                "input": "range",
+                "min": 1,
+                "max": 40,
+                "step": 1,
+                "name": "Minimum Schools per LGA: "
+            }
+        }
+    ],
+    "layer": [
+        {
+            "data": {
+                "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "countries"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "#F1F5F9",
+                "stroke": "#94A3B8",
+                "strokeWidth": 0.8
+            }
+        },
+        {
+            "data": {
+                "url": "data/nsw_schools_locations.csv",
+                "format": {
+                    "type": "csv",
+                    "parse": {
+                        "Latitude": "number",
+                        "Longitude": "number"
+                    }
+                }
+            },
+            "transform": [
+                {
+                    "filter": "school_type_selection === 'All Schools' || datum.Level_of_schooling === school_type_selection"
+                },
+                {
+                    "filter": "isValid(datum.Latitude) && isValid(datum.Longitude) && isValid(datum.LGA)"
+                },
+                {
+                    "aggregate": [
+                        {
+                            "op": "count",
+                            "as": "school_count"
+                        },
+                        {
+                            "op": "mean",
+                            "field": "Latitude",
+                            "as": "mean_latitude"
+                        },
+                        {
+                            "op": "mean",
+                            "field": "Longitude",
+                            "as": "mean_longitude"
+                        }
+                    ],
+                    "groupby": [
+                        "LGA"
+                    ]
+                },
+                {
+                    "filter": "datum.school_count >= minimum_schools"
+                }
+            ],
+            "mark": {
+                "type": "circle",
+                "opacity": 0.65,
+                "color": "#2563EB",
+                "stroke": "#FFFFFF",
+                "strokeWidth": 1
+            },
+            "encoding": {
+                "longitude": {
+                    "field": "mean_longitude",
+                    "type": "quantitative"
+                },
+                "latitude": {
+                    "field": "mean_latitude",
+                    "type": "quantitative"
+                },
+                "size": {
+                    "field": "school_count",
+                    "type": "quantitative",
+                    "title": "Number of Schools",
+                    "scale": {
+                        "type": "sqrt",
+                        "range": [40, 2400]
+                    },
+                    "legend": {
+                        "orient": "right"
+                    }
+                },
+                "tooltip": [
+                    {
+                        "field": "LGA",
+                        "type": "nominal",
+                        "title": "Local Government Area"
+                    },
+                    {
+                        "field": "school_count",
+                        "type": "quantitative",
+                        "title": "Number of Schools",
+                        "format": ","
+                    }
+                ]
+            }
+        }
+    ],
+    "config": {
+        "view": {
+            "stroke": null
+        }
+    }
+}

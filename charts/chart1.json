@@ -1,0 +1,115 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Language Enrolment Trends in NSW Schools",
+    "width": "container",
+    "height": 400,
+    "data": {
+        "url": "data/nsw_language_analysis_ready.csv",
+        "format": {
+            "type": "csv",
+            "parse": {
+                "year": "number",
+                "enrolments": "number"
+            }
+        }
+    },
+    "params": [
+        {
+            "name": "school_selection",
+            "value": "Secondary (Years 7–9)",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "Primary",
+                    "Secondary (Years 7–9)"
+                ],
+                "name": "School Level: "
+            }
+        },
+        {
+            "name": "language_selection",
+            "value": "All Languages",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "All Languages",
+                    "Japanese",
+                    "French",
+                    "Chinese (Mandarin)",
+                    "Italian",
+                    "Spanish"
+                ],
+                "name": "Select Language: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum.school_level === school_selection"
+        },
+        {
+            "filter": {
+                "field": "language",
+                "oneOf": [
+                    "Japanese",
+                    "French",
+                    "Chinese (Mandarin)",
+                    "Italian",
+                    "Spanish"
+                ]
+            }
+        },
+        {
+            "filter": "language_selection === 'All Languages' || datum.language === language_selection"
+        }
+    ],
+    "mark": {
+        "type": "line",
+        "point": true
+    },
+    "encoding": {
+        "x": {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year",
+            "sort": "ascending"
+        },
+        "y": {
+            "field": "enrolments",
+            "type": "quantitative",
+            "title": "Number of Enrolments",
+            "scale": {
+                "zero": true
+            }
+        },
+        "color": {
+            "field": "language",
+            "type": "nominal",
+            "title": "Language"
+        },
+        "tooltip": [
+            {
+                "field": "year",
+                "type": "ordinal",
+                "title": "Year"
+            },
+            {
+                "field": "school_level",
+                "type": "nominal",
+                "title": "School Level"
+            },
+            {
+                "field": "language",
+                "type": "nominal",
+                "title": "Language"
+            },
+            {
+                "field": "enrolments",
+                "type": "quantitative",
+                "title": "Enrolments",
+                "format": ","
+            }
+        ]
+    }
+}

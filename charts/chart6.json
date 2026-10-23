@@ -1,0 +1,168 @@
+
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Changing Composition of Language Enrolments in NSW Schools",
+    "width": 750,
+    "height": 420,
+    "data": {
+        "url": "data/nsw_language_analysis_ready.csv",
+        "format": {
+            "type": "csv",
+            "parse": {
+                "year": "number",
+                "enrolments": "number"
+            }
+        }
+    },
+    "params": [
+        {
+            "name": "school_selection",
+            "value": "Secondary (Years 7–9)",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "Primary",
+                    "Secondary (Years 7–9)"
+                ],
+                "name": "School Level: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum.school_level === school_selection"
+        },
+        {
+            "aggregate": [
+                {
+                    "op": "sum",
+                    "field": "enrolments",
+                    "as": "total_enrolments"
+                }
+            ],
+            "groupby": [
+                "year",
+                "language"
+            ]
+        },
+        {
+            "joinaggregate": [
+                {
+                    "op": "sum",
+                    "field": "total_enrolments",
+                    "as": "year_total"
+                }
+            ],
+            "groupby": [
+                "year"
+            ]
+        },
+        {
+            "calculate": "datum.total_enrolments / datum.year_total",
+            "as": "share"
+        },
+        {
+            "calculate": "indexof(['Japanese', 'French', 'Chinese (Mandarin)', 'Italian', 'Spanish'], datum.language) >= 0 ? datum.language : 'Other'",
+            "as": "language_group"
+        },
+        {
+            "aggregate": [
+                {
+                    "op": "sum",
+                    "field": "share",
+                    "as": "group_share"
+                },
+                {
+                    "op": "sum",
+                    "field": "total_enrolments",
+                    "as": "group_enrolments"
+                }
+            ],
+            "groupby": [
+                "year",
+                "language_group"
+            ]
+        }
+    ],
+    "mark": {
+        "type": "area",
+        "interpolate": "monotone"
+    },
+    "encoding": {
+        "x": {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year",
+            "sort": "ascending"
+        },
+        "y": {
+            "field": "group_share",
+            "type": "quantitative",
+            "title": "Share of Language Enrolments",
+            "stack": "zero",
+            "scale": {
+                "domain": [0, 1]
+            },
+            "axis": {
+                "format": "%"
+            }
+        },
+        "color": {
+            "field": "language_group",
+            "type": "nominal",
+            "title": "Language",
+            "scale": {
+                "domain": [
+                    "Japanese",
+                    "French",
+                    "Chinese (Mandarin)",
+                    "Italian",
+                    "Spanish",
+                    "Other"
+                ],
+                "range": [
+                    "#4C78A8",
+                    "#F58518",
+                    "#54A24B",
+                    "#E45756",
+                    "#B279A2",
+                    "#BAB0AC"
+                ]
+            }
+        },
+        "order": {
+            "field": "language_group",
+            "type": "nominal",
+            "sort": "ascending"
+        },
+        "tooltip": [
+            {
+                "field": "year",
+                "type": "ordinal",
+                "title": "Year"
+            },
+            {
+                "field": "language_group",
+                "type": "nominal",
+                "title": "Language"
+            },
+            {
+                "field": "group_enrolments",
+                "type": "quantitative",
+                "title": "Enrolments",
+                "format": ","
+            },
+            {
+                "field": "group_share",
+                "type": "quantitative",
+                "title": "Share",
+                "format": ".1%"
+            }
+        ]
+    },
+    "config": {
+        "view": {
+            "stroke": null
+        }
+    }
+}

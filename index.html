@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Language Learning in NSW Schools</title>
+
+    <!-- Vega and Vega-Lite libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Language Learning in NSW Schools</h1>
+
+        <p>
+            Exploring language enrolment trends in NSW
+            government primary and secondary schools
+            from 2012 to 2024.
+        </p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Which Languages Are the Most Popular?</h2>
+            <p>
+                Compare the ten languages with the highest enrolments
+                in NSW government schools in 2024.
+            </p>
+
+            <div id="chart2"></div>
+        </section>
+
+        <section>
+            <h2>How Has Language Learning Changed?</h2>
+
+            <p>
+                Explore how enrolments in different
+                languages have changed over time.
+            </p>
+
+            <!-- Chart 1 will appear here -->
+            <div id="chart1"></div>
+        </section>
+
+        <section>
+            <h2>Which Languages Have Grown or Declined?</h2>
+            <p>
+                Compare language enrolments between 2012 and 2024.
+                Blue points represent 2012 and orange points
+                represent 2024. Use the dropdown to compare
+                primary and secondary schools.
+            </p>
+
+            <div id="chart4"></div>
+        </section>
+
+        <section>
+            <h2>Which Languages Have Grown or Declined the Most?</h2>
+
+            <p>
+                This diverging bar chart compares the percentage
+                change in language enrolments between 2012 and 2024.
+
+                The chart displays up to five languages with the
+                largest percentage increases and five with the
+                smallest percentage changes.
+
+                Bars extending right indicate growth, while bars
+                extending left indicate decline.
+
+                Use the dropdown to compare primary and secondary
+                school enrolments.
+            </p>
+
+            <div id="chart9"></div>
+        </section>
+
+        <section>
+            <h2>How Are Language Enrolments Distributed?</h2>
+            <p>
+                Explore the proportion of language enrolments
+                accounted for by each language in 2024.
+                Hover over a segment to see its enrolment count
+                and percentage share.
+            </p>
+
+            <div id="chart5"></div>
+        </section>
+
+        <section>
+            <h2>How Has the Composition of Language Learning Changed?</h2>
+            <p>
+                This 100% stacked area chart shows how the
+                proportion of enrolments in selected languages
+                has changed across the available years from
+                2012 to 2024.
+
+                The remaining languages are grouped as Other.
+                Use the school-level dropdown to compare
+                primary and secondary schools.
+            </p>
+
+            <div id="chart6"></div>
+        </section>
+
+        <section>
+            <h2>Do Different Languages Follow Similar Trends?</h2>
+
+            <p>
+                These small multiple line charts show the enrolment
+                trends of six selected languages from 2012 to 2024.
+
+                Each chart uses its own vertical scale to highlight
+                changes within the language.
+
+                Use the dropdown to compare primary and secondary
+                school enrolments.
+            </p>
+
+            <div id="chart7"></div>
+        </section>
+
+        <section>
+            <h2>Which Languages Have the Most Stable Enrolments?</h2>
+
+            <p>
+                This box plot compares the distribution of annual
+                enrolment counts for six selected languages across
+                the available years from 2012 to 2024.
+
+                A wider box indicates greater variation in the
+                middle 50% of annual enrolment counts, while
+                a narrower box indicates more consistent values.
+
+                Select a school level to compare patterns.
+            </p>
+
+            <div id="chart8"></div>
+        </section>
+
+         <section>
+            <h2>When Were Language Enrolments Above or Below Average?</h2>
+
+            <p>
+                This heatmap shows how enrolments in six selected
+                languages compare with their own historical averages
+                across the available years from 2012 to 2024.
+
+                Red cells indicate enrolments below the language's
+                historical average, while blue cells indicate
+                enrolments above average.
+
+                Darker colours represent larger differences.
+
+                Use the dropdown to compare primary and secondary
+                school enrolments.
+            </p>
+
+            <div id="chart11"></div>
+        </section>
+
+        <section>
+            <h2>Does Initial Language Popularity Relate to Enrolment Growth?</h2>
+
+            <p>
+                This scatter plot examines the relationship between
+                language enrolments in 2012 and percentage growth
+                or decline by 2024.
+
+                Each point represents one language. Points above
+                the zero line indicate growth, while points below
+                the line indicate decline.
+
+                Use the school-level dropdown to compare
+                primary and secondary schools.
+            </p>
+
+            <div id="chart10"></div>
+        </section>
+
+        <section>
+            <h2>How Do Primary and Secondary Schools Compare?</h2>
+            <p>
+                Compare enrolments in five selected languages
+                between NSW government primary schools and
+                secondary schools (Years 7–9) in 2024.
+            </p>
+
+            <div id="chart3"></div>
+        </section>
+        
+        <section>
+            <h2>Which Languages Have the Largest Primary–Secondary Enrolment Gaps?</h2>
+
+            <p>
+                This lollipop chart compares primary and secondary
+                language enrolments in 2024.
+
+                The horizontal position represents the difference
+                between primary and secondary enrolment counts.
+
+                Green indicates more primary enrolments, while
+                orange indicates more secondary enrolments.
+
+                The chart displays the 12 languages with the
+                largest absolute enrolment gaps.
+            </p>
+
+            <div id="chart12"></div>
+        </section>
+
+        <section>
+            <h2>Where Are NSW Government Schools Located?</h2>
+
+            <p>
+                This interactive symbol map displays the geographic
+                locations of NSW government schools using the
+                October 2026 school location dataset.
+
+                Each circle represents one school, and colours
+                distinguish different school types.
+
+                Use the dropdown to filter schools by type.
+                Hover over a circle to view the school name,
+                location and latest reported enrolment.
+            </p>
+
+            <div id="chart13"></div>
+
+            <p>
+                Data source: NSW Department of Education,
+                NSW Public Schools Master Dataset (2026).
+                This map provides geographic context and does
+                not represent language-specific enrolments.
+            </p>
+        </section>
+
+        <section>
+            <h2>Which NSW Areas Have the Most Government Schools?</h2>
+
+            <p>
+                This proportional symbol map compares the number
+                of NSW government schools across local government
+                areas (LGAs).
+
+                Larger circles represent LGAs with more schools.
+                Each circle is positioned at the average location
+                of schools within that LGA.
+
+                Use the school-type dropdown to explore different
+                types of schools, and adjust the minimum-school
+                slider to focus on areas with larger school counts.
+            </p>
+
+            <div id="chart14"></div>
+
+            <p>
+                Data source: NSW Department of Education,
+                NSW Public Schools Master Dataset (2026).
+
+                Circle sizes represent school counts, not
+                language enrolments or population-adjusted density.
+            </p>
+        </section>
+
+        <section>
+            <h2>How Do Government School Counts Vary Across NSW?</h2>
+
+            <p>
+                This choropleth map shows the number of NSW
+                government schools in each Local Government Area.
+
+                Darker blue areas represent LGAs containing more
+                government schools, while lighter areas represent
+                fewer schools.
+
+                Use the slider to highlight LGAs with at least
+                the selected number of schools.
+
+                Hover over an area to view its name and school count.
+            </p>
+
+            <div id="chart15"></div>
+
+            <p>
+                Source: NSW Government school locations and
+                LGA boundaries.
+
+                This map shows school counts, not school density
+                or language-specific enrolments. Two schools
+                with unassigned LGA boundaries are excluded.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- JavaScript -->
+    <script src="js/visualisation.js"></script>
+
+</body>
+</html>

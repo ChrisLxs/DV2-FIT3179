@@ -64,15 +64,17 @@
             }
         },
         {
-            "calculate": "datum.year === 2012 ? datum.enrolments : null",
-            "as": "enrolments_2012"
-        },
-        {
-            "joinaggregate": [
+            "window": [
                 {
-                    "op": "max",
-                    "field": "enrolments_2012",
+                    "op": "first_value",
+                    "field": "enrolments",
                     "as": "baseline"
+                }
+            ],
+            "sort": [
+                {
+                    "field": "year",
+                    "order": "ascending"
                 }
             ],
             "groupby": [
@@ -81,16 +83,12 @@
             ]
         },
         {
-            "calculate": "isValid(datum.baseline) ? datum.enrolments - datum.baseline : null",
+            "calculate": "datum.enrolments - datum.baseline",
             "as": "change"
         },
         {
-            "calculate": "isValid(datum.baseline) && datum.baseline > 0 ? 100 * datum.change / datum.baseline : null",
+            "calculate": "datum.baseline > 0 ? 100 * datum.change / datum.baseline : null",
             "as": "pct_change"
-        },
-        {
-            "calculate": "isValid(datum.pct_change) ? format(datum.pct_change, '+.1f') + '%' : 'N/A'",
-            "as": "pct_change_label"
         },
         {
             "filter": "language_selection === 'All Languages' || datum.language === language_selection"
@@ -106,50 +104,40 @@
     },
     "encoding": {
         "x": {
-            "field": "year",
-            "type": "quantitative",
-            "title": "Year",
-            "scale": {
-                "domain": [
-                    2012,
-                    2024
-                ],
-                "nice": false
-            },
-            "axis": {
-                "values": [
-                    2012,
-                    2013,
-                    2014,
-                    2015,
-                    2016,
-                    2017,
-                    2018,
-                    2019,
-                    2020,
-                    2021,
-                    2022,
-                    2023,
-                    2024
-                ],
-                "format": "d",
-                "labelAngle": 0,
-                "labelOverlap": true,
-                "labelColor": "#5C6861",
-                "titleColor": "#243B35"
-            }
+        "field": "year",
+        "type": "quantitative",
+        "title": "Year",
+        "scale": {
+            "domain": [2012, 2024],
+            "nice": false
         },
+        "axis": {
+            "values": [
+                2012,
+                2013,
+                2014,
+                2015,
+                2016,
+                2017,
+                2018,
+                2019,
+                2020,
+                2021,
+                2022,
+                2023,
+                2024
+            ],
+            "format": "d",
+            "labelAngle": 0,
+            "labelOverlap": true
+        }
+    },
         "y": {
             "field": "enrolments",
             "type": "quantitative",
             "title": "Number of enrolments",
             "scale": {
                 "zero": true
-            },
-            "axis": {
-                "format": ",",
-                "labelColor": "#5C6861",
-                "titleColor": "#243B35"
             }
         },
         "color": {
@@ -176,9 +164,8 @@
         "tooltip": [
             {
                 "field": "year",
-                "type": "quantitative",
-                "title": "Year",
-                "format": "d"
+                "type": "ordinal",
+                "title": "Year"
             },
             {
                 "field": "school_level",
@@ -209,9 +196,10 @@
                 "format": "+,"
             },
             {
-                "field": "pct_change_label",
-                "type": "nominal",
-                "title": "Change since 2012 (%)"
+                "field": "pct_change",
+                "type": "quantitative",
+                "title": "Change since 2012 (%)",
+                "format": "+.1f"
             }
         ]
     },
@@ -223,21 +211,11 @@
         "legend": {
             "orient": "bottom",
             "symbolType": "stroke",
-            "labelFontSize": 12,
-            "labelColor": "#5C6861",
-            "titleColor": "#243B35"
+            "labelFontSize": 12
         },
         "axis": {
-            "labelColor": "#5C6861",
-            "titleColor": "#243B35",
-            "labelFontSize": 11,
-            "titleFontSize": 12
-        },
-        "title": {
-            "color": "#243B35",
-            "fontSize": 17,
-            "subtitleColor": "#5C6861",
-            "subtitleFontSize": 12
+            "labelColor": "#243B35",
+            "titleColor": "#243B35"
         }
     }
 }

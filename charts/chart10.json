@@ -1,9 +1,14 @@
-
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Initial Popularity vs Enrolment Growth (2012–2024)",
-    "width": 750,
-    "height": 450,
+    "background": null,
+    "padding": {
+        "left": 0,
+        "right": 0,
+        "top": 10,
+        "bottom": 10
+    },
+    "align": "all",
+    "bounds": "full",
     "data": {
         "url": "data/nsw_language_analysis_ready.csv",
         "format": {
@@ -17,7 +22,7 @@
     "params": [
         {
             "name": "school_selection",
-            "value": "Secondary (Years 7–9)",
+            "value": "Primary",
             "bind": {
                 "input": "select",
                 "options": [
@@ -59,105 +64,312 @@
             "filter": "isValid(datum['2012']) && isValid(datum['2024']) && datum['2012'] > 0"
         },
         {
-            "calculate": "((datum['2024'] - datum['2012']) / datum['2012']) * 100",
+            "calculate": "datum['2024'] - datum['2012']",
+            "as": "absolute_change"
+        },
+        {
+            "calculate": "100 * datum.absolute_change / datum['2012']",
             "as": "percentage_change"
         },
         {
             "calculate": "datum.percentage_change >= 0 ? 'Increase' : 'Decrease'",
             "as": "growth_direction"
-        }
-    ],
-    "layer": [
-        {
-            "mark": {
-                "type": "rule",
-                "color": "#777777",
-                "strokeDash": [
-                    5,
-                    5
-                ],
-                "strokeWidth": 1
-            },
-            "encoding": {
-                "y": {
-                    "datum": 0
-                }
-            }
         },
         {
-            "mark": {
-                "type": "circle",
-                "size": 110,
-                "opacity": 0.8,
-                "stroke": "white",
-                "strokeWidth": 1
+            "calculate": "format(datum.percentage_change, '+.1f') + '%'",
+            "as": "percentage_label"
+        },
+        {
+            "calculate": "format(datum.absolute_change, '+,.0f')",
+            "as": "absolute_change_label"
+        },
+        {
+            "calculate": "indexof(['Japanese', 'French', 'Chinese (Mandarin)', 'Italian', 'Spanish', 'Arabic'], datum.language) >= 0 ? datum.language : ''",
+            "as": "display_label"
+        }
+    ],
+    "vconcat": [
+        {
+            "title": {
+                "text": "A. Main Enrolment Patterns",
+                "subtitle": "Changes between -100% and +200%",
+                "anchor": "start",
+                "fontSize": 16,
+                "fontWeight": "bold",
+                "color": "#5C6861",
+                "subtitleColor": "#5C6861",
+                "subtitleFontSize": 12
             },
-            "encoding": {
-                "x": {
-                    "field": "2012",
-                    "type": "quantitative",
-                    "title": "Enrolments in 2012",
-                    "scale": {
-                        "zero": true
-                    },
-                    "axis": {
-                        "format": "~s"
-                    }
-                },
-                "y": {
-                    "field": "percentage_change",
-                    "type": "quantitative",
-                    "title": "Enrolment Change (%)",
-                    "axis": {
-                        "format": "+.0f"
-                    }
-                },
-                "color": {
-                    "field": "growth_direction",
-                    "type": "nominal",
-                    "title": "Change",
-                    "scale": {
-                        "domain": [
-                            "Increase",
-                            "Decrease"
+            "width": 500,
+            "height": 340,
+            "transform": [
+                {
+                    "filter": "datum.percentage_change >= -100 && datum.percentage_change <= 200"
+                }
+            ],
+            "layer": [
+                {
+                    "mark": {
+                        "type": "rule",
+                        "color": "#5C6861",
+                        "strokeDash": [
+                            5,
+                            5
                         ],
-                        "range": [
-                            "#2A9D8F",
-                            "#E76F51"
+                        "strokeWidth": 1.5
+                    },
+                    "encoding": {
+                        "y": {
+                            "datum": 0
+                        }
+                    }
+                },
+                {
+                    "mark": {
+                        "type": "circle",
+                        "size": 115,
+                        "opacity": 0.85,
+                        "stroke": "#FFFFFF",
+                        "strokeWidth": 1.2
+                    },
+                    "encoding": {
+                        "x": {
+                            "field": "2012",
+                            "type": "quantitative",
+                            "title": "Initial Enrolments (2012)",
+                            "scale": {
+                                "zero": true
+                            },
+                            "axis": {
+                                "format": "~s",
+                                "tickCount": 6
+                            }
+                        },
+                        "y": {
+                            "field": "percentage_change",
+                            "type": "quantitative",
+                            "title": "Enrolment Change (%)",
+                            "scale": {
+                                "domain": [
+                                    -100,
+                                    200
+                                ],
+                                "nice": false
+                            },
+                            "axis": {
+                                "format": "+.0f",
+                                "tickCount": 7,
+                                "minExtent": 165,
+                                "maxExtent": 165
+                            }
+                        },
+                        "color": {
+                            "field": "growth_direction",
+                            "type": "nominal",
+                            "title": null,
+                            "scale": {
+                                "domain": [
+                                    "Increase",
+                                    "Decrease"
+                                ],
+                                "range": [
+                                    "#0072B2",
+                                    "#D55E00"
+                                ]
+                            },
+                            "legend": {
+                                "orient": "bottom",
+                                "direction": "horizontal",
+                                "title": null,
+                                "labelColor": "#5C6861",
+                                "labelFontSize": 11,
+                                "symbolSize": 90
+                            }
+                        },
+                        "tooltip": [
+                            {
+                                "field": "language",
+                                "type": "nominal",
+                                "title": "Language"
+                            },
+                            {
+                                "field": "2012",
+                                "type": "quantitative",
+                                "title": "2012 Enrolments",
+                                "format": ","
+                            },
+                            {
+                                "field": "2024",
+                                "type": "quantitative",
+                                "title": "2024 Enrolments",
+                                "format": ","
+                            },
+                            {
+                                "field": "absolute_change_label",
+                                "type": "nominal",
+                                "title": "Absolute Change"
+                            },
+                            {
+                                "field": "percentage_label",
+                                "type": "nominal",
+                                "title": "Percentage Change"
+                            }
                         ]
                     }
                 },
-                "tooltip": [
-                    {
-                        "field": "language",
-                        "type": "nominal",
-                        "title": "Language"
+                {
+                    "transform": [
+                        {
+                            "filter": "datum.display_label !== ''"
+                        }
+                    ],
+                    "mark": {
+                        "type": "text",
+                        "align": "left",
+                        "baseline": "bottom",
+                        "dx": 8,
+                        "dy": -6,
+                        "fontSize": 10,
+                        "color": "#5C6861"
                     },
-                    {
-                        "field": "2012",
-                        "type": "quantitative",
-                        "title": "2012 Enrolments",
-                        "format": ","
-                    },
-                    {
-                        "field": "2024",
-                        "type": "quantitative",
-                        "title": "2024 Enrolments",
-                        "format": ","
-                    },
-                    {
-                        "field": "percentage_change",
-                        "type": "quantitative",
-                        "title": "Change (%)",
-                        "format": "+.1f"
+                    "encoding": {
+                        "x": {
+                            "field": "2012",
+                            "type": "quantitative"
+                        },
+                        "y": {
+                            "field": "percentage_change",
+                            "type": "quantitative"
+                        },
+                        "text": {
+                            "field": "display_label",
+                            "type": "nominal"
+                        }
                     }
-                ]
-            }
+                }
+            ]
+        },
+        {
+            "title": {
+                "text": "B. Exceptional Percentage Growth",
+                "subtitle": "Languages with growth exceeding +200%",
+                "anchor": "start",
+                "fontSize": 16,
+                "fontWeight": "bold",
+                "color": "#5C6861",
+                "subtitleColor": "#5C6861",
+                "subtitleFontSize": 12
+            },
+            "width": 500,
+            "height": {
+                "step": 38
+            },
+            "transform": [
+                {
+                    "filter": "datum.percentage_change > 200"
+                }
+            ],
+            "layer": [
+                {
+                    "mark": {
+                        "type": "bar",
+                        "color": "#0072B2",
+                        "cornerRadiusEnd": 3,
+                        "size": 20
+                    },
+                    "encoding": {
+                        "y": {
+                            "field": "language",
+                            "type": "nominal",
+                            "title": null,
+                            "sort": {
+                                "field": "percentage_change",
+                                "order": "descending"
+                            },
+                            "scale": {
+                                "paddingInner": 0.35,
+                                "paddingOuter": 0.3
+                            },
+                            "axis": {
+                                "labelLimit": 150,
+                                "labelPadding": 8,
+                                "labelFontSize": 11,
+                                "labelColor": "#5C6861",
+                                "minExtent": 165,
+                                "maxExtent": 165
+                            }
+                        },
+                        "x": {
+                            "field": "percentage_change",
+                            "type": "quantitative",
+                            "title": "Percentage Growth (%)",
+                            "scale": {
+                                "domainMin": 0,
+                                "nice": true
+                            },
+                            "axis": {
+                                "format": "+.0f",
+                                "tickCount": 5
+                            }
+                        },
+                        "tooltip": [
+                            {
+                                "field": "language",
+                                "type": "nominal",
+                                "title": "Language"
+                            },
+                            {
+                                "field": "2012",
+                                "type": "quantitative",
+                                "title": "2012 Enrolments",
+                                "format": ","
+                            },
+                            {
+                                "field": "2024",
+                                "type": "quantitative",
+                                "title": "2024 Enrolments",
+                                "format": ","
+                            },
+                            {
+                                "field": "absolute_change_label",
+                                "type": "nominal",
+                                "title": "Absolute Change"
+                            },
+                            {
+                                "field": "percentage_label",
+                                "type": "nominal",
+                                "title": "Percentage Growth"
+                            }
+                        ]
+                    }
+                }
+            ]
         }
     ],
+    "spacing": 20,
+    "resolve": {
+        "scale": {
+            "x": "independent",
+            "y": "independent"
+        }
+    },
     "config": {
         "view": {
+            "fill": null,
             "stroke": null
+        },
+        "axis": {
+            "labelFontSize": 11,
+            "titleFontSize": 12,
+            "labelColor": "#5C6861",
+            "titleColor": "#5C6861",
+            "gridColor": "#E5DDD0",
+            "domainColor": "#5C6861",
+            "tickColor": "#5C6861"
+        },
+        "legend": {
+            "labelColor": "#5C6861",
+            "titleColor": "#5C6861"
         }
     }
 }

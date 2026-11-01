@@ -1,7 +1,10 @@
-
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Language Enrolment Trends in NSW Schools",
+    "background": null,
+    "title": {
+        "text": "How Have Language Enrolments Changed Since 2012?",
+        "subtitle": "Select a school level and language to explore enrolment trends."
+    },
     "width": "container",
     "height": 400,
     "data": {
@@ -61,43 +64,126 @@
             }
         },
         {
+            "calculate": "datum.year === 2012 ? datum.enrolments : null",
+            "as": "enrolments_2012"
+        },
+        {
+            "joinaggregate": [
+                {
+                    "op": "max",
+                    "field": "enrolments_2012",
+                    "as": "baseline"
+                }
+            ],
+            "groupby": [
+                "school_level",
+                "language"
+            ]
+        },
+        {
+            "calculate": "isValid(datum.baseline) ? datum.enrolments - datum.baseline : null",
+            "as": "change"
+        },
+        {
+            "calculate": "isValid(datum.baseline) && datum.baseline > 0 ? 100 * datum.change / datum.baseline : null",
+            "as": "pct_change"
+        },
+        {
+            "calculate": "isValid(datum.pct_change) ? format(datum.pct_change, '+.1f') + '%' : 'N/A'",
+            "as": "pct_change_label"
+        },
+        {
             "filter": "language_selection === 'All Languages' || datum.language === language_selection"
         }
     ],
     "mark": {
         "type": "line",
-        "point": true
+        "point": {
+            "filled": true,
+            "size": 35
+        },
+        "strokeWidth": 2.5
     },
     "encoding": {
         "x": {
             "field": "year",
-            "type": "ordinal",
+            "type": "quantitative",
             "title": "Year",
-            "sort": "ascending"
+            "scale": {
+                "domain": [
+                    2012,
+                    2024
+                ],
+                "nice": false
+            },
+            "axis": {
+                "values": [
+                    2012,
+                    2013,
+                    2014,
+                    2015,
+                    2016,
+                    2017,
+                    2018,
+                    2019,
+                    2020,
+                    2021,
+                    2022,
+                    2023,
+                    2024
+                ],
+                "format": "d",
+                "labelAngle": 0,
+                "labelOverlap": true,
+                "labelColor": "#5C6861",
+                "titleColor": "#243B35"
+            }
         },
         "y": {
             "field": "enrolments",
             "type": "quantitative",
-            "title": "Number of Enrolments",
+            "title": "Number of enrolments",
             "scale": {
                 "zero": true
+            },
+            "axis": {
+                "format": ",",
+                "labelColor": "#5C6861",
+                "titleColor": "#243B35"
             }
         },
         "color": {
             "field": "language",
             "type": "nominal",
-            "title": "Language"
+            "title": "Language",
+            "scale": {
+                "domain": [
+                    "Japanese",
+                    "French",
+                    "Chinese (Mandarin)",
+                    "Italian",
+                    "Spanish"
+                ],
+                "range": [
+                    "#D55E00",
+                    "#009E73",
+                    "#0072B2",
+                    "#555555",
+                    "#CC79A7"
+                ]
+            }
         },
         "tooltip": [
             {
                 "field": "year",
-                "type": "ordinal",
-                "title": "Year"
+                "type": "quantitative",
+                "title": "Year",
+                "format": "d"
             },
             {
                 "field": "school_level",
                 "type": "nominal",
-                "title": "School Level"
+                "title": "School level"
             },
             {
                 "field": "language",
@@ -109,7 +195,49 @@
                 "type": "quantitative",
                 "title": "Enrolments",
                 "format": ","
+            },
+            {
+                "field": "baseline",
+                "type": "quantitative",
+                "title": "2012 enrolments",
+                "format": ","
+            },
+            {
+                "field": "change",
+                "type": "quantitative",
+                "title": "Change since 2012",
+                "format": "+,"
+            },
+            {
+                "field": "pct_change_label",
+                "type": "nominal",
+                "title": "Change since 2012 (%)"
             }
         ]
+    },
+    "config": {
+        "view": {
+            "fill": null,
+            "stroke": null
+        },
+        "legend": {
+            "orient": "bottom",
+            "symbolType": "stroke",
+            "labelFontSize": 12,
+            "labelColor": "#5C6861",
+            "titleColor": "#243B35"
+        },
+        "axis": {
+            "labelColor": "#5C6861",
+            "titleColor": "#243B35",
+            "labelFontSize": 11,
+            "titleFontSize": 12
+        },
+        "title": {
+            "color": "#243B35",
+            "fontSize": 17,
+            "subtitleColor": "#5C6861",
+            "subtitleFontSize": 12
+        }
     }
 }

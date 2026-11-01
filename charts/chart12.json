@@ -1,9 +1,19 @@
-
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Primary vs Secondary Language Enrolment Gaps (2024)",
-    "width": 750,
-    "height": 500,
+    "background": null,
+    "title": {
+        "text": "Largest Language Enrolment Gaps (2024)",
+        "subtitle": "Positive = more primary enrolments | Negative = more secondary enrolments",
+        "fontSize": 16,
+        "fontWeight": 600,
+        "color": "#5C6861",
+        "subtitleColor": "#5C6861",
+        "subtitleFontSize": 12,
+        "anchor": "start",
+        "offset": 18
+    },
+    "width": 520,
+    "height": 460,
     "data": {
         "url": "data/nsw_language_analysis_ready.csv",
         "format": {
@@ -64,6 +74,10 @@
                 {
                     "field": "absolute_gap",
                     "order": "descending"
+                },
+                {
+                    "field": "language",
+                    "order": "ascending"
                 }
             ]
         },
@@ -75,36 +89,61 @@
         "y": {
             "field": "language",
             "type": "nominal",
-            "title": "Language",
+            "title": null,
             "sort": {
-                "field": "absolute_gap",
-                "order": "descending"
+                "field": "gap_rank",
+                "order": "ascending"
             },
             "axis": {
-                "labelLimit": 190
+                "labelLimit": 230,
+                "labelFontSize": 11,
+                "labelPadding": 8,
+                "labelColor": "#5C6861",
+                "minExtent": 185
             }
         },
         "x": {
             "field": "enrolment_gap",
             "type": "quantitative",
-            "title": "Enrolment Gap (Primary − Secondary)",
+            "title": "Difference in Recorded Enrolments (Primary − Secondary)",
+            "scale": {
+                "zero": true,
+                "nice": true
+            },
             "axis": {
-                "format": ","
+                "format": ",.0f",
+                "labelFontSize": 11,
+                "titleFontSize": 12,
+                "labelColor": "#5C6861",
+                "titleColor": "#5C6861",
+                "labelPadding": 8,
+                "labelOverlap": false,
+                "grid": true,
+                "gridColor": "#E5DDD0",
+                "gridOpacity": 0.6,
+                "tickCount": 7
             }
         },
         "color": {
             "field": "gap_direction",
             "type": "nominal",
-            "title": "Enrolment Gap",
+            "title": null,
             "scale": {
                 "domain": [
                     "More Primary Enrolments",
                     "More Secondary Enrolments"
                 ],
                 "range": [
-                    "#2A9D8F",
-                    "#E76F51"
+                    "#0072B2",
+                    "#D55E00"
                 ]
+            },
+            "legend": {
+                "orient": "bottom",
+                "direction": "horizontal",
+                "labelFontSize": 11,
+                "symbolSize": 120,
+                "offset": 14
             }
         },
         "tooltip": [
@@ -117,19 +156,19 @@
                 "field": "Primary",
                 "type": "quantitative",
                 "title": "Primary Enrolments",
-                "format": ","
+                "format": ",.0f"
             },
             {
                 "field": "Secondary (Years 7–9)",
                 "type": "quantitative",
                 "title": "Secondary Enrolments",
-                "format": ","
+                "format": ",.0f"
             },
             {
                 "field": "enrolment_gap",
                 "type": "quantitative",
                 "title": "Primary − Secondary",
-                "format": "+,"
+                "format": "+,.0f"
             }
         ]
     },
@@ -137,22 +176,26 @@
         {
             "mark": {
                 "type": "rule",
-                "color": "#666666",
+                "color": "#5C6861",
                 "strokeDash": [
                     4,
                     4
-                ]
+                ],
+                "strokeWidth": 1.5
             },
             "encoding": {
                 "x": {
                     "datum": 0
+                },
+                "color": {
+                    "value": "#5C6861"
                 }
             }
         },
         {
             "mark": {
                 "type": "rule",
-                "strokeWidth": 2
+                "strokeWidth": 2.5
             },
             "encoding": {
                 "x": {
@@ -167,13 +210,28 @@
             "mark": {
                 "type": "point",
                 "filled": true,
-                "size": 130
+                "size": 150,
+                "stroke": "#FFFFFF",
+                "strokeWidth": 1
             }
         }
     ],
     "config": {
         "view": {
+            "fill": null,
             "stroke": null
+        },
+        "axis": {
+            "labelColor": "#5C6861",
+            "titleColor": "#5C6861",
+            "domainColor": "#5C6861",
+            "tickColor": "#5C6861",
+            "gridColor": "#E5DDD0",
+            "gridOpacity": 0.6
+        },
+        "legend": {
+            "labelColor": "#5C6861",
+            "titleColor": "#5C6861"
         }
     }
 }

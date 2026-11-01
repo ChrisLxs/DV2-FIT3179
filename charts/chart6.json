@@ -1,9 +1,8 @@
-
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Changing Composition of Language Enrolments in NSW Schools",
-    "width": 750,
-    "height": 420,
+    "background": null,
+    "width": 600,
+    "height": 350,
     "data": {
         "url": "data/nsw_language_analysis_ready.csv",
         "format": {
@@ -58,7 +57,7 @@
             ]
         },
         {
-            "calculate": "datum.total_enrolments / datum.year_total",
+            "calculate": "datum.year_total > 0 ? datum.total_enrolments / datum.year_total : 0",
             "as": "share"
         },
         {
@@ -86,14 +85,20 @@
     ],
     "mark": {
         "type": "area",
-        "interpolate": "monotone"
+        "interpolate": "linear",
+        "opacity": 0.95
     },
     "encoding": {
         "x": {
             "field": "year",
             "type": "ordinal",
             "title": "Year",
-            "sort": "ascending"
+            "sort": "ascending",
+            "axis": {
+                "labelAngle": 0,
+                "labelColor": "#243B35",
+                "titleColor": "#243B35"
+            }
         },
         "y": {
             "field": "group_share",
@@ -101,10 +106,18 @@
             "title": "Share of Language Enrolments",
             "stack": "zero",
             "scale": {
-                "domain": [0, 1]
+                "domain": [
+                    0,
+                    1
+                ],
+                "nice": false
             },
             "axis": {
-                "format": "%"
+                "format": ".0%",
+                "tickCount": 6,
+                "labelColor": "#243B35",
+                "titleColor": "#243B35",
+                "gridColor": "#E5E7E2"
             }
         },
         "color": {
@@ -121,19 +134,37 @@
                     "Other"
                 ],
                 "range": [
-                    "#4C78A8",
-                    "#F58518",
-                    "#54A24B",
-                    "#E45756",
-                    "#B279A2",
-                    "#BAB0AC"
+                    "#E69F00",
+                    "#9467BD",
+                    "#0072B2",
+                    "#555555",
+                    "#CC79A7",
+                    "#B8B8B8"
                 ]
+            },
+            "legend": {
+                "orient": "right",
+                "direction": "vertical",
+                "title": "Language",
+                "titleFontSize": 13,
+                "labelFontSize": 12,
+                "symbolSize": 130,
+                "padding": 10,
+                "rowPadding": 8,
+                "offset": 20
             }
         },
         "order": {
             "field": "language_group",
             "type": "nominal",
-            "sort": "ascending"
+            "sort": [
+                "Japanese",
+                "French",
+                "Chinese (Mandarin)",
+                "Italian",
+                "Spanish",
+                "Other"
+            ]
         },
         "tooltip": [
             {
@@ -155,14 +186,23 @@
             {
                 "field": "group_share",
                 "type": "quantitative",
-                "title": "Share",
+                "title": "Share of Enrolments",
                 "format": ".1%"
             }
         ]
     },
     "config": {
         "view": {
+            "fill": null,
             "stroke": null
+        },
+        "axis": {
+            "labelFontSize": 12,
+            "titleFontSize": 13
+        },
+        "legend": {
+            "labelColor": "#243B35",
+            "titleColor": "#243B35"
         }
     }
 }

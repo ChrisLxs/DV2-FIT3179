@@ -1,117 +1,3433 @@
+/* ============================================================
+   BEYOND ENGLISH — FINAL CSS
+   FIT3179 Data Visualisation 2 | NSW Classrooms
 
+   Maintains the original visual design and Vega-Lite layouts.
+   Chart-specific rules and media queries intentionally remain
+   in cascade order. Edit the later rule when a selector repeats.
+   ============================================================ */
+:root {
+    --page: #F5F0E6;
+    --card: #FFFCF7;
+    --ink: #243B35;
+    --green: #315E52;
+    --sage: #E8EFEA;
+    --line: #A8BCAF;
+    --border: #E5DDD0;
+    --radius: 20px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    background-color: #f5f7fa;
-    color: #222;
+    background: var(--page);
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.65;
 }
-
-header {
-    text-align: center;
-    padding: 40px 20px;
-    background-color: #ffffff;
-}
-
-h1 {
-    font-size: 32px;
-    margin-bottom: 12px;
-}
-
-main {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-section {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-}
-
-#chart1 {
-    width: 100%;
-    margin-top: 25px;
-}
-
-#chart7 {
-    width: 100%;
-    overflow-x: auto;
-}
-
-#chart7 .vega-embed {
-    min-width: 740px;
-}
-
-
-/* Serif font for headings */
-h1,
-h2,
-h3,
-h4 {
+h1, h2, h3, h4 {
     font-family: Georgia, "Times New Roman", serif;
     font-weight: 600;
     line-height: 1.25;
     letter-spacing: -0.02em;
 }
+p { font-size: 16px; line-height: 1.75; }
 
-/* Sans-serif font for body text */
-body,
-p,
-span,
-button,
-select,
-label,
-footer {
+/* MAIN HERO */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 380px;
+    padding: 65px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(115deg, #173D32 0%, #244F40 50%, #537260 100%);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+.hero-content {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hero-label, .chapter-label {
+    display: inline-block;
+    width: fit-content;
+    padding: 10px 24px;
+    margin: 0 0 28px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50px;
+    color: #D4E9DC;
     font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.65;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+.hero h1 {
+    margin: 0 0 22px;
+    color: #FFFFFF;
+    font-size: clamp(52px, 6.5vw, 85px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+}
+.hero h2 {
+    margin: 0 0 18px;
+    color: #C5DFCC;
+    font-size: clamp(23px, 3vw, 34px);
+    font-weight: 600;
+    line-height: 1.3;
+}
+.hero-description {
+    max-width: 760px;
+    margin: 0;
+    color: #E0EAE2;
+    font-size: 16px;
+    line-height: 1.7;
 }
 
-/* Main dashboard title */
-h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+/* MAIN PAGE AND SECTION RESET */
+main { max-width: 1250px; margin: 40px auto; padding: 0 25px; }
+main section { margin-bottom: 70px; }
+main section h2 { margin-top: 0; }
+main .chapter,
+main .first-look,
+main .conclusion-section {
+    background: transparent;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    overflow: visible;
 }
 
-/* Section headings */
-h2 {
-    font-size: 2rem;
-    margin-bottom: 16px;
+/* FIRST LOOK / SUMMARY STATS */
+.first-look-heading {
+    margin: 0 0 24px;
+    color: var(--green);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+.first-look-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+.first-look-card {
+    min-width: 0;
+    padding: 28px 30px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+.first-look-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.first-look-card .stat-number {
+    margin: 0 0 15px;
+    color: var(--green);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(38px, 4vw, 60px);
+    font-weight: 700;
+    line-height: 1.1;
+}
+.first-look-card p {
+    margin: 0;
+    color: #596579;
+    font-size: 15px;
+    line-height: 1.5;
 }
 
-/* Chart descriptions */
-p {
-    font-size: 1rem;
+/* CHAPTER GREEN HEADER */
+.chapter > .chapter-header,
+.conclusion-section > .chapter-header {
+    position: relative;
+    width: 100%;
+    min-height: 260px;
+    padding: 45px 40px;
+    margin: 0 0 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(115deg, #173D32 0%, #244F40 50%, #537260 100%);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+.chapter-header .chapter-label { margin: 0 0 20px; }
+.chapter-header h2 {
+    max-width: 1000px;
+    margin: 0 0 18px;
+    color: #FFFFFF;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+}
+.chapter-header .chapter-description {
+    max-width: 800px;
+    margin: 0;
+    color: #D8E8DD;
+    font-size: 16px;
     line-height: 1.75;
 }
 
-body {
-    background-color: #F5F0E6;
-    color: #243B35;
-    font-family: "DM Sans", Arial, sans-serif;
+/* VISUALISATION CARDS */
+.chart-card {
+    position: relative;
+    min-width: 0;
+    padding: 30px 32px;
+    margin: 0 0 45px;
+    width: 100%;
+    max-width: 100%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.035);
+}
+.chart-card h3 {
+    margin: 0 0 12px;
+    color: var(--ink);
+    font-size: clamp(25px, 2.5vw, 34px);
+}
+.chart-card > p { margin: 0 0 25px; color: #5C6861; }
+[id^="chart"] { width: 100%; min-width: 0; margin: 18px 0 20px; }
+#chart7 { overflow-x: auto; }
+#chart7 .vega-embed { min-width: 740px; }
+/* Vega canvas and SVG should not be stretched by generic image rules. */
+.vega-embed { max-width: 100%; }
+.chart-card > [id^="chart"] { overflow-x: auto; overflow-y: hidden; }
+
+/* KEY INSIGHTS */
+.insight-box {
+    width: 100%;
+    margin-top: 28px;
+    padding: 26px 30px;
+    background: var(--sage);
+    border-left: 5px solid var(--green);
+    border-radius: 12px;
+}
+.insight-box strong {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--green);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+.insight-box p { margin: 0; color: var(--ink); font-size: 16px; line-height: 1.7; }
+
+/* CHART 2 — DONUTS LEFT / INSIGHT RIGHT */
+.chart2-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(300px, 1fr);
+    gap: 24px;
+    align-items: start;
+    width: 100%;
+    margin-top: 25px;
+}
+.chart2-visualisation, .chart2-insight { min-width: 0; width: 100%; }
+.chart2-visualisation #chart2 {
+    width: 100%;
+    margin: 0;
+    overflow-x: auto;
+}
+.chart2-insight .insight-box { margin: 0; padding: 25px; }
+
+/* SEPARATORS BETWEEN CHARTS IN THE SAME CHAPTER */
+.chapter .chart-card ~ .chart-card::before {
+    content: "";
+    position: absolute;
+    top: -24px;
+    left: 5%;
+    width: 90%;
+    height: 1px;
+    background: var(--line);
+}
+
+/* CHAPTER TRANSITION QUESTIONS AND 'COMING NEXT' LABELS */
+.chapter-transition {
+    position: relative;
+    width: 100%;
+    margin: 25px auto 45px;
+    padding: 35px 25px;
+    text-align: center;
+    background: transparent;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+.chapter-transition p {
+    max-width: 850px;
+    margin: 0 auto 20px;
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(19px, 2.3vw, 25px);
+    line-height: 1.5;
+}
+.chapter-transition span,
+.chapter-transition strong,
+.chapter-transition .transition-label {
+    display: block;
+    color: var(--green);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* CONCLUSION */
+.conclusion-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin: 35px 0 45px;
+}
+.conclusion-card {
+    padding: 30px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+}
+.conclusion-number {
+    display: block;
+    margin-bottom: 20px;
+    color: var(--green);
+    font-family: Georgia, serif;
+    font-size: 42px;
+    font-weight: 600;
+}
+.conclusion-card h3 { margin: 0 0 15px; color: var(--ink); font-size: 22px; }
+.conclusion-card p { margin: 0; color: #5C6861; font-size: 15px; line-height: 1.7; }
+.conclusion-details {
+    padding: 35px;
+    margin-bottom: 30px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+.conclusion-details h3 { margin: 0 0 20px; color: var(--ink); font-size: 27px; }
+.conclusion-details p { margin: 0 0 18px; color: #5C6861; font-size: 16px; line-height: 1.8; }
+.conclusion-details p:last-child { margin-bottom: 0; }
+.source-note { font-style: italic; }
+.conclusion-ending {
+    margin-top: 50px;
+    padding: 70px 25px 45px;
+    text-align: center;
+    border-top: 1px solid #D8DED7;
+}
+.conclusion-ending p {
+    max-width: 750px;
+    margin: 0 auto 25px;
+    color: var(--ink);
+    font-family: Georgia, serif;
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: 1.4;
+}
+.conclusion-ending span {
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* FOOTER */
+.site-footer {
+    text-align: center;
+}
+.site-footer p { margin: 5px 0; font-size: 13px; line-height: 1.6; }
+
+/* TABLET */
+@media (max-width: 900px) {
+    main { padding: 0 20px; }
+    .hero { min-height: 340px; padding: 55px 25px; }
+    .hero h1 { font-size: clamp(48px, 7vw, 70px); }
+    .hero h2 { font-size: clamp(22px, 3.5vw, 30px); }
+    .first-look-grid, .conclusion-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .chapter > .chapter-header, .conclusion-section > .chapter-header {
+        min-height: 250px;
+        padding: 40px 30px;
+    }
+    .chapter-header h2 { font-size: clamp(30px, 5vw, 45px); }
+    .chapter-header .chapter-description { font-size: 16px; }
+    .chart2-layout { grid-template-columns: 1fr; gap: 25px; }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    main { margin: 20px auto; padding: 0 15px; }
+    main section { margin-bottom: 50px; }
+    .hero { min-height: 300px; padding: 50px 20px; }
+    .hero-label, .chapter-label {
+        padding: 9px 16px;
+        margin-bottom: 22px;
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+    .hero h1 { font-size: clamp(42px, 10vw, 58px); }
+    .hero h2 { font-size: 22px; }
+    .hero-description { font-size: 14px; }
+    .first-look-grid, .conclusion-grid { grid-template-columns: 1fr; }
+    .first-look-card, .conclusion-card { padding: 24px; }
+    .chapter > .chapter-header, .conclusion-section > .chapter-header {
+        min-height: 220px;
+        padding: 35px 22px;
+    }
+    .chapter-header h2 { font-size: clamp(28px, 7vw, 38px); margin-bottom: 20px; }
+    .chapter-header .chapter-description { font-size: 14px; line-height: 1.7; }
+    .chart-card { padding: 22px; margin-bottom: 40px; }
+    .chart-card h3 { font-size: 25px; }
+    .insight-box { padding: 22px; }
+    .chapter .chart-card ~ .chart-card::before { top: -21px; }
+    .chapter-transition { margin: 35px auto 50px; padding: 35px 15px; }
+    .chapter-transition span, .chapter-transition strong { font-size: 10px; }
+    .conclusion-details { padding: 25px; }
+    .conclusion-ending { padding: 50px 15px 35px; }
+}
+
+
+/* CHAPTER FLOW — EACH CARD AND TRANSITION OCCUPIES ITS OWN ROW */
+main > .chapter,
+main section.chapter {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
+}
+
+.chapter > .chapter-header,
+.chapter > .chart-card,
+.chapter > .chapter-transition {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    float: none;
+    clear: both;
+    grid-column: 1 / -1;
+}
+
+/* Keep chart 1 large, without stretching the actual Vega canvas. */
+#chart1 { width: 100%; overflow-x: auto; }
+#chart1 .vega-embed { width: 100%; max-width: 100%; }
+
+/* CHART 2 — ANALYTICAL INSIGHT PANEL */
+.chart2-insight-box {
+    margin: 0;
+    padding: 24px;
+    background: var(--sage);
+    border-left: 4px solid var(--green);
+    border-radius: 14px;
+}
+.chart2-insight-box .insight-label {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+.chart2-insight-box h4 {
+    margin: 0 0 20px;
+    color: var(--ink);
+    font-size: 19px;
+    line-height: 1.35;
+}
+.chart2-insight-box .insight-stat {
+    padding: 12px 0;
+    border-top: 1px solid #CCD9D0;
+}
+.chart2-insight-box .insight-stat-label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--green);
+    font-size: 13px;
+    font-weight: 600;
+}
+.chart2-insight-box .insight-stat-values {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.chart2-insight-box .insight-stat-values span {
+    color: #5B6D63;
+    font-size: 12px;
+}
+.chart2-insight-box .insight-stat-values strong {
+    display: block;
+    margin: 3px 0 0;
+    color: var(--ink);
+    font-size: 23px;
+    letter-spacing: normal;
+}
+.chart2-insight-box .insight-conclusion {
+    margin: 18px 0 0;
+    color: var(--ink);
+    font-size: 13px;
+    line-height: 1.65;
+}
+.chart2-insight-box .insight-note {
+    margin: 12px 0 0;
+    color: #64776C;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+    .chart2-layout { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 600px) {
+    .chapter > .chapter-header,
+    .conclusion-section > .chapter-header { border-radius: 16px; }
+    .chart2-insight-box { padding: 20px; }
+    .chart2-insight-box .insight-stat-values strong { font-size: 21px; }
+    .chapter-transition { padding: 30px 15px; }
+}
+/* Chapter 1 description */
+main > .chapter:nth-of-type(2) .chapter-description {
+    max-width: 1000px;
+    font-size: 17px;
+    line-height: 1.7;
+}
+/* ========================================
+   CHART 2 — HEADING AND INSIGHT SIDE BY SIDE
+======================================== */
+
+.chart2-card .chart2-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: 35px;
+    align-items: start;
+    margin-top: 0;
+}
+
+.chart2-left {
+    min-width: 0;
+}
+
+.chart2-left h3 {
+    margin: 0 0 12px;
+    font-size: clamp(25px, 2.5vw, 34px);
+}
+
+.chart2-left > p {
+    margin: 0 0 25px;
+    color: #5C6861;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.chart2-card .chart2-visualisation {
+    width: 100%;
+    min-width: 0;
+}
+
+.chart2-card .chart2-visualisation #chart2 {
+    width: 100%;
+    margin: 0;
+    overflow-x: auto;
+}
+
+.chart2-card .chart2-insight {
+    align-self: start;
+    transform: none;
+}
+
+.chart2-card .chart2-insight-box {
     margin: 0;
 }
 
-
-/* Add space between chart sections */
-main section {
-    margin-bottom: 80px;
+/* Responsive layout */
+@media (max-width: 1000px) {
+    .chart2-card .chart2-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
 }
 
-/* Space between chart titles and charts */
-main section h2 {
+/* ========================================
+   CHART 1 — HISTORICAL TREND INSIGHTS
+======================================== */
+
+.chart1-card {
+    width: 100%;
+}
+
+.chart1-visualisation {
+    width: 100%;
+    min-width: 0;
+    margin: 20px 0 28px;
+}
+
+.chart1-visualisation #chart1 {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+.chart1-visualisation .vega-embed {
+    max-width: 100%;
+}
+
+/* Three insight statistics */
+.chart1-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.chart1-stat {
+    padding: 22px;
+    background: #F1F5F0;
+    border: 1px solid #DCE7DC;
+    border-radius: 14px;
+}
+
+.chart1-stat-label {
+    display: block;
+    margin-bottom: 12px;
+    color: #315E52;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.chart1-stat strong {
+    display: block;
+    margin-bottom: 10px;
+    color: #243B35;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px;
+    line-height: 1.2;
+}
+
+.chart1-stat p {
+    margin: 0;
+    color: #5C6861;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* Main finding */
+.chart1-insight {
+    margin-top: 22px;
+    padding: 24px 28px;
+}
+
+.chart1-insight strong {
+    margin-bottom: 12px;
+}
+
+.chart1-insight p {
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .chart1-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .chart1-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .chart1-stat {
+        padding: 18px;
+    }
+
+    .chart1-stat strong {
+        font-size: 26px;
+    }
+
+    .chart1-insight {
+        padding: 20px;
+    }
+}
+/* CHART 4 — COMPACT INSIGHT LAYOUT */
+
+.chart4-visualisation {
+    width: 100%;
+    min-width: 0;
+    margin: 20px 0 22px;
+}
+
+.chart4-visualisation #chart4 {
+    width: 100%;
+    margin: 0;
+}
+
+.chart4-insight {
+    margin-top: 18px;
+    padding: 20px 25px;
+}
+
+.chart4-insight p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* ========================================
+   CHART 9 — PERCENTAGE CHANGE
+======================================== */
+
+.chart9-card {
+    width: 100%;
+}
+
+.chart9-visualisation {
+    width: 100%;
+    min-width: 0;
+    margin: 20px 0 22px;
+}
+
+.chart9-visualisation #chart9 {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+.chart9-visualisation .vega-embed {
+    max-width: 100%;
+}
+
+.chart9-insight {
+    margin-top: 18px;
+    padding: 20px 25px;
+}
+
+.chart9-insight p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+    .chart9-insight {
+        padding: 18px;
+    }
+}
+
+/* Chart 5 - Original dropdowns side by side */
+
+#chart5 .vega-bindings {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
     margin-bottom: 20px;
 }
 
-/* Space between descriptions and charts */
-main section p {
+#chart5 .vega-bind {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+}
+
+#chart5 .vega-bind-name {
+    white-space: nowrap;
+}
+
+#chart5 .vega-bind select {
+    font-size: 16px;
+    padding: 5px 8px;
+}
+
+/* ==========================================
+   CHART 5 — KEY INSIGHTS
+   ========================================== */
+
+.chart5-insights {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #E5DDD0;
+}
+
+.chart5-insights-heading {
+    margin: 0 0 20px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #243B35;
+}
+
+.chart5-insights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.chart5-insight-card {
+    padding: 22px;
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-radius: 14px;
+    border-top: 4px solid #5C6861;
+}
+
+.chart5-insight-tag {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #5C6861;
+}
+
+.chart5-insight-card h5 {
+    margin: 0 0 12px;
+    font-size: 17px;
+    line-height: 1.4;
+    color: #5C6861;
+}
+
+.chart5-insight-card p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #5C6861;
+}
+
+.chart5-note {
+    margin-top: 22px;
+    padding: 14px 18px;
+    background: #F3F1EA;
+    border-left: 3px solid #5C6861;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #5C6861;
+}
+
+/* Responsive layout */
+
+@media (max-width: 900px) {
+    .chart5-insights-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ==========================================
+   CHART 5 & 6 — KEY INSIGHTS
+   ========================================== */
+
+.chart5-insights,
+.chart6-insights {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #E5DDD0;
+}
+
+.chart5-insights-heading,
+.chart6-insights-heading {
+    margin: 0 0 20px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #5C6861;
+}
+
+.chart5-insights-grid,
+.chart6-insights-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        3,
+        minmax(0, 1fr)
+    );
+    gap: 18px;
+}
+
+.chart5-insight-card,
+.chart6-insight-card {
+    padding: 22px;
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-radius: 14px;
+    border-top: 4px solid #5C6861;
+}
+
+.chart5-insight-tag,
+.chart6-insight-tag {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #5C6861;
+}
+
+.chart5-insight-card h5,
+.chart6-insight-card h5 {
+    margin: 0 0 12px;
+    font-size: 17px;
+    line-height: 1.4;
+    color: #5C6861;
+}
+
+.chart5-insight-card p,
+.chart6-insight-card p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #5C6861;
+}
+
+.chart5-note,
+.chart6-note {
+    margin-top: 22px;
+    padding: 14px 18px;
+    background: #F3F1EA;
+    border-left: 3px solid #5C6861;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #5C6861;
+}
+
+/* ==========================================
+   RESPONSIVE LAYOUT
+   ========================================== */
+
+@media (max-width: 900px) {
+
+    .chart5-insights-grid,
+    .chart6-insights-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* ==========================================
+   CHART 7 — KEY INSIGHTS
+   ========================================== */
+
+.chart7-insights {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #E5DDD0;
+}
+
+.chart7-insights-heading {
+    margin: 0 0 20px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #5C6861;
+}
+
+.chart7-insights-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        3,
+        minmax(0, 1fr)
+    );
+    gap: 18px;
+}
+
+.chart7-insight-card {
+    padding: 22px;
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-radius: 14px;
+    border-top: 4px solid #5C6861;
+}
+
+.chart7-insight-tag {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #5C6861;
+}
+
+.chart7-insight-card h5 {
+    margin: 0 0 12px;
+    font-size: 17px;
+    line-height: 1.4;
+    color: #5C6861;
+}
+
+.chart7-insight-card p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #5C6861;
+}
+
+.chart7-note {
+    margin-top: 22px;
+    padding: 14px 18px;
+    background: #F3F1EA;
+    border-left: 3px solid #5C6861;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #5C6861;
+}
+
+/* Responsive layout */
+
+@media (max-width: 900px) {
+
+    .chart7-insights-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* ==========================================
+   CHART 8 — SIDE INSIGHTS
+   ========================================== */
+
+.chart8-layout {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.6fr)
+        minmax(280px, 1fr);
+    gap: 30px;
+    align-items: start;
+}
+
+#chart8 {
+    min-width: 0;
+    overflow-x: auto;
+}
+
+.chart8-side-insights {
+    padding: 20px;
+    background: #F3F1EA;
+    border-radius: 12px;
+}
+
+.chart8-side-insights h4 {
+    margin: 0 0 20px;
+    font-size: 22px;
+    color: #5C6861;
+}
+
+.chart8-side-card {
+    padding: 16px;
+    margin-bottom: 14px;
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-left: 4px solid #5C6861;
+    border-radius: 8px;
+}
+
+.chart8-side-card:last-child {
+    margin-bottom: 0;
+}
+
+.chart8-side-card span {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #5C6861;
+}
+
+.chart8-side-card h5 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    color: #5C6861;
+}
+
+.chart8-side-card p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #5C6861;
+}
+
+/* Responsive layout */
+
+@media (max-width: 1100px) {
+
+    .chart8-layout {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* ==========================================
+   CHART 9 — MAIN CHART
+   ========================================== */
+
+#chart9 {
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    margin-top: 24px;
+    padding-bottom: 10px;
+}
+
+/* ==========================================
+   CHART 9 — VEGA DROPDOWN
+   ========================================== */
+
+#chart9 .vega-bindings {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #5C6861;
+}
+
+#chart9 .vega-bind {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#chart9 .vega-bind-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #5C6861;
+}
+
+#chart9 select {
+    padding: 7px 12px;
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #5C6861;
+    cursor: pointer;
+}
+
+#chart9 select:focus {
+    outline: 2px solid #5C6861;
+    outline-offset: 2px;
+}
+
+/* ==========================================
+   CHART 9 — KEY INSIGHTS
+   ========================================== */
+
+.chart9-insights {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #E5DDD0;
+}
+
+.chart9-insights-heading {
+    margin: 0 0 20px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #5C6861;
+}
+
+.chart9-insights-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        3,
+        minmax(0, 1fr)
+    );
+    gap: 18px;
+}
+
+.chart9-insight-card {
+    padding: 22px;
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-radius: 14px;
+    border-top: 4px solid #5C6861;
+    box-sizing: border-box;
+}
+
+.chart9-insight-tag {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #5C6861;
+}
+
+.chart9-insight-card h5 {
+    margin: 0 0 12px;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #5C6861;
+}
+
+.chart9-insight-card p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #5C6861;
+}
+
+/* ==========================================
+   CHART 9 — EXPLANATION NOTE
+   ========================================== */
+
+.chart9-note {
+    margin-top: 22px;
+    padding: 14px 18px;
+    background: #F3F1EA;
+    border-left: 3px solid #5C6861;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #5C6861;
+}
+
+.chart9-note strong {
+    font-weight: 700;
+    color: #5C6861;
+}
+
+/* ==========================================
+   CHART 9 — RESPONSIVE LAYOUT
+   ========================================== */
+
+@media (max-width: 900px) {
+
+    .chart9-insights-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chart9-insight-card {
+        padding: 18px;
+    }
+
+    .chart9-insights-heading {
+        font-size: 20px;
+    }
+
+    .chart9-insight-card h5 {
+        font-size: 16px;
+    }
+
+    .chart9-insight-card p {
+        font-size: 13px;
+    }
+
+    #chart9 .vega-bindings {
+        flex-wrap: wrap;
+    }
+
+}
+/* ==========================================
+   CHART 10 — KEY INSIGHTS
+   ========================================== */
+
+.chart10-insights {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #E5DDD0;
+}
+
+.chart10-insights-heading {
+    margin: 0 0 20px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #5C6861;
+}
+
+.chart10-insights-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        3,
+        minmax(0, 1fr)
+    );
+    gap: 18px;
+}
+
+.chart10-insight-card {
+    padding: 22px;
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-radius: 14px;
+    border-top: 4px solid #5C6861;
+}
+
+.chart10-insight-tag {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #5C6861;
+}
+
+.chart10-insight-card h5 {
+    margin: 0 0 12px;
+    font-size: 17px;
+    line-height: 1.4;
+    color: #5C6861;
+}
+
+.chart10-insight-card p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #5C6861;
+}
+
+.chart10-note {
+    margin-top: 22px;
+    padding: 14px 18px;
+    background: #F3F1EA;
+    border-left: 3px solid #5C6861;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #5C6861;
+}
+
+/* Responsive layout */
+
+@media (max-width: 900px) {
+
+    .chart10-insights-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* ==========================================
+   CHART 10 — SCATTER PLOT
+   ========================================== */
+
+#chart10 {
+    overflow-x: auto;
+}
+
+/* ==========================================
+   CHART 10 — POPULARITY VS GROWTH
+========================================== */
+
+.chart10-card {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Main two-column layout */
+
+.chart10-layout {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 2fr)
+        minmax(280px, 0.9fr);
+    gap: 24px;
+    align-items: start;
+    margin-top: 24px;
+}
+
+/* ==========================================
+   LEFT — CHART VISUALISATION
+========================================== */
+
+.chart10-visualisation {
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    box-sizing: border-box;
+}
+
+#chart10 {
+    display: inline-block;
+    width: max-content;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#chart10 .vega-embed {
+    display: inline-block;
+    max-width: none;
+}
+
+/* Dropdown */
+
+#chart10 .vega-bindings {
+    margin-top: 18px;
+    font-size: 13px;
+    color: #5C6861;
+}
+
+#chart10 .vega-bindings select {
+    padding: 8px 12px;
+    margin-left: 8px;
+    border: 1px solid #E5DDD0;
+    border-radius: 6px;
+    background: #FFFFFF;
+    color: #5C6861;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* ==========================================
+   RIGHT — KEY INSIGHTS
+========================================== */
+
+.chart10-side-insights {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 16px;
+    background: #F3F1EA;
+    border: 1px solid #E5DDD0;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.chart10-side-insights h4 {
+    margin: 0 0 4px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #5C6861;
+}
+
+/* Individual insight cards */
+
+.chart10-side-card {
+    padding: 14px 16px;
+    margin: 0;
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-left: 4px solid #5C6861;
+    border-radius: 8px;
+}
+
+.chart10-side-card span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #5C6861;
+}
+
+.chart10-side-card h5 {
+    margin: 0 0 6px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #5C6861;
+}
+
+.chart10-side-card p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #5C6861;
+}
+
+/* ==========================================
+   GROWTH COMPARISON SUMMARY
+========================================== */
+
+.chart10-growth-summary {
+    margin-top: 8px;
+    padding-top: 18px;
+    border-top: 1px solid #D8D5CA;
+}
+
+/* Summary heading */
+
+.chart10-growth-summary h5 {
+    margin: 0 0 18px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #5C6861;
+}
+
+/* Comparison items */
+
+.chart10-growth-item {
+    margin-bottom: 16px;
+}
+
+/* Comparison labels */
+
+.chart10-growth-label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #5C6861;
+}
+
+/* Comparison descriptions */
+
+.chart10-growth-item p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #5C6861;
+}
+
+/* ==========================================
+   OVERALL TAKEAWAY
+========================================== */
+
+.chart10-growth-conclusion {
+    padding: 12px 14px;
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-left: 3px solid #0072B2;
+    border-radius: 6px;
+}
+
+.chart10-growth-conclusion p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #5C6861;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 1100px) {
+
+    .chart10-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .chart10-side-insights {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .chart10-layout {
+        gap: 18px;
+    }
+
+    .chart10-side-insights {
+        padding: 14px;
+    }
+
+    .chart10-growth-summary {
+        padding-top: 14px;
+    }
+
+    .chart10-growth-summary h5 {
+        font-size: 16px;
+    }
+
+    .chart10-growth-item {
+        margin-bottom: 12px;
+    }
+
+}
+/* ==========================================
+   CHART 11 — PRIMARY VS SECONDARY
+========================================== */
+
+.chart11-card {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   MAIN TWO-COLUMN LAYOUT
+========================================== */
+
+.chart11-layout {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 2fr)
+        minmax(280px, 0.9fr);
+    gap: 24px;
+    align-items: start;
+    margin-top: 24px;
+}
+
+/* ==========================================
+   LEFT — CHART VISUALISATION
+========================================== */
+
+.chart11-visualisation {
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    box-sizing: border-box;
+}
+
+#chart11 {
+    display: inline-block;
+    width: max-content;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#chart11 .vega-embed {
+    display: inline-block;
+    max-width: none;
+}
+
+/* ==========================================
+   RIGHT — KEY INSIGHTS PANEL
+========================================== */
+
+.chart11-side-insights {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 16px;
+    background: #F3F1EA;
+    border: 1px solid #E5DDD0;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+/* Panel heading */
+
+.chart11-side-insights h4 {
+    margin: 0 0 4px;
+    font-size: 21px;
+    font-weight: 700;
+    color: #5C6861;
+}
+
+/* ==========================================
+   INDIVIDUAL INSIGHT CARDS
+========================================== */
+
+.chart11-side-card {
+    padding: 14px 16px;
+    margin: 0;
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-left: 4px solid #5C6861;
+    border-radius: 8px;
+}
+
+/* Category labels */
+
+.chart11-side-card span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #5C6861;
+}
+
+/* Insight headings */
+
+.chart11-side-card h5 {
+    margin: 0 0 6px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #5C6861;
+}
+
+/* Insight descriptions */
+
+.chart11-side-card p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #5C6861;
+}
+
+/* ==========================================
+   OVERALL SUMMARY
+========================================== */
+
+.chart11-summary {
+    margin-top: 6px;
+    padding: 14px 16px;
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-left: 3px solid #0072B2;
+    border-radius: 8px;
+}
+
+.chart11-summary span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #5C6861;
+}
+
+.chart11-summary p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #5C6861;
+}
+
+/* ==========================================
+   METHODOLOGICAL NOTE
+========================================== */
+
+.chart11-card .chart11-note {
+    margin-top: 20px;
+    margin-bottom: 0;
+    padding-top: 12px;
+    border-top: 1px solid #E5DDD0;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #5C6861;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 1100px) {
+
+    .chart11-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .chart11-side-insights {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .chart11-layout {
+        gap: 18px;
+    }
+
+    .chart11-side-insights {
+        padding: 14px;
+    }
+
+    .chart11-side-card {
+        padding: 12px 14px;
+    }
+
+    .chart11-side-insights h4 {
+        font-size: 19px;
+    }
+
+}
+/* ==========================================
+   CHART 12 — DIVERGING DOT PLOT
+========================================== */
+
+.chart12-card {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* MAIN LAYOUT */
+
+.chart12-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(280px, 0.9fr);
+    gap: 24px;
+    align-items: start;
+    margin-top: 24px;
+}
+
+/* LEFT: DOT PLOT */
+
+.chart12-visualisation {
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#chart12 {
+    display: inline-block;
+    width: max-content;
+    margin: 0;
+    padding: 0;
+}
+
+#chart12 .vega-embed {
+    display: inline-block;
+    max-width: none;
+}
+
+/* RIGHT: KEY INSIGHTS */
+
+.chart12-side-insights {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    background: #F3F1EA;
+    border: 1px solid #E5DDD0;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.chart12-side-insights h4 {
+    margin: 0 0 4px;
+    font-size: 21px;
+    font-weight: 700;
+    color: #5C6861;
+}
+
+/* INSIGHT CARDS */
+
+.chart12-side-card {
+    padding: 14px 16px;
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-left: 4px solid #5C6861;
+    border-radius: 8px;
+}
+
+.chart12-side-card span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #5C6861;
+}
+
+.chart12-side-card h5 {
+    margin: 0 0 6px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #5C6861;
+}
+
+.chart12-side-card p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #5C6861;
+}
+
+/* READING GUIDE */
+
+.chart12-reading-guide {
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid #D8D5CA;
+}
+
+.chart12-reading-guide h5 {
+    margin: 0 0 14px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #5C6861;
+}
+
+.chart12-guide-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.chart12-guide-item p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #5C6861;
+}
+
+.chart12-guide-dot {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    margin-top: 5px;
+    border-radius: 50%;
+}
+
+.chart12-guide-dot.primary {
+    background: #0072B2;
+}
+
+.chart12-guide-dot.secondary {
+    background: #D55E00;
+}
+
+/* OVERALL TAKEAWAY */
+
+.chart12-guide-conclusion {
+    margin-top: 8px;
+    padding: 14px 16px;
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-left: 3px solid #0072B2;
+    border-radius: 8px;
+}
+
+.chart12-guide-conclusion span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #5C6861;
+}
+
+.chart12-guide-conclusion p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #5C6861;
+}
+
+/* DATA NOTE */
+
+.chart12-card .chart12-note {
+    margin-top: 20px;
+    margin-bottom: 0;
+    padding-top: 12px;
+    border-top: 1px solid #E5DDD0;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #5C6861;
+}
+
+/* RESPONSIVE LAYOUT */
+
+@media (max-width: 1100px) {
+
+    .chart12-layout {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .chart12-layout {
+        gap: 18px;
+    }
+
+    .chart12-side-insights {
+        padding: 14px;
+    }
+
+    .chart12-side-card {
+        padding: 12px 14px;
+    }
+
+}
+/* ==========================================
+   CHART 12 — LEFT COLUMN
+========================================== */
+
+.chart12-left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    min-width: 0;
+}
+
+/* ==========================================
+   CHART 12 — DATA NOTE
+========================================== */
+
+.chart12-data-note {
+    padding: 20px 24px;
+    background: #F3F1EA;
+    border: 1px solid #E5DDD0;
+    border-left: 4px solid #5C6861;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.chart12-data-note span {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: #5C6861;
+}
+
+.chart12-data-note p {
+    margin: 0 0 12px;
+    font-size: 13px;
+    line-height: 1.75;
+    color: #5C6861;
+}
+
+.chart12-data-note p:last-child {
+    margin-bottom: 0;
+}
+
+.chart12-data-note strong {
+    font-weight: 700;
+    color: #344B43;
+}
+/* CHART 13 — DROPDOWN POSITION */
+
+#chart13 .vega-bindings {
+    margin-bottom: 20px;
+}
+
+#chart13 .vega-embed > .vega-bindings {
+    order: -1;
+}
+/* ==========================================
+   CHART 13 — NSW GOVERNMENT SCHOOL MAP
+========================================== */
+
+.chart13-card {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   MAIN TWO-COLUMN LAYOUT
+========================================== */
+
+.chart13-layout {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 2fr)
+        minmax(300px, 0.9fr);
+    gap: 24px;
+    align-items: start;
+    margin-top: 26px;
+}
+
+/* ==========================================
+   LEFT COLUMN
+========================================== */
+
+.chart13-left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    min-width: 0;
+}
+
+/* ==========================================
+   MAP VISUALISATION
+========================================== */
+
+.chart13-visualisation {
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    box-sizing: border-box;
+}
+
+#chart13 {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Vega container */
+
+#chart13 .vega-embed {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: max-content;
+    max-width: none;
+}
+
+/* ==========================================
+   SCHOOL TYPE DROPDOWN
+========================================== */
+
+/*
+   Vega-Embed normally inserts the dropdown
+   after the SVG. Flex ordering moves it above.
+*/
+
+#chart13 .vega-bindings {
+    order: -1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 20px;
+    padding: 0;
+    color: #5C6861;
+    font-size: 13px;
+}
+
+/* Dropdown label */
+
+#chart13 .vega-bindings label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #5C6861;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Dropdown selection */
+
+#chart13 .vega-bindings select {
+    min-width: 190px;
+    padding: 8px 12px;
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-radius: 6px;
+    color: #5C6861;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+#chart13 .vega-bindings select:focus {
+    outline: 2px solid #0072B2;
+    outline-offset: 2px;
+}
+
+/* ==========================================
+   DATA NOTE
+========================================== */
+
+.chart13-data-note {
+    padding: 20px 24px;
+    background: #F3F1EA;
+    border: 1px solid #E5DDD0;
+    border-left: 4px solid #5C6861;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.chart13-data-note span {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: #5C6861;
+}
+
+.chart13-data-note p {
+    margin: 0 0 12px;
+    font-size: 13px;
+    line-height: 1.75;
+    color: #5C6861;
+}
+
+.chart13-data-note p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================
+   RIGHT — KEY INSIGHTS
+========================================== */
+
+.chart13-side-insights {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    background: #F3F1EA;
+    border: 1px solid #E5DDD0;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.chart13-side-insights h4 {
+    margin: 0 0 4px;
+    font-size: 21px;
+    font-weight: 700;
+    color: #5C6861;
+}
+
+/* ==========================================
+   INDIVIDUAL INSIGHT CARDS
+========================================== */
+
+.chart13-side-card {
+    padding: 14px 16px;
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-left: 4px solid #5C6861;
+    border-radius: 8px;
+}
+
+.chart13-side-card span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #5C6861;
+}
+
+.chart13-side-card h5 {
+    margin: 0 0 6px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #5C6861;
+}
+
+.chart13-side-card p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #5C6861;
+}
+
+/* ==========================================
+   EXPLORE GUIDE
+========================================== */
+
+.chart13-explore-guide {
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid #D8D5CA;
+}
+
+.chart13-explore-guide h5 {
+    margin: 0 0 12px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #5C6861;
+}
+
+.chart13-explore-guide p {
+    margin: 0 0 12px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #5C6861;
+}
+
+.chart13-explore-guide p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================
+   OVERALL TAKEAWAY
+========================================== */
+
+.chart13-summary {
+    margin-top: 8px;
+    padding: 14px 16px;
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-left: 3px solid #0072B2;
+    border-radius: 8px;
+}
+
+.chart13-summary span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #5C6861;
+}
+
+.chart13-summary p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #5C6861;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 1100px) {
+
+    .chart13-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .chart13-side-insights {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .chart13-layout {
+        gap: 18px;
+    }
+
+    .chart13-side-insights {
+        padding: 14px;
+    }
+
+    .chart13-side-card {
+        padding: 12px 14px;
+    }
+
+    .chart13-side-insights h4 {
+        font-size: 19px;
+    }
+
+    #chart13 .vega-bindings label {
+        flex-wrap: wrap;
+    }
+
+    #chart13 .vega-bindings select {
+        min-width: 160px;
+    }
+
+}
+/* ==========================================
+   CHART 14 — SCHOOL CONCENTRATION BY LGA
+========================================== */
+
+.chart14-card {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* MAIN LAYOUT */
+
+.chart14-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(300px, 0.9fr);
+    gap: 24px;
+    align-items: start;
+    margin-top: 26px;
+}
+
+/* LEFT COLUMN */
+
+.chart14-left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    min-width: 0;
+}
+
+/* MAP */
+
+.chart14-visualisation {
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    box-sizing: border-box;
+}
+
+#chart14 {
+    display: block;
+    width: 100%;
+    min-width: 0;
+}
+
+#chart14 .vega-embed {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: max-content;
+    max-width: none;
+}
+
+/* INTERACTIVE FILTERS */
+
+#chart14 .vega-bindings {
+    order: -1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    color: #5C6861;
+    font-size: 13px;
+}
+
+#chart14 .vega-bindings label {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    color: #5C6861;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+#chart14 .vega-bindings select {
+    min-width: 180px;
+    padding: 8px 12px;
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-radius: 6px;
+    color: #5C6861;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+#chart14 .vega-bindings input[type="range"] {
+    width: 150px;
+    accent-color: #0072B2;
+    cursor: pointer;
+}
+
+/* DATA NOTE */
+
+.chart14-data-note {
+    padding: 20px 24px;
+    background: #F3F1EA;
+    border: 1px solid #E5DDD0;
+    border-left: 4px solid #5C6861;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.chart14-data-note span {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: #5C6861;
+}
+
+.chart14-data-note p {
+    margin: 0 0 12px;
+    font-size: 13px;
+    line-height: 1.75;
+    color: #5C6861;
+}
+
+.chart14-data-note p:last-child {
+    margin-bottom: 0;
+}
+
+/* KEY INSIGHTS */
+
+.chart14-side-insights {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    background: #F3F1EA;
+    border: 1px solid #E5DDD0;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.chart14-side-insights h4 {
+    margin: 0 0 4px;
+    font-size: 21px;
+    font-weight: 700;
+    color: #5C6861;
+}
+
+/* INSIGHT CARDS */
+
+.chart14-side-card {
+    padding: 14px 16px;
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-left: 4px solid #5C6861;
+    border-radius: 8px;
+}
+
+.chart14-side-card span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #5C6861;
+}
+
+.chart14-side-card h5 {
+    margin: 0 0 6px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #5C6861;
+}
+
+.chart14-side-card p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #5C6861;
+}
+
+/* EXPLORE GUIDE */
+
+.chart14-explore-guide {
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid #D8D5CA;
+}
+
+.chart14-explore-guide h5 {
+    margin: 0 0 12px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #5C6861;
+}
+
+.chart14-explore-guide p {
+    margin: 0 0 12px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #5C6861;
+}
+
+.chart14-explore-guide p:last-child {
+    margin-bottom: 0;
+}
+
+/* OVERALL TAKEAWAY */
+
+.chart14-summary {
+    margin-top: 8px;
+    padding: 14px 16px;
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-left: 3px solid #0072B2;
+    border-radius: 8px;
+}
+
+.chart14-summary span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #5C6861;
+}
+
+.chart14-summary p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #5C6861;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 1100px) {
+
+    .chart14-layout {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .chart14-layout {
+        gap: 18px;
+    }
+
+    .chart14-side-insights {
+        padding: 14px;
+    }
+
+    .chart14-side-card {
+        padding: 12px 14px;
+    }
+
+    #chart14 .vega-bindings {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+/* ==========================================
+   CHART 15 — NSW LGA CHOROPLETH MAP
+========================================== */
+
+.chart15-card {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   MAIN TWO-COLUMN LAYOUT
+========================================== */
+
+.chart15-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(300px, 0.9fr);
+    gap: 24px;
+    align-items: start;
+    margin-top: 26px;
+}
+
+/* ==========================================
+   LEFT COLUMN
+========================================== */
+
+.chart15-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    min-width: 0;
+}
+
+/* ==========================================
+   MAP CONTAINER
+========================================== */
+
+.chart15-visualisation {
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    box-sizing: border-box;
+}
+
+#chart15 {
+    display: block;
+    width: 100%;
+    min-width: 0;
+}
+
+/* ==========================================
+   VEGA EMBED
+========================================== */
+
+#chart15 .vega-embed {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: max-content;
+    max-width: none;
+}
+
+/* ==========================================
+   INTERACTIVE SLIDER
+========================================== */
+
+#chart15 .vega-bindings {
+    order: -1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 20px;
+    padding: 0;
+    color: #5C6861;
+    font-size: 13px;
+}
+
+#chart15 .vega-bindings label {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #5C6861;
+}
+
+#chart15 .vega-bindings input[type="range"] {
+    width: 180px;
+    accent-color: #0072B2;
+    cursor: pointer;
+}
+
+/* ==========================================
+   DATA NOTE
+========================================== */
+
+.chart15-data-note {
+    padding: 20px 24px;
+    background: #F3F1EA;
+    border: 1px solid #E5DDD0;
+    border-left: 4px solid #5C6861;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.chart15-data-note span {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: #5C6861;
+}
+
+.chart15-data-note p {
+    margin: 0 0 12px;
+    font-size: 13px;
+    line-height: 1.75;
+    color: #5C6861;
+}
+
+.chart15-data-note p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================
+   RIGHT COLUMN — KEY INSIGHTS
+========================================== */
+
+.chart15-side-insights {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    background: #F3F1EA;
+    border: 1px solid #E5DDD0;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.chart15-side-insights h4 {
+    margin: 0 0 4px;
+    font-size: 21px;
+    font-weight: 700;
+    color: #5C6861;
+}
+
+/* ==========================================
+   INDIVIDUAL INSIGHT CARDS
+========================================== */
+
+.chart15-side-card {
+    padding: 14px 16px;
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-left: 4px solid #5C6861;
+    border-radius: 8px;
+}
+
+.chart15-side-card span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #5C6861;
+}
+
+.chart15-side-card h5 {
+    margin: 0 0 6px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #5C6861;
+}
+
+.chart15-side-card p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.65;
+    color: #5C6861;
+}
+
+/* ==========================================
+   EXPLORE THE MAP GUIDE
+========================================== */
+
+.chart15-explore-guide {
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid #D8D5CA;
+}
+
+.chart15-explore-guide h5 {
+    margin: 0 0 12px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #5C6861;
+}
+
+.chart15-explore-guide p {
+    margin: 0 0 12px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #5C6861;
+}
+
+.chart15-explore-guide p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================
+   OVERALL TAKEAWAY
+========================================== */
+
+.chart15-summary {
+    margin-top: 8px;
+    padding: 14px 16px;
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-left: 3px solid #0072B2;
+    border-radius: 8px;
+}
+
+.chart15-summary span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #5C6861;
+}
+
+.chart15-summary p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.65;
+    color: #5C6861;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 1100px) {
+
+    .chart15-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .chart15-side-insights {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .chart15-layout {
+        gap: 18px;
+    }
+
+    .chart15-side-insights {
+        padding: 14px;
+    }
+
+    .chart15-side-card {
+        padding: 12px 14px;
+    }
+
+    .chart15-side-insights h4 {
+        font-size: 19px;
+    }
+
+    #chart15 .vega-bindings {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #chart15 .vega-bindings input[type="range"] {
+        width: 150px;
+    }
+
+}
+/* ========================================
+   FOOTER — DARK GREEN THEME
+======================================== */
+
+.site-footer {
+    background: #263D32;
+    color: #E8E9E2;
+    padding: 75px 6% 25px;
+    border-top: 1px solid #365445;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* MAIN HEADING */
+
+.footer-heading {
+    margin-bottom: 55px;
+}
+
+.footer-heading h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: #F3F1EA;
+    margin: 0 0 12px;
+    line-height: 1.25;
+}
+
+.footer-heading p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #C5D0C5;
+    margin: 0;
+}
+
+/* TWO-COLUMN LAYOUT */
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 90px;
+    align-items: start;
+}
+
+.footer-column {
+    min-width: 0;
+}
+
+.footer-section {
+    margin-bottom: 45px;
+}
+
+.footer-section h3 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #A8C9B3;
+    margin: 0 0 22px;
+}
+
+.footer-section p {
+    font-size: 14px;
+    line-height: 1.85;
+    color: #D7DED5;
+    margin: 0 0 15px;
+}
+
+/* DATA SOURCE ENTRIES */
+
+.footer-source {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
     margin-bottom: 30px;
 }
 
-/* Add breathing room around charts */
-[id^="chart"] {
-    margin-top: 30px;
-    margin-bottom: 40px;
+.footer-source-number {
+    flex-shrink: 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: #A8C9B3;
+    padding-top: 3px;
 }
 
+.footer-source h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #F3F1EA;
+    line-height: 1.5;
+    margin: 0 0 7px;
+}
+
+.footer-source p {
+    font-size: 14px;
+    line-height: 1.75;
+    color: #D7DED5;
+    margin: 0 0 9px;
+}
+
+.footer-source a {
+    display: inline-block;
+    color: #B8DEC3;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+}
+
+.footer-source a:hover {
+    color: #FFFFFF;
+}
+
+.footer-source-pending {
+    display: inline-block;
+    color: #B6C4B7;
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* PROJECT TITLE */
+
+.footer-project-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px !important;
+    font-weight: 600;
+    color: #F3F1EA !important;
+    line-height: 1.45 !important;
+    margin-bottom: 18px !important;
+}
+
+/* METHODOLOGY NOTE */
+
+.footer-note {
+    background: #365445;
+    border-left: 3px solid #A8C9B3;
+    padding: 16px 20px;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px !important;
+    line-height: 1.8 !important;
+    color: #E8E9E2 !important;
+    margin-top: 18px !important;
+}
+
+/* TECHNOLOGY TAGS */
+
+.footer-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 18px;
+}
+
+.footer-tags span {
+    display: inline-block;
+    padding: 7px 12px;
+    background: #365445;
+    border: 1px solid #4B6A57;
+    border-radius: 4px;
+    color: #D7E8D9;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* BOTTOM BAR */
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border-top: 1px solid #4B6A57;
+    padding-top: 22px;
+    margin-top: 25px;
+}
+
+.footer-bottom span {
+    font-size: 12px;
+    color: #B6C4B7;
+    letter-spacing: 0.3px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 900px) {
+
+    .site-footer {
+        padding: 55px 5% 25px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .footer-heading {
+        margin-bottom: 40px;
+    }
+
+    .footer-heading h2 {
+        font-size: 30px;
+    }
+
+    .footer-section {
+        margin-bottom: 35px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .site-footer {
+        padding: 45px 6% 22px;
+    }
+
+    .footer-heading h2 {
+        font-size: 27px;
+    }
+
+    .footer-source {
+        gap: 12px;
+    }
+
+    .footer-project-title {
+        font-size: 20px !important;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+}
+/* CHART 9 — READING NOTE SPACING */
+
+.chart9-card .chart-note {
+    margin-top: 28px;
+    margin-bottom: 0;
+    line-height: 1.7;
+    color: #5C6861;
+    font-size: 14px;
+}
+/* ========================================
+   STANDARDISE KEY FINDING BOXES
+   Match the other Key Insights cards
+======================================== */
+
+.chart-card .insight-box:not(.chart2-insight-box) {
+    background: #F3F1EA;
+    border: 1px solid #E5DDD0;
+    border-left: 4px solid #5C6861;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-top: 24px;
+}
+
+/* Key Finding heading */
+.chart-card .insight-box:not(.chart2-insight-box) > strong {
+    display: block;
+    color: #5C6861;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+/* Key Finding description */
+.chart-card .insight-box:not(.chart2-insight-box) > p {
+    color: #5C6861;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+}
+/* ========================================
+   CHART 2 — MATCH KEY INSIGHTS STYLE
+======================================== */
+
+.chart2-card .chart2-insight-box {
+    background: #FFFFFF;
+    border: 1px solid #E5DDD0;
+    border-top: 4px solid #5C6861;
+    border-radius: 14px;
+    padding: 24px 28px;
+    box-shadow: none;
+}
+
+/* Small heading */
+.chart2-card .chart2-insight-box .insight-label {
+    color: #5C6861;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+/* Main heading */
+.chart2-card .chart2-insight-box h4 {
+    color: #5C6861;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+/* Statistics labels */
+.chart2-card .chart2-insight-box .insight-stat-label {
+    color: #5C6861;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Statistics values */
+.chart2-card .chart2-insight-box .insight-stat-values strong {
+    color: #243B35;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+/* Statistics descriptions */
+.chart2-card .chart2-insight-box .insight-stat-values span {
+    color: #5C6861;
+}
+
+/* Horizontal separators */
+.chart2-card .chart2-insight-box .insight-stat {
+    border-top: 1px solid #E5DDD0;
+}
+
+/* Conclusion */
+.chart2-card .chart2-insight-box .insight-conclusion {
+    color: #5C6861;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* Data note */
+.chart2-card .chart2-insight-box .insight-note {
+    color: #5C6861;
+    font-size: 11px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .chart2-card .chart2-insight-box {
+        padding: 20px;
+    }
+}
+
+/* Add a separator after the final statistics row */
+.chart2-card .chart2-insight-box .insight-stat:last-of-type {
+    border-bottom: 1px solid #E5DDD0;
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+}
+
+/* ========================================
+   CHAPTER 5 — GEOGRAPHICAL DATA CONTEXT
+======================================== */
+
+.geography-context {
+    width: 100%;
+    margin: 0 0 28px;
+    padding: 22px 28px;
+
+    background: #F3F1EA;
+
+    border: 1px solid #E5DDD0;
+    border-left: 4px solid #5C6861;
+    border-radius: 12px;
+
+    box-sizing: border-box;
+}
+
+/* Small heading */
+.geography-context-label {
+    margin-bottom: 10px;
+
+    color: #5C6861;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+/* Description */
+.geography-context p {
+    margin: 0;
+
+    color: #5C6861;
+
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+/* Highlight important information */
+.geography-context p strong {
+    color: #243B35;
+    font-weight: 700;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .geography-context {
+        padding: 18px 20px;
+        margin-bottom: 22px;
+    }
+
+    .geography-context p {
+        font-size: 13px;
+    }
+
+}
+/* ========================================
+   CHART 16 — KEY INSIGHT
+======================================== */
+
+.chart-insight {
+    margin-top: 24px;
+    padding: 20px 24px;
+
+    background-color: #EEF3ED;
+    border-left: 4px solid #467B67;
+    border-radius: 8px;
+}
+
+.chart-insight strong {
+    display: block;
+    margin-bottom: 10px;
+
+    font-size: 15px;
+    font-weight: 700;
+    color: #26352D;
+}
+
+.chart-insight p {
+    margin: 0;
+
+    font-size: 14px;
+    line-height: 1.8;
+    color: #5C6861;
+}
+
+/* ========================================
+   CHART 16 — DATA NOTE
+======================================== */
+
+.chart-note {
+    margin-top: 16px;
+
+    font-size: 12px;
+    line-height: 1.6;
+    color: #5C6861;
+    font-style: italic;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 768px) {
+
+    .chart-insight {
+        padding: 16px 18px;
+        margin-top: 20px;
+    }
+
+    .chart-insight strong {
+        font-size: 14px;
+    }
+
+    .chart-insight p {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .chart-note {
+        font-size: 11px;
+    }
+
+}
+/* ========================================
+   CHART 16 — KEY INSIGHT
+======================================== */
+
+.chart-insight {
+    margin-top: 24px;
+    padding: 20px 24px;
+
+    background-color: #F1EFE9;
+    border: 1px solid #E2D9C9;
+    border-left: 4px solid #5C6861;
+    border-radius: 8px;
+}
+
+.chart-insight strong {
+    display: block;
+    margin-bottom: 14px;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #5C6861;
+}
+
+.chart-insight p {
+    margin: 0;
+
+    font-size: 14px;
+    line-height: 1.7;
+    color: #5C6861;
+}
+
+/* Responsive design */
+
+@media (max-width: 768px) {
+    .chart-insight {
+        padding: 16px 18px;
+    }
+
+    .chart-insight p {
+        font-size: 13px;
+    }
+}
+/* ========================================
+   HERO — SOLID GREEN BACKGROUND
+======================================== */
+
+.hero {
+    background: #26352D;
+    background-image: none;
+    color: #FFFFFF;
+}
+
+.hero h1 {
+    color: #FFFFFF;
+}
+
+.hero p,
+.hero .subtitle {
+    color: #E2EAE4;
+}
+/* ========================================
+   HERO — SOLID GREEN RECTANGLE
+======================================== */
+
+.hero {
+    background: #26352D;
+    background-image: none;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+}
+
+.hero h1,
+.hero h2 {
+    color: #FFFFFF;
+}
+
+.hero p,
+.hero .subtitle {
+    color: #E2EAE4;
+}

@@ -1,7 +1,6 @@
-
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Language Enrolment Trends by Individual Language",
+    "background": null,
     "data": {
         "url": "data/nsw_language_analysis_ready.csv",
         "format": {
@@ -71,19 +70,22 @@
         ],
         "header": {
             "labelFontSize": 13,
-            "labelFontWeight": "bold"
+            "labelFontWeight": "bold",
+            "labelColor": "#5C6861"
         }
     },
     "columns": 3,
-    "spacing": 15,
+    "spacing": 18,
     "spec": {
         "width": 190,
         "height": 160,
         "mark": {
             "type": "line",
-            "point": true,
-            "strokeWidth": 2.5,
-            "color": "#4C78A8"
+            "point": {
+                "filled": true,
+                "size": 35
+            },
+            "strokeWidth": 2.5
         },
         "encoding": {
             "x": {
@@ -93,7 +95,9 @@
                 "sort": "ascending",
                 "axis": {
                     "labelAngle": -45,
-                    "labelFontSize": 9
+                    "labelFontSize": 9,
+                    "labelColor": "#5C6861",
+                    "titleColor": "#5C6861"
                 }
             },
             "y": {
@@ -105,17 +109,44 @@
                 },
                 "axis": {
                     "format": "~s",
-                    "labelFontSize": 10
+                    "labelFontSize": 10,
+                    "labelColor": "#5C6861",
+                    "titleColor": "#5C6861"
+                }
+            },
+            "color": {
+                "field": "language",
+                "type": "nominal",
+                "legend": null,
+                "scale": {
+                    "domain": [
+                        "Japanese",
+                        "French",
+                        "Chinese (Mandarin)",
+                        "Italian",
+                        "Spanish",
+                        "Arabic"
+                    ],
+                    "range": [
+                        "#E69F00",
+                        "#9467BD",
+                        "#0072B2",
+                        "#555555",
+                        "#CC79A7",
+                        "#8C564B"
+                    ]
                 }
             },
             "tooltip": [
                 {
                     "field": "language",
-                    "type": "nominal"
+                    "type": "nominal",
+                    "title": "Language"
                 },
                 {
                     "field": "year",
-                    "type": "ordinal"
+                    "type": "ordinal",
+                    "title": "Year"
                 },
                 {
                     "field": "total_enrolments",
@@ -133,7 +164,12 @@
     },
     "config": {
         "view": {
+            "fill": null,
             "stroke": null
+        },
+        "axis": {
+            "gridColor": "#E5DDD0",
+            "gridOpacity": 0.6
         }
     }
 }

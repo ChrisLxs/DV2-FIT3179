@@ -1,13 +1,26 @@
-
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Government School Concentration by NSW Local Government Area",
-    "width": 750,
-    "height": 580,
+    "background": null,
+    "title": {
+        "text": "Government School Counts by NSW Local Government Area",
+        "subtitle": "Bubble size represents the number of schools in each LGA (2026)",
+        "fontSize": 16,
+        "fontWeight": 600,
+        "color": "#5C6861",
+        "subtitleColor": "#5C6861",
+        "subtitleFontSize": 12,
+        "anchor": "start",
+        "offset": 18
+    },
+    "width": 600,
+    "height": 560,
     "projection": {
         "type": "mercator",
-        "center": [149.0, -33.0],
-        "scale": 1600
+        "center": [
+            147.5,
+            -33.0
+        ],
+        "scale": 2100
     },
     "params": [
         {
@@ -51,8 +64,8 @@
             },
             "mark": {
                 "type": "geoshape",
-                "fill": "#F1F5F9",
-                "stroke": "#94A3B8",
+                "fill": "#F3F1EA",
+                "stroke": "#B8C2BC",
                 "strokeWidth": 0.8
             }
         },
@@ -72,7 +85,10 @@
                     "filter": "school_type_selection === 'All Schools' || datum.Level_of_schooling === school_type_selection"
                 },
                 {
-                    "filter": "isValid(datum.Latitude) && isValid(datum.Longitude) && isValid(datum.LGA)"
+                    "filter": "isValid(datum.Latitude) && isValid(datum.Longitude) && isValid(datum.LGA) && datum.LGA !== ''"
+                },
+                {
+                    "filter": "datum.Latitude >= -38 && datum.Latitude <= -28 && datum.Longitude >= 140 && datum.Longitude <= 154"
                 },
                 {
                     "aggregate": [
@@ -101,10 +117,10 @@
             ],
             "mark": {
                 "type": "circle",
-                "opacity": 0.65,
-                "color": "#2563EB",
+                "opacity": 0.6,
+                "color": "#0072B2",
                 "stroke": "#FFFFFF",
-                "strokeWidth": 1
+                "strokeWidth": 0.8
             },
             "encoding": {
                 "longitude": {
@@ -121,10 +137,19 @@
                     "title": "Number of Schools",
                     "scale": {
                         "type": "sqrt",
-                        "range": [40, 2400]
+                        "range": [
+                            20,
+                            650
+                        ]
                     },
                     "legend": {
-                        "orient": "right"
+                        "orient": "bottom",
+                        "direction": "horizontal",
+                        "titleFontSize": 12,
+                        "labelFontSize": 11,
+                        "titleColor": "#5C6861",
+                        "labelColor": "#5C6861",
+                        "offset": 16
                     }
                 },
                 "tooltip": [
@@ -137,7 +162,7 @@
                         "field": "school_count",
                         "type": "quantitative",
                         "title": "Number of Schools",
-                        "format": ","
+                        "format": ",.0f"
                     }
                 ]
             }
@@ -145,7 +170,14 @@
     ],
     "config": {
         "view": {
+            "fill": null,
             "stroke": null
+        },
+        "legend": {
+            "labelColor": "#5C6861",
+            "titleColor": "#5C6861",
+            "labelFontSize": 11,
+            "titleFontSize": 12
         }
     }
 }

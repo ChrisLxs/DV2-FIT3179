@@ -1,9 +1,16 @@
-
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "NSW Government School Counts by Local Government Area",
-    "width": 750,
-    "height": 650,
+    "background": null,
+    "title": {
+        "text": "Government School Counts Across NSW Local Government Areas",
+        "fontSize": 16,
+        "fontWeight": 600,
+        "color": "#5C6861",
+        "anchor": "start",
+        "offset": 18
+    },
+    "width": 700,
+    "height": 560,
     "data": {
         "url": "data/nsw_lga_school_counts.geojson",
         "format": {
@@ -12,7 +19,10 @@
         }
     },
     "projection": {
-        "type": "mercator"
+        "type": "mercator",
+        "center": [147.0, -33.0],
+        "scale": 2800,
+        "translate": [360, 300]
     },
     "params": [
         {
@@ -37,14 +47,14 @@
             "as": "lga_name"
         },
         {
-            "calculate": "datum.school_count >= minimum_schools",
+            "calculate": "isValid(datum.school_count) && datum.school_count >= minimum_schools",
             "as": "meets_threshold"
         }
     ],
     "mark": {
         "type": "geoshape",
         "stroke": "#FFFFFF",
-        "strokeWidth": 0.5
+        "strokeWidth": 0.8
     },
     "encoding": {
         "color": {
@@ -54,10 +64,26 @@
                 "type": "quantitative",
                 "title": "Number of Schools",
                 "scale": {
-                    "scheme": "blues"
+                    "domainMin": 0,
+                    "range": [
+                        "#EAF3F8",
+                        "#B8D9E9",
+                        "#75B6D5",
+                        "#318DBB",
+                        "#0072B2",
+                        "#004C78"
+                    ]
                 },
                 "legend": {
-                    "orient": "right"
+                    "orient": "bottom",
+                    "direction": "horizontal",
+                    "gradientLength": 260,
+                    "gradientThickness": 12,
+                    "titleFontSize": 12,
+                    "labelFontSize": 11,
+                    "titleColor": "#5C6861",
+                    "labelColor": "#5C6861",
+                    "offset": 16
                 }
             },
             "value": "#E5E7EB"
@@ -72,13 +98,18 @@
                 "field": "school_count",
                 "type": "quantitative",
                 "title": "Government Schools",
-                "format": ","
+                "format": ",.0f"
             }
         ]
     },
     "config": {
         "view": {
+            "fill": null,
             "stroke": null
+        },
+        "legend": {
+            "labelColor": "#5C6861",
+            "titleColor": "#5C6861"
         }
     }
 }

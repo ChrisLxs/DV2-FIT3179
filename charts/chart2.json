@@ -1,23 +1,37 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "background": null,
     "data": {
         "url": "data/nsw_language_analysis_ready.csv",
         "format": {
-            "type": "csv"
+            "type": "csv",
+            "parse": {
+                "year": "number",
+                "enrolments": "number"
+            }
         }
     },
     "transform": [
         {
-            "filter": "toNumber(datum.year) === 2024"
+            "filter": "datum.year === 2024"
         },
         {
-            "calculate": "toNumber(datum.enrolments)",
-            "as": "count"
+            "aggregate": [
+                {
+                    "op": "sum",
+                    "field": "enrolments",
+                    "as": "count"
+                }
+            ],
+            "groupby": [
+                "school_level",
+                "language"
+            ]
         },
         {
             "window": [
                 {
-                    "op": "rank",
+                    "op": "row_number",
                     "as": "rank"
                 }
             ],
@@ -25,6 +39,10 @@
                 {
                     "field": "count",
                     "order": "descending"
+                },
+                {
+                    "field": "language",
+                    "order": "ascending"
                 }
             ],
             "groupby": [
@@ -32,7 +50,7 @@
             ]
         },
         {
-            "calculate": "datum.rank <= 5 ? datum.language : \"Other\"",
+            "calculate": "datum.rank <= 5 ? datum.language : 'Other'",
             "as": "slice"
         },
         {
@@ -70,165 +88,263 @@
             "title": "Primary schools",
             "transform": [
                 {
-                    "filter": "datum.school_level === \"Primary\""
+                    "filter": "datum.school_level === 'Primary'"
                 }
             ],
-            "mark": {
-                "type": "arc",
-                "innerRadius": 76,
-                "outerRadius": 118,
-                "stroke": "#FFFCF7",
-                "strokeWidth": 2
-            },
-            "encoding": {
-                "theta": {
-                    "field": "enrolments",
-                    "type": "quantitative",
-                    "stack": true
-                },
-                "color": {
-                    "field": "slice",
-                    "type": "nominal",
-                    "title": null,
-                    "scale": {
-                        "domain": [
-                            "Chinese (Mandarin)",
-                            "Arabic",
-                            "Italian",
-                            "Vietnamese",
-                            "Dharawal / Tharawal",
-                            "Japanese",
-                            "French",
-                            "Spanish",
-                            "Other"
-                        ],
-                        "range": [
-                            "#356B59",
-                            "#B88751",
-                            "#8B9C6A",
-                            "#A96C5B",
-                            "#799CA5",
-                            "#4B668B",
-                            "#A8829B",
-                            "#C19B65",
-                            "#D8D7CD"
+            "width": 265,
+            "height": 270,
+            "layer": [
+                {
+                    "mark": {
+                        "type": "arc",
+                        "innerRadius": 76,
+                        "outerRadius": 118,
+                        "stroke": "#FFFCF7",
+                        "strokeWidth": 3
+                    },
+                    "encoding": {
+                        "theta": {
+                            "field": "enrolments",
+                            "type": "quantitative",
+                            "stack": true
+                        },
+                        "color": {
+                            "field": "slice",
+                            "type": "nominal",
+                            "title": null,
+                            "scale": {
+                                "domain": [
+                                    "Chinese (Mandarin)",
+                                    "Arabic",
+                                    "Italian",
+                                    "Vietnamese",
+                                    "Dharawal / Tharawal",
+                                    "Japanese",
+                                    "French",
+                                    "Spanish",
+                                    "Other"
+                                ],
+                                "range": [
+                                    "#0072B2",
+                                    "#E69F00",
+                                    "#56B4E9",
+                                    "#CC79A7",
+                                    "#F0E442",
+                                    "#D55E00",
+                                    "#009E73",
+                                    "#555555",
+                                    "#D3D3D3"
+                                ]
+                            }
+                        },
+                        "order": {
+                            "field": "enrolments",
+                            "type": "quantitative",
+                            "sort": "descending"
+                        },
+                        "tooltip": [
+                            {
+                                "field": "school_level",
+                                "type": "nominal",
+                                "title": "School Level"
+                            },
+                            {
+                                "field": "slice",
+                                "type": "nominal",
+                                "title": "Language"
+                            },
+                            {
+                                "field": "enrolments",
+                                "type": "quantitative",
+                                "format": ",",
+                                "title": "Enrolments"
+                            },
+                            {
+                                "field": "share",
+                                "type": "quantitative",
+                                "format": ".1%",
+                                "title": "Share of Language Enrolments"
+                            }
                         ]
                     }
                 },
-                "order": {
-                    "field": "enrolments",
-                    "type": "quantitative",
-                    "sort": "descending"
-                },
-                "tooltip": [
-                    {
-                        "field": "school_level",
-                        "type": "nominal",
-                        "title": "School level"
+                {
+                    "transform": [
+                        {
+                            "filter": "datum.slice === 'Chinese (Mandarin)'"
+                        }
+                    ],
+                    "mark": {
+                        "type": "text",
+                        "fontSize": 27,
+                        "fontWeight": "bold",
+                        "color": "#243B35"
                     },
-                    {
-                        "field": "slice",
-                        "type": "nominal",
-                        "title": "Language"
-                    },
-                    {
-                        "field": "enrolments",
-                        "type": "quantitative",
-                        "format": ",",
-                        "title": "Enrolments"
-                    },
-                    {
-                        "field": "share",
-                        "type": "quantitative",
-                        "format": ".1%",
-                        "title": "Share"
+                    "encoding": {
+                        "x": {
+                            "value": 132.5
+                        },
+                        "y": {
+                            "value": 123
+                        },
+                        "text": {
+                            "field": "share",
+                            "type": "quantitative",
+                            "format": ".1%"
+                        }
                     }
-                ]
-            },
-            "width": 265,
-            "height": 270
+                },
+                {
+                    "mark": {
+                        "type": "text",
+                        "fontSize": 12,
+                        "fontWeight": "bold",
+                        "color": "#315E52"
+                    },
+                    "encoding": {
+                        "x": {
+                            "value": 132.5
+                        },
+                        "y": {
+                            "value": 153
+                        },
+                        "text": {
+                            "value": "Mandarin"
+                        }
+                    }
+                }
+            ]
         },
         {
             "title": "Secondary · Years 7–9",
             "transform": [
                 {
-                    "filter": "datum.school_level === \"Secondary (Years 7\\u20139)\""
+                    "filter": "datum.school_level === 'Secondary (Years 7–9)'"
                 }
             ],
-            "mark": {
-                "type": "arc",
-                "innerRadius": 76,
-                "outerRadius": 118,
-                "stroke": "#FFFCF7",
-                "strokeWidth": 2
-            },
-            "encoding": {
-                "theta": {
-                    "field": "enrolments",
-                    "type": "quantitative",
-                    "stack": true
-                },
-                "color": {
-                    "field": "slice",
-                    "type": "nominal",
-                    "title": null,
-                    "scale": {
-                        "domain": [
-                            "Chinese (Mandarin)",
-                            "Arabic",
-                            "Italian",
-                            "Vietnamese",
-                            "Dharawal / Tharawal",
-                            "Japanese",
-                            "French",
-                            "Spanish",
-                            "Other"
-                        ],
-                        "range": [
-                            "#356B59",
-                            "#B88751",
-                            "#8B9C6A",
-                            "#A96C5B",
-                            "#799CA5",
-                            "#4B668B",
-                            "#A8829B",
-                            "#C19B65",
-                            "#D8D7CD"
+            "width": 265,
+            "height": 270,
+            "layer": [
+                {
+                    "mark": {
+                        "type": "arc",
+                        "innerRadius": 76,
+                        "outerRadius": 118,
+                        "stroke": "#FFFCF7",
+                        "strokeWidth": 3
+                    },
+                    "encoding": {
+                        "theta": {
+                            "field": "enrolments",
+                            "type": "quantitative",
+                            "stack": true
+                        },
+                        "color": {
+                            "field": "slice",
+                            "type": "nominal",
+                            "title": null,
+                            "scale": {
+                                "domain": [
+                                    "Chinese (Mandarin)",
+                                    "Arabic",
+                                    "Italian",
+                                    "Vietnamese",
+                                    "Dharawal / Tharawal",
+                                    "Japanese",
+                                    "French",
+                                    "Spanish",
+                                    "Other"
+                                ],
+                                "range": [
+                                    "#0072B2",
+                                    "#E69F00",
+                                    "#56B4E9",
+                                    "#CC79A7",
+                                    "#F0E442",
+                                    "#D55E00",
+                                    "#009E73",
+                                    "#555555",
+                                    "#D3D3D3"
+                                ]
+                            }
+                        },
+                        "order": {
+                            "field": "enrolments",
+                            "type": "quantitative",
+                            "sort": "descending"
+                        },
+                        "tooltip": [
+                            {
+                                "field": "school_level",
+                                "type": "nominal",
+                                "title": "School Level"
+                            },
+                            {
+                                "field": "slice",
+                                "type": "nominal",
+                                "title": "Language"
+                            },
+                            {
+                                "field": "enrolments",
+                                "type": "quantitative",
+                                "format": ",",
+                                "title": "Enrolments"
+                            },
+                            {
+                                "field": "share",
+                                "type": "quantitative",
+                                "format": ".1%",
+                                "title": "Share of Language Enrolments"
+                            }
                         ]
                     }
                 },
-                "order": {
-                    "field": "enrolments",
-                    "type": "quantitative",
-                    "sort": "descending"
-                },
-                "tooltip": [
-                    {
-                        "field": "school_level",
-                        "type": "nominal",
-                        "title": "School level"
+                {
+                    "transform": [
+                        {
+                            "filter": "datum.slice === 'Japanese'"
+                        }
+                    ],
+                    "mark": {
+                        "type": "text",
+                        "fontSize": 27,
+                        "fontWeight": "bold",
+                        "color": "#243B35"
                     },
-                    {
-                        "field": "slice",
-                        "type": "nominal",
-                        "title": "Language"
-                    },
-                    {
-                        "field": "enrolments",
-                        "type": "quantitative",
-                        "format": ",",
-                        "title": "Enrolments"
-                    },
-                    {
-                        "field": "share",
-                        "type": "quantitative",
-                        "format": ".1%",
-                        "title": "Share"
+                    "encoding": {
+                        "x": {
+                            "value": 132.5
+                        },
+                        "y": {
+                            "value": 123
+                        },
+                        "text": {
+                            "field": "share",
+                            "type": "quantitative",
+                            "format": ".1%"
+                        }
                     }
-                ]
-            },
-            "width": 265,
-            "height": 270
+                },
+                {
+                    "mark": {
+                        "type": "text",
+                        "fontSize": 12,
+                        "fontWeight": "bold",
+                        "color": "#315E52"
+                    },
+                    "encoding": {
+                        "x": {
+                            "value": 132.5
+                        },
+                        "y": {
+                            "value": 153
+                        },
+                        "text": {
+                            "value": "Japanese"
+                        }
+                    }
+                }
+            ]
         }
     ],
     "resolve": {
@@ -237,16 +353,22 @@
         }
     },
     "config": {
-        "background": null,
         "view": {
+            "fill": null,
             "stroke": null
         },
         "legend": {
             "title": null,
             "orient": "bottom",
             "columns": 3,
-            "symbolType": "circle"
+            "symbolType": "circle",
+            "labelFontSize": 11,
+            "labelColor": "#5C6861"
+        },
+        "title": {
+            "fontSize": 16,
+            "color": "#243B35"
         }
     },
-    "spacing": 35
+    "spacing": 20
 }

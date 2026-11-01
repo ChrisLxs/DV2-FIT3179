@@ -1,9 +1,8 @@
-
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Variation in Language Enrolments Across Years (2012–2024)",
-    "width": 750,
-    "height": 400,
+    "background": null,
+    "width": 500,
+    "height": 350,
     "data": {
         "url": "data/nsw_language_analysis_ready.csv",
         "format": {
@@ -62,13 +61,16 @@
     "mark": {
         "type": "boxplot",
         "extent": "min-max",
-        "size": 35
+        "size": 35,
+        "median": {
+            "color": "#243B35"
+        }
     },
     "encoding": {
         "y": {
             "field": "language",
             "type": "nominal",
-            "title": "Language",
+            "title": null,
             "sort": [
                 "Japanese",
                 "French",
@@ -76,7 +78,11 @@
                 "Italian",
                 "Spanish",
                 "Arabic"
-            ]
+            ],
+            "axis": {
+                "labelFontSize": 12,
+                "labelColor": "#5C6861"
+            }
         },
         "x": {
             "field": "annual_enrolments",
@@ -84,16 +90,55 @@
             "title": "Annual Language Enrolments",
             "scale": {
                 "zero": true
+            },
+            "axis": {
+                "format": "~s",
+                "labelFontSize": 11,
+                "labelColor": "#5C6861",
+                "titleColor": "#5C6861",
+                "gridColor": "#E5DDD0"
             }
         },
         "color": {
             "field": "language",
             "type": "nominal",
-            "legend": null
-        }
+            "legend": null,
+            "scale": {
+                "domain": [
+                    "Japanese",
+                    "French",
+                    "Chinese (Mandarin)",
+                    "Italian",
+                    "Spanish",
+                    "Arabic"
+                ],
+                "range": [
+                    "#E69F00",
+                    "#9467BD",
+                    "#0072B2",
+                    "#555555",
+                    "#CC79A7",
+                    "#8C564B"
+                ]
+            }
+        },
+        "tooltip": [
+            {
+                "field": "language",
+                "type": "nominal",
+                "title": "Language"
+            },
+            {
+                "field": "annual_enrolments",
+                "type": "quantitative",
+                "title": "Annual Enrolments",
+                "format": ","
+            }
+        ]
     },
     "config": {
         "view": {
+            "fill": null,
             "stroke": null
         }
     }

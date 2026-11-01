@@ -1,13 +1,26 @@
-
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Geographic Distribution of NSW Government Schools (2026)",
-    "width": 750,
-    "height": 580,
+    "background": null,
+    "title": {
+        "text": "Geographic Distribution of NSW Government Schools (2026)",
+        "subtitle": "School locations by type · Geographic context, not language-specific enrolments",
+        "fontSize": 16,
+        "fontWeight": 600,
+        "color": "#5C6861",
+        "subtitleColor": "#5C6861",
+        "subtitleFontSize": 12,
+        "anchor": "start",
+        "offset": 18
+    },
+    "width": 600,
+    "height": 560,
     "projection": {
         "type": "mercator",
-        "center": [149.0, -33.0],
-        "scale": 1600
+        "center": [
+            147.5,
+            -33.0
+        ],
+        "scale": 2100
     },
     "params": [
         {
@@ -40,8 +53,8 @@
             },
             "mark": {
                 "type": "geoshape",
-                "fill": "#F1F5F9",
-                "stroke": "#94A3B8",
+                "fill": "#F3F1EA",
+                "stroke": "#B8C2BC",
                 "strokeWidth": 0.8
             }
         },
@@ -63,11 +76,14 @@
                 },
                 {
                     "filter": "isValid(datum.Latitude) && isValid(datum.Longitude)"
+                },
+                {
+                    "filter": "datum.Latitude >= -38 && datum.Latitude <= -28 && datum.Longitude >= 140 && datum.Longitude <= 154"
                 }
             ],
             "mark": {
                 "type": "circle",
-                "size": 28,
+                "size": 25,
                 "opacity": 0.6,
                 "stroke": "#FFFFFF",
                 "strokeWidth": 0.3
@@ -96,17 +112,27 @@
                             "Other School"
                         ],
                         "range": [
-                            "#2563EB",
-                            "#F97316",
-                            "#16A34A",
-                            "#9333EA",
-                            "#0891B2",
-                            "#DB2777",
-                            "#64748B"
+                            "#0072B2",
+                            "#D55E00",
+                            "#009E73",
+                            "#CC79A7",
+                            "#56B4E9",
+                            "#E69F00",
+                            "#7A8680"
                         ]
                     },
                     "legend": {
-                        "labelLimit": 230
+                        "title": "School Type",
+                        "orient": "bottom",
+                        "direction": "horizontal",
+                        "columns": 3,
+                        "labelFontSize": 11,
+                        "titleFontSize": 12,
+                        "labelColor": "#5C6861",
+                        "titleColor": "#5C6861",
+                        "labelLimit": 230,
+                        "symbolSize": 100,
+                        "offset": 16
                     }
                 },
                 "tooltip": [
@@ -142,7 +168,18 @@
     ],
     "config": {
         "view": {
+            "fill": null,
             "stroke": null
+        },
+        "axis": {
+            "labelColor": "#5C6861",
+            "titleColor": "#5C6861"
+        },
+        "legend": {
+            "labelColor": "#5C6861",
+            "titleColor": "#5C6861",
+            "labelFontSize": 11,
+            "titleFontSize": 12
         }
     }
 }

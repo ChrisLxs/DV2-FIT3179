@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,291 +17,2324 @@
 
 <body>
 
-    <header>
-        <h1>Language Learning in NSW Schools</h1>
+    <!-- HEADER -->
+    <header class="hero">
 
-        <p>
-            Exploring language enrolment trends in NSW
-            government primary and secondary schools
-            from 2012 to 2024.
-        </p>
+        <div class="hero-content">
+
+            <p class="hero-label">
+                NSW GOVERNMENT SCHOOLS · 2012–2026
+            </p>
+
+            <h1>Beyond English</h1>
+
+            <h2>The Changing Languages of NSW Classrooms</h2>
+
+            <p class="hero-description">
+                Explore how language enrolments have changed
+                across NSW government primary and secondary
+                schools between 2012 and 2024.
+            </p>
+
+        </div>
+
     </header>
 
     <main>
-        <section>
-            <h2>Which Languages Are the Most Popular?</h2>
-            <p>
-                Compare the ten languages with the highest enrolments
-                in NSW government schools in 2024.
-            </p>
 
-            <div id="chart2"></div>
+        <!-- A FIRST LOOK -->
+        <section class="first-look">
+
+            <h2 class="first-look-heading">A FIRST LOOK</h2>
+
+            <div class="first-look-grid">
+
+                <div class="first-look-card">
+                    <h3 class="stat-number">13,625</h3>
+                    <p>Mandarin enrolments in primary schools in 2024.</p>
+                </div>
+
+                <div class="first-look-card">
+                    <h3 class="stat-number">25,305</h3>
+                    <p>Japanese enrolments in secondary schools (Years 7–9) in 2024.</p>
+                </div>
+
+                <div class="first-look-card">
+                    <h3 class="stat-number">−27%</h3>
+                    <p>Change in primary Mandarin enrolments from 2012 to 2024.</p>
+                </div>
+
+            </div>
+
         </section>
 
-        <section>
-            <h2>How Has Language Learning Changed?</h2>
+        <!-- ========================================
+             CHAPTER 1 — THE LANGUAGES WE LEARN
+        ========================================= -->
+
+        <section class="chapter">
+
+            <!-- Chapter introduction -->
+            <div class="chapter-header">
+
+                <p class="chapter-label">
+                    CHAPTER 01 — THE PRESENT
+                </p>
+
+                <h2>One State, Two Different Language Leaders</h2>
+
+                <p class="chapter-description">
+                    Which languages are NSW students learning today?<br>
+                    Explore the most popular languages in 2024 and
+                    discover how enrolments have changed over time.
+                </p>
+
+            </div>
+
+            <!-- CHART 2 -->
+            <div class="chart-card chart2-card">
+
+                <div class="chart2-layout">
+
+                    <!-- LEFT: Heading and donut charts -->
+                    <div class="chart2-left">
+
+                        <h3>Which Languages Lead in 2024?</h3>
+
+                        <p>
+                            Compare language enrolments in NSW<br>
+                            government primary schools and secondary schools (Years 7–9).
+                        </p>
+
+                        <div class="chart2-visualisation">
+                            <div id="chart2"></div>
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT: Key Findings -->
+                    <div class="chart2-insight">
+
+                        <div class="insight-box chart2-insight-box">
+
+                            <span class="insight-label">KEY FINDINGS · 2024</span>
+
+                            <h4>Secondary Enrolments Are More Concentrated</h4>
+
+                            <div class="insight-stat">
+                                <span class="insight-stat-label">Leading language share</span>
+
+                                <div class="insight-stat-values">
+                                    <span>Primary <strong>19.2%</strong></span>
+                                    <span>Secondary <strong>40.6%</strong></span>
+                                </div>
+                            </div>
+
+                            <div class="insight-stat">
+                                <span class="insight-stat-label">Top three languages combined</span>
+
+                                <div class="insight-stat-values">
+                                    <span>Primary <strong>42.9%</strong></span>
+                                    <span>Secondary <strong>70.9%</strong></span>
+                                </div>
+                            </div>
+
+                            <div class="insight-stat">
+                                <span class="insight-stat-label">Languages outside the top five</span>
+
+                                <div class="insight-stat-values">
+                                    <span>Primary <strong>46.6%</strong></span>
+                                    <span>Secondary <strong>16.8%</strong></span>
+                                </div>
+                            </div>
+
+                            <p class="insight-conclusion">
+                                The three leading languages account for a much larger
+                                share of secondary enrolments than primary enrolments,
+                                revealing a more concentrated language distribution.
+                            </p>
+
+                            <p class="insight-note">
+                                Note: Secondary data covers Years 7–9 only.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CHART 1 -->
+        <div class="chart-card chart1-card">
+
+            <h3>How Have NSW Language Enrolments Shifted Since 2012?</h3>
 
             <p>
-                Explore how enrolments in different
-                languages have changed over time.
-            </p>
-
-            <!-- Chart 1 will appear here -->
-            <div id="chart1"></div>
-        </section>
-
-        <section>
-            <h2>Which Languages Have Grown or Declined?</h2>
-            <p>
-                Compare language enrolments between 2012 and 2024.
-                Blue points represent 2012 and orange points
-                represent 2024. Use the dropdown to compare
+                Explore how enrolments in five selected languages changed
+                between 2012 and 2024. Use the dropdowns to compare
                 primary and secondary schools.
             </p>
 
-            <div id="chart4"></div>
+            <!-- Line chart -->
+            <div class="chart1-visualisation">
+                <div id="chart1"></div>
+            </div>
+
+            <!-- Key statistics -->
+            <div class="chart1-stats">
+
+                <div class="chart1-stat">
+                    <span class="chart1-stat-label">PRIMARY SCHOOLS</span>
+                    <strong>5 out of 5</strong>
+                    <p>Selected languages experienced declining enrolments.</p>
+                </div>
+
+                <div class="chart1-stat">
+                    <span class="chart1-stat-label">SECONDARY SCHOOLS</span>
+                    <strong>3 out of 5</strong>
+                    <p>Selected languages experienced enrolment growth.</p>
+                </div>
+
+                <div class="chart1-stat">
+                    <span class="chart1-stat-label">LARGEST SECONDARY GROWTH</span>
+                    <strong>+40.9%</strong>
+                    <p>Spanish recorded the largest percentage increase among the five languages.</p>
+                </div>
+
+            </div>
+
+            <!-- Main insight -->
+            <!-- CHART 1 — KEY INSIGHTS -->
+        <div class="chart9-insights">
+
+            <h4 class="chart9-insights-heading">Key Insights</h4>
+
+            <div class="chart9-insights-grid">
+
+                <div class="chart9-insight-card">
+                    <span class="chart9-insight-tag">PRIMARY SCHOOLS</span>
+
+                    <h5>Declining Language Enrolments</h5>
+
+                    <p>
+                        All five selected languages experienced
+                        declining primary-school enrolments
+                        between 2012 and 2024.
+                    </p>
+                </div>
+
+                <div class="chart9-insight-card">
+                    <span class="chart9-insight-tag">SECONDARY SCHOOLS</span>
+
+                    <h5>Different Enrolment Trends</h5>
+
+                    <p>
+                        Japanese, Mandarin and Spanish increased
+                        in secondary schools (Years 7–9),
+                        while French and Italian declined.
+                    </p>
+                </div>
+
+                <div class="chart9-insight-card">
+                    <span class="chart9-insight-tag">LARGEST GROWTH</span>
+
+                    <h5>Spanish Enrolments Rise</h5>
+
+                    <p>
+                        Spanish recorded the largest percentage
+                        increase among the five selected
+                        secondary-school languages, growing
+                        by 40.9% between 2012 and 2024.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
         </section>
 
-        <section>
-            <h2>Which Languages Have Grown or Declined the Most?</h2>
+        <!-- ========================================
+             CHAPTER 2 — THE CHANGING LANDSCAPE
+        ========================================= -->
+
+        <section class="chapter">
+
+            <div class="chapter-header">
+
+                <p class="chapter-label">
+                    CHAPTER 02 — THE SHIFT
+                </p>
+
+                <h2>The Changing Landscape</h2>
+
+                <p class="chapter-description">
+                    Being popular does not always mean a language
+                    is growing. Explore which languages have gained
+                    or lost enrolments and how the overall
+                    language-learning landscape has shifted.
+                </p>
+
+            </div>
+
+            <!-- CHART 4 -->
+            <div class="chart-card chart4-card">
+
+                <h3>Which Languages Gained or Lost Enrolments?</h3>
+
+                <p>
+                    Compare language enrolments between 2012 and 2024.
+                    Each pair of dots represents the two years, while the
+                    connecting line shows the direction and size of change.
+                </p>
+
+                <div class="chart4-visualisation">
+                    <div id="chart4"></div>
+                </div>
+
+                <!-- CHART 4 — KEY INSIGHTS -->
+                <div class="chart9-insights">
+
+                    <h4 class="chart9-insights-heading">Key Insights</h4>
+
+                    <div class="chart9-insights-grid">
+
+                        <div class="chart9-insight-card">
+                            <span class="chart9-insight-tag">ABSOLUTE CHANGE</span>
+
+                            <h5>Student Numbers Matter</h5>
+
+                            <p>
+                                Absolute change measures the difference
+                                in student enrolments between 2012
+                                and 2024, rather than the percentage
+                                change relative to the starting value.
+                            </p>
+                        </div>
+
+                        <div class="chart9-insight-card">
+                            <span class="chart9-insight-tag">DECLINING LANGUAGES</span>
+
+                            <h5>Falling Enrolments</h5>
+
+                            <p>
+                                Some established languages experienced
+                                substantial reductions in student
+                                enrolments over the study period.
+                            </p>
+                        </div>
+
+                        <div class="chart9-insight-card">
+                            <span class="chart9-insight-tag">INTERPRETATION</span>
+
+                            <h5>Compare Both Measures</h5>
+
+                            <p>
+                                A language can experience a large
+                                percentage increase while gaining
+                                relatively few students. Absolute
+                                changes help reveal the scale
+                                of enrolment shifts.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            
+            <!-- CHART 9 -->
+            <div class="chart-card chart9-card">
+
+                <h3>Which Languages Experienced the Greatest Percentage Change?</h3>
+
+                <p>
+                    Explore the five highest and five lowest percentage changes
+                    in language enrolments between 2012 and 2024.
+                    Switch between primary and secondary schools to compare
+                    how language enrolments have changed over time.
+                </p>
+
+                <div class="chart9-visualisation">
+                    <div id="chart9"></div>
+                </div>
+
+                <div class="insight-box chart9-insight">
+
+                    <strong>KEY FINDING — RELATIVE GROWTH</strong>
+
+                    <p>
+                        Percentage change reveals how quickly language enrolments
+                        increased or decreased relative to their 2012 levels.
+                        Languages with fewer initial enrolments may experience
+                        exceptionally large percentage increases, even when
+                        their absolute enrolment gains are relatively small.
+                        Hover over the bars to compare percentage changes
+                        with actual enrolment numbers.
+                    </p>
+
+                </div>
+
+                <p class="chart-note">
+                    <strong>Reading note:</strong>
+                    Percentage changes are calculated using 2012 enrolments
+                    as the baseline. Only languages with valid enrolment data
+                    for both 2012 and 2024 are included.
+                </p>
+
+            </div>
+
+        <!-- Chart 16: International Students vs Language Learning -->
+        <section class="chart-card">
+            <h3>Do International Students and Language Enrolments Follow Similar Trends?</h3>
 
             <p>
-                This diverging bar chart compares the percentage
-                change in language enrolments between 2012 and 2024.
-
-                The chart displays up to five languages with the
-                largest percentage increases and five with the
-                smallest percentage changes.
-
-                Bars extending right indicate growth, while bars
-                extending left indicate decline.
-
-                Use the dropdown to compare primary and secondary
-                school enrolments.
+                Explore how international school enrolments and language
+                subject enrolments in NSW changed between 2012 and 2024.
             </p>
 
-            <div id="chart9"></div>
-        </section>
+            <div id="chart16"></div>
 
-        <section>
-            <h2>How Are Language Enrolments Distributed?</h2>
-            <p>
-                Explore the proportion of language enrolments
-                accounted for by each language in 2024.
-                Hover over a segment to see its enrolment count
-                and percentage share.
+            <p class="chart-note">
+                Both series are indexed to 100 in 2012.
+                Similar trends do not establish a causal relationship.
             </p>
 
-            <div id="chart5"></div>
-        </section>
-
-        <section>
-            <h2>How Has the Composition of Language Learning Changed?</h2>
-            <p>
-                This 100% stacked area chart shows how the
-                proportion of enrolments in selected languages
-                has changed across the available years from
-                2012 to 2024.
-
-                The remaining languages are grouped as Other.
-                Use the school-level dropdown to compare
-                primary and secondary schools.
-            </p>
-
-            <div id="chart6"></div>
-        </section>
-
-        <section>
-            <h2>Do Different Languages Follow Similar Trends?</h2>
+            
+            <div class="chart-insight">
+            <strong>Key Insight</strong>
 
             <p>
-                These small multiple line charts show the enrolment
-                trends of six selected languages from 2012 to 2024.
-
-                Each chart uses its own vertical scale to highlight
-                changes within the language.
-
-                Use the dropdown to compare primary and secondary
-                school enrolments.
+                International school enrolments and language subject enrolments
+                followed noticeably different trends in NSW. International
+                enrolments rose strongly before 2020, declined sharply during
+                2020–2022, and began recovering afterwards. In contrast,
+                language enrolments remained relatively stable before declining
+                moderately in later years. This suggests that changes in
+                international school enrolments do not necessarily correspond
+                with changes in language subject participation.
             </p>
 
-            <div id="chart7"></div>
-        </section>
-
-        <section>
-            <h2>Which Languages Have the Most Stable Enrolments?</h2>
-
-            <p>
-                This box plot compares the distribution of annual
-                enrolment counts for six selected languages across
-                the available years from 2012 to 2024.
-
-                A wider box indicates greater variation in the
-                middle 50% of annual enrolment counts, while
-                a narrower box indicates more consistent values.
-
-                Select a school level to compare patterns.
+            <p class="chart-note">
+                Note: Language enrolment data for 2022 is unavailable.
+                Both datasets are indexed to 100 in 2012.
+                Similar trends do not establish a causal relationship.
             </p>
 
-            <div id="chart8"></div>
+            </div>
         </section>
+                
+            <!-- CHART 5 -->
+            <div class="chart-card">
 
-         <section>
-            <h2>When Were Language Enrolments Above or Below Average?</h2>
+                <h3>How Have Language Popularity Rankings Changed?</h3>
 
-            <p>
-                This heatmap shows how enrolments in six selected
-                languages compare with their own historical averages
-                across the available years from 2012 to 2024.
+                <p>
+                    Explore how language popularity rankings have changed from 2012 to 2024.
+                    Identify languages that consistently dominate, rise or fall in ranking,
+                    and enter or leave the top 10. Switch between primary and secondary
+                    schools to compare their language preferences.
+                </p>
 
-                Red cells indicate enrolments below the language's
-                historical average, while blue cells indicate
-                enrolments above average.
+                <div id="chart5"></div>
 
-                Darker colours represent larger differences.
+            <!-- Chart 5: Key Insights -->
+            <div class="chart5-insights">
 
-                Use the dropdown to compare primary and secondary
-                school enrolments.
-            </p>
+                <h4 class="chart5-insights-heading">Key Insights</h4>
 
-            <div id="chart11"></div>
-        </section>
+                <div class="chart5-insights-grid">
 
-        <section>
-            <h2>Does Initial Language Popularity Relate to Enrolment Growth?</h2>
+                    <div class="chart5-insight-card">
+                        <span class="chart5-insight-tag">CONSISTENT LEADERS</span>
+                        <h5>Different Languages Dominate Each School Level</h5>
+                        <p>
+                            Chinese (Mandarin) consistently ranked first in primary
+                            schools from 2012 to 2024, while Japanese and French
+                            maintained the top two positions in secondary schools.
+                        </p>
+                    </div>
 
-            <p>
-                This scatter plot examines the relationship between
-                language enrolments in 2012 and percentage growth
-                or decline by 2024.
+                    <div class="chart5-insight-card">
+                        <span class="chart5-insight-tag">PRIMARY SCHOOLS</span>
+                        <h5>Arabic Overtakes Italian</h5>
+                        <p>
+                            Arabic rose from third to second place in 2020,
+                            overtaking Italian, which fell to third place.
+                            Both languages maintained their new rankings
+                            through 2024.
+                        </p>
+                    </div>
 
-                Each point represents one language. Points above
-                the zero line indicate growth, while points below
-                the line indicate decline.
+                    <div class="chart5-insight-card">
+                        <span class="chart5-insight-tag">SECONDARY SCHOOLS</span>
+                        <h5>Spanish Rises as Indonesian Declines</h5>
+                        <p>
+                            Spanish climbed from seventh to fifth place
+                            between 2012 and 2024, while Indonesian
+                            declined from fifth to eighth place.
+                        </p>
+                    </div>
 
-                Use the school-level dropdown to compare
-                primary and secondary schools.
-            </p>
+                </div>
 
-            <div id="chart10"></div>
-        </section>
+                <p class="chart5-note">
+                    <strong>How to read:</strong>
+                    Rank 1 represents the language with the highest enrolment
+                    total in each year. Lines appear or disappear when languages
+                    enter or leave the top 10. Ranking changes indicate relative
+                    popularity and do not necessarily reflect changes in enrolment
+                    numbers.
 
-        <section>
-            <h2>How Do Primary and Secondary Schools Compare?</h2>
-            <p>
-                Compare enrolments in five selected languages
-                between NSW government primary schools and
-                secondary schools (Years 7–9) in 2024.
-            </p>
+                    <br><br>
 
-            <div id="chart3"></div>
-        </section>
+                    <strong>Data Note:</strong>
+                    Data for 2022 is unavailable; rankings are shown for the
+                    years with available observations.
+                </p>
+
+            </div>   
+
+            </div>
+
+            <!-- CHART 6 -->
+            <div class="chart-card">
+
+                <h3>How Have Language Enrolment Shares Changed?</h3>
+
+                <p>
+                    Explore how the proportion of language enrolments 
+                    in NSW schools has evolved between 2012 and 2024. <br>
+                    Compare five major languages and switch between primary and secondary schools 
+                    to examine changes in their relative shares.
+                </p>
+
+                <div id="chart6"></div>
+
+            <!-- Chart 6: Key Insights -->
+            <div class="chart6-insights">
+
+                <h4 class="chart6-insights-heading">
+                    Key Insights
+                </h4>
+
+                <div class="chart6-insights-grid">
+
+                    <div class="chart6-insight-card">
+                        <span class="chart6-insight-tag">
+                            LANGUAGE PREFERENCES
+                        </span>
+
+                        <h5>
+                            Different Languages Dominate
+                        </h5>
+
+                        <p>
+                            Chinese (Mandarin) leads the five
+                            selected languages in Primary schools,
+                            while Japanese dominates Secondary
+                            enrolments, accounting for approximately
+                            40% in 2024.
+                        </p>
+                    </div>
+
+                    <div class="chart6-insight-card">
+                        <span class="chart6-insight-tag">
+                            PRIMARY SCHOOLS
+                        </span>
+
+                        <h5>
+                            Growing Share of Other Languages
+                        </h5>
+
+                        <p>
+                            The combined share of languages outside
+                            the five selected categories increased
+                            from approximately 42% in 2012 to 61%
+                            in 2024.
+                        </p>
+                    </div>
+
+                    <div class="chart6-insight-card">
+                        <span class="chart6-insight-tag">
+                            SECONDARY SCHOOLS
+                        </span>
+
+                        <h5>
+                            Stable Language Composition
+                        </h5>
+
+                        <p>
+                            Secondary language enrolment shares
+                            remained relatively stable, with
+                            Japanese and French consistently
+                            accounting for substantial proportions.
+                        </p>
+                    </div>
+
+                </div>
+
+                <p class="chart6-note">
+                    <strong>How to read:</strong>
+                    Each coloured area represents a language's
+                    share of total enrolments. All areas sum
+                    to 100% in each year.
+
+                    <br><br>
+
+                    <strong>Data Note:</strong>
+                    Other includes all languages except
+                    Japanese, French, Chinese (Mandarin),
+                    Italian and Spanish.
+                </p>
+
+            </div>
+        </div> 
         
-        <section>
-            <h2>Which Languages Have the Largest Primary–Secondary Enrolment Gaps?</h2>
+            <!-- TRANSITION TO CHAPTER 3 -->
+            <div class="chapter-transition">
 
-            <p>
-                This lollipop chart compares primary and secondary
-                language enrolments in 2024.
+                <p>
+                    Comparing 2012 and 2024 reveals where
+                    languages started and ended. But what
+                    happened in the years between?
+                </p>
 
-                The horizontal position represents the difference
-                between primary and secondary enrolment counts.
+                <span>
+                    COMING NEXT — BENEATH THE TRENDS ↓
+                </span>
 
-                Green indicates more primary enrolments, while
-                orange indicates more secondary enrolments.
+            </div>
 
-                The chart displays the 12 languages with the
-                largest absolute enrolment gaps.
-            </p>
-
-            <div id="chart12"></div>
         </section>
 
-        <section>
-            <h2>Where Are NSW Government Schools Located?</h2>
+        <!-- ========================================
+             CHAPTER 3 — BENEATH THE TRENDS
+        ========================================= -->
 
-            <p>
-                This interactive symbol map displays the geographic
-                locations of NSW government schools using the
-                October 2026 school location dataset.
+        <section class="chapter">
 
-                Each circle represents one school, and colours
-                distinguish different school types.
+            <!-- Chapter introduction -->
+            <div class="chapter-header">
 
-                Use the dropdown to filter schools by type.
-                Hover over a circle to view the school name,
-                location and latest reported enrolment.
-            </p>
+                <p class="chapter-label">
+                    CHAPTER 03 — THE HIDDEN PATTERNS
+                </p>
 
-            <div id="chart13"></div>
+                <h2>Beneath the Trends</h2>
 
-            <p>
-                Data source: NSW Department of Education,
-                NSW Public Schools Master Dataset (2026).
-                This map provides geographic context and does
-                not represent language-specific enrolments.
-            </p>
+                <p class="chapter-description">
+                    Comparing 2012 and 2024 reveals where languages
+                    started and ended, but not what happened in between.
+                    Explore the different enrolment patterns, variations
+                    and unusual years hidden within these trends.
+                </p>
+
+            </div>
+
+            <!-- CHART 7 -->
+            <div class="chart-card">
+
+                <h3>
+                    How Have Individual Language Enrolments Changed?
+                </h3>
+
+                <p>
+                    Explore enrolment trends for six selected
+                    languages in NSW schools from 2012 to 2024.
+                    Switch between Primary and Secondary schools
+                    to examine how each language has changed
+                    over time.
+                </p>
+
+                <div id="chart7"></div>
+
+                <!-- Chart 7: Key Insights -->
+                <div class="chart7-insights">
+
+                    <h4 class="chart7-insights-heading">
+                        Key Insights
+                    </h4>
+
+                    <div class="chart7-insights-grid">
+
+                        <div class="chart7-insight-card">
+
+                            <span class="chart7-insight-tag">
+                                SCHOOL LEVEL DIFFERENCES
+                            </span>
+
+                            <h5>
+                                Contrasting Japanese Trends
+                            </h5>
+
+                            <p>
+                                Japanese enrolments remained
+                                relatively strong in Secondary
+                                schools but declined sharply
+                                in Primary schools after 2021.
+                            </p>
+
+                        </div>
+
+                        <div class="chart7-insight-card">
+
+                            <span class="chart7-insight-tag">
+                                PRIMARY SCHOOLS
+                            </span>
+
+                            <h5>
+                                Widespread Enrolment Declines
+                            </h5>
+
+                            <p>
+                                French, Italian and Chinese
+                                (Mandarin) all recorded lower
+                                Primary enrolments in 2024
+                                compared with 2012.
+                            </p>
+
+                        </div>
+
+                        <div class="chart7-insight-card">
+
+                            <span class="chart7-insight-tag">
+                                SECONDARY SCHOOLS
+                            </span>
+
+                            <h5>
+                                Spanish Enrolments Increase
+                            </h5>
+
+                            <p>
+                                Spanish enrolments increased
+                                from approximately 2,600 in
+                                2012 to 3,700 in 2024,
+                                despite yearly fluctuations.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <p class="chart7-note">
+
+                        <strong>How to read:</strong>
+                        Each panel shows enrolment changes
+                        for one language over time.
+                        Switch school levels to compare
+                        Primary and Secondary trends.
+
+                        <br><br>
+
+                        <strong>Data Note:</strong>
+                        Each panel uses an independent
+                        vertical scale. Compare numerical
+                        values rather than line heights
+                        when comparing languages.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- CHART 8 -->
+            <div class="chart-card">
+
+                <h3>
+                    Which Languages Have the Most Variable Enrolments?
+                </h3>
+
+                <p>
+                    Compare the distribution of annual
+                    enrolments across six selected languages
+                    in NSW schools from 2012 to 2024.
+                    Switch between Primary and Secondary
+                    schools to examine differences in
+                    enrolment levels and variation.
+                </p>
+
+                <div class="chart8-layout">
+
+                <div id="chart8"></div>
+
+                <div class="chart8-side-insights">
+
+                    <h4>Key Insights</h4>
+
+                    <div class="chart8-side-card">
+                        <span>PRIMARY SCHOOLS</span>
+
+                        <h5>Italian Shows High Variation</h5>
+
+                        <p>
+                            Italian has one of the widest
+                            enrolment distributions,
+                            ranging from approximately
+                            7,000 to 14,500 students.
+                        </p>
+                    </div>
+
+                    <div class="chart8-side-card">
+                        <span>SECONDARY SCHOOLS</span>
+
+                        <h5>Japanese Has the Highest Median</h5>
+
+                        <p>
+                            Japanese records the highest
+                            median annual enrolment,
+                            at approximately 25,000
+                            students.
+                        </p>
+                    </div>
+
+                    <div class="chart8-side-card">
+                        <span>SCHOOL LEVEL DIFFERENCES</span>
+
+                        <h5>Different Languages Lead</h5>
+
+                        <p>
+                            Chinese (Mandarin) has the
+                            highest typical enrolments
+                            in Primary schools, while
+                            Japanese leads Secondary.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+            </div>
+
+            <!-- CHART 11 -->
+            <div class="chart-card">
+
+                <h3>When Were Enrolments Above or Below Average?</h3>
+
+                <p>
+                    This heatmap compares annual enrolments with
+                    each language's historical average. Blue
+                    indicates above-average enrolments, while
+                    red indicates below-average enrolments.
+                </p>
+
+                <div id="chart11"></div>
+
+                <!-- CHART 11: KEY INSIGHTS -->
+                <div class="chart10-insights">
+
+                    <h4 class="chart10-insights-heading">
+                        Key Insights
+                    </h4>
+
+                    <div class="chart10-insights-grid">
+
+                        <div class="chart10-insight-card">
+
+                            <span class="chart10-insight-tag">
+                                SECONDARY SCHOOLS
+                            </span>
+
+                            <h5>
+                                Spanish Enrolments Rise
+                            </h5>
+
+                            <p>
+                                Spanish shifted from below-average
+                                enrolments in earlier years to
+                                strongly above-average levels
+                                during 2021–2024, with the
+                                strongest result in 2023.
+                            </p>
+
+                        </div>
+
+                        <div class="chart10-insight-card">
+
+                            <span class="chart10-insight-tag">
+                                PRIMARY SCHOOLS
+                            </span>
+
+                            <h5>
+                                Japanese Enrolments Decline
+                            </h5>
+
+                            <p>
+                                Japanese enrolments were above
+                                their historical average during
+                                2019–2021 but fell substantially
+                                below average in 2023–2024.
+                            </p>
+
+                        </div>
+
+                        <div class="chart10-insight-card">
+
+                            <span class="chart10-insight-tag">
+                                SCHOOL LEVEL DIFFERENCES
+                            </span>
+
+                            <h5>
+                                Contrasting Arabic Patterns
+                            </h5>
+
+                            <p>
+                                Secondary Arabic enrolments
+                                declined sharply relative to
+                                their historical average after
+                                2020, while Primary Arabic
+                                remained comparatively stable.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <p class="chart10-note">
+
+                        <strong>How to read:</strong>
+                        Each cell represents a language's
+                        annual enrolments relative to its
+                        historical average.
+
+                        Red indicates above-average
+                        enrolments, blue indicates
+                        below-average enrolments, and
+                        neutral colours indicate values
+                        close to the average.
+
+                        <br><br>
+
+                        <strong>Data Note:</strong>
+                        Percentage differences are calculated
+                        relative to each language's average
+                        enrolments within the selected
+                        school level across available years.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+           <!-- ========================================
+                CHART 10 — POPULARITY VS GROWTH
+            ========================================= -->
+
+            <div class="chart-card chart10-card">
+
+                <h3>Does Popularity Predict Growth?</h3>
+
+                <p>
+                    Explore the relationship between initial
+                    language enrolments in 2012 and percentage
+                    changes by 2024.
+
+                    The scatter plot reveals general patterns,
+                    while the bar chart highlights languages
+                    with exceptional percentage growth.
+
+                    Switch between Primary and Secondary
+                    schools to compare their trends.
+                </p>
+
+                <!-- CHART 10 MAIN LAYOUT -->
+                <div class="chart10-layout">
+
+                    <!-- LEFT: Two charts stacked vertically -->
+                    <div class="chart10-visualisation">
+
+                        <div id="chart10"></div>
+
+                    </div>
+
+                    <!-- RIGHT: KEY INSIGHTS -->
+                    <div class="chart10-side-insights">
+
+                        <h4>Key Insights</h4>
+
+                        <!-- INSIGHT 1 -->
+                        <div class="chart10-side-card">
+
+                            <span>PRIMARY SCHOOLS</span>
+
+                            <h5>Established Languages Declined</h5>
+
+                            <p>
+                                Mandarin, Italian, French and Japanese
+                                experienced declining enrolments.
+                            </p>
+
+                        </div>
+
+                        <!-- INSIGHT 2 -->
+                        <div class="chart10-side-card">
+
+                            <span>SECONDARY SCHOOLS</span>
+
+                            <h5>
+                                Popularity Does Not Guarantee Growth
+                            </h5>
+
+                            <p>
+                                Japanese grew, while French and Italian
+                                declined between 2012 and 2024.
+                            </p>
+
+                        </div>
+
+                        <!-- INSIGHT 3 -->
+                        <div class="chart10-side-card">
+
+                            <span>GROWTH PATTERNS</span>
+
+                            <h5>Small Languages, Large Growth</h5>
+
+                            <p>
+                                Some languages with low initial enrolments
+                                experienced exceptional percentage growth.
+                            </p>
+
+                        </div>
+
+                        <!-- ========================================
+                            GROWTH COMPARISON SUMMARY
+                        ========================================= -->
+
+                        <div class="chart10-growth-summary">
+
+                            <h5>Growth Comparison</h5>
+
+                            <!-- HIGH INITIAL ENROLMENTS -->
+                            <div class="chart10-growth-item">
+
+                                <span class="chart10-growth-label">
+                                    HIGH INITIAL ENROLMENTS
+                                </span>
+
+                                <p>
+                                    Several established languages
+                                    experienced enrolment declines.
+                                </p>
+
+                            </div>
+
+                            <!-- LOW INITIAL ENROLMENTS -->
+                            <div class="chart10-growth-item">
+
+                                <span class="chart10-growth-label">
+                                    LOW INITIAL ENROLMENTS
+                                </span>
+
+                                <p>
+                                    Some smaller languages recorded
+                                    exceptional percentage growth.
+                                </p>
+
+                            </div>
+
+                            <!-- OVERALL TAKEAWAY -->
+                            <div class="chart10-growth-conclusion">
+
+                                <span class="chart10-growth-label">
+                                    OVERALL TAKEAWAY
+                                </span>
+
+                                <p>
+                                    Initial popularity alone does not
+                                    consistently predict future growth.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- END KEY INSIGHTS -->
+
+                </div>
+                <!-- END CHART 10 LAYOUT -->
+
+            </div>
+            <!-- END CHART 10 -->
+        
+            <!-- TRANSITION TO CHAPTER 4 -->
+            <div class="chapter-transition">
+
+                <p>
+                    Language enrolments follow different paths
+                    over time. But do primary and secondary
+                    schools share the same language preferences?
+                </p>
+
+                <span>
+                    COMING NEXT — TWO DIFFERENT CLASSROOMS ↓
+                </span>
+
+            </div>
+
         </section>
 
-        <section>
-            <h2>Which NSW Areas Have the Most Government Schools?</h2>
+        <!-- ========================================
+             CHAPTER 4 — TWO DIFFERENT CLASSROOMS
+        ========================================= -->
 
-            <p>
-                This proportional symbol map compares the number
-                of NSW government schools across local government
-                areas (LGAs).
+        <section class="chapter">
 
-                Larger circles represent LGAs with more schools.
-                Each circle is positioned at the average location
-                of schools within that LGA.
+            <!-- Chapter introduction -->
+            <div class="chapter-header">
 
-                Use the school-type dropdown to explore different
-                types of schools, and adjust the minimum-school
-                slider to focus on areas with larger school counts.
-            </p>
+                <p class="chapter-label">
+                    CHAPTER 04 — THE DIVIDE
+                </p>
 
-            <div id="chart14"></div>
+                <h2>Two Different Classrooms</h2>
 
-            <p>
-                Data source: NSW Department of Education,
-                NSW Public Schools Master Dataset (2026).
+                <p class="chapter-description">
+                    Language learning does not look the same
+                    across every school level. Explore how
+                    language enrolments differ between NSW
+                    government primary and secondary schools,
+                    and discover which languages stand out
+                    in each learning environment.
+                </p>
 
-                Circle sizes represent school counts, not
-                language enrolments or population-adjusted density.
-            </p>
+            </div>
+
+            <!-- CHART 3 -->
+            <!-- ========================================
+                CHART 11 — PRIMARY VS SECONDARY
+            ========================================= -->
+
+            <div class="chart-card chart11-card">
+
+                <h3>How Do Language Enrolments Differ Across School Levels?</h3>
+
+                <p>
+                    Explore language enrolment patterns across
+                    Primary and Secondary schools in 2024.
+
+                    Compare the enrolment numbers of five major
+                    languages and identify how their distribution
+                    differs between school levels.
+                </p>
+
+                <!-- CHART 11 MAIN LAYOUT -->
+                <div class="chart11-layout">
+
+                    <!-- LEFT: GROUPED BAR CHART -->
+                    <div class="chart11-visualisation">
+
+                        <div id="chart3"></div>
+
+                    </div>
+
+                    <!-- RIGHT: KEY INSIGHTS -->
+                    <div class="chart11-side-insights">
+
+                        <h4>Key Insights</h4>
+
+                        <!-- INSIGHT 1 -->
+                        <div class="chart11-side-card">
+
+                            <span>SECONDARY SCHOOLS</span>
+
+                            <h5>Japanese Dominates Enrolments</h5>
+
+                            <p>
+                                Japanese records approximately 25,300
+                                enrolments, making it the largest
+                                language among the five compared
+                                at Secondary level.
+                            </p>
+
+                        </div>
+
+                        <!-- INSIGHT 2 -->
+                        <div class="chart11-side-card">
+
+                            <span>PRIMARY SCHOOLS</span>
+
+                            <h5>Mandarin Leads Primary Enrolments</h5>
+
+                            <p>
+                                Mandarin has approximately 13,600
+                                enrolments, followed by Italian
+                                with around 8,000.
+                            </p>
+
+                        </div>
+
+                        <!-- INSIGHT 3 -->
+                        <div class="chart11-side-card">
+
+                            <span>SCHOOL-LEVEL DIFFERENCES</span>
+
+                            <h5>Language Patterns Vary</h5>
+
+                            <p>
+                                Japanese and French have substantially
+                                higher Secondary enrolments, while
+                                Mandarin and Italian have higher
+                                Primary enrolments.
+                            </p>
+
+                        </div>
+
+                        <!-- SUMMARY -->
+                        <div class="chart11-summary">
+
+                            <span>OVERALL TAKEAWAY</span>
+
+                            <p>
+                                The distribution of language enrolments
+                                differs considerably between Primary
+                                and Secondary schools.
+                            </p>
+
+                        </div>
+
+                    </div>
+                    <!-- END KEY INSIGHTS -->
+
+                </div>
+                <!-- END CHART 11 LAYOUT -->
+
+                <!-- METHODOLOGICAL NOTE -->
+                <p class="chart11-note">
+                    Note: Values represent total language enrolments
+                    in 2024. Counts are not adjusted for differences
+                    in student population or the number of year levels
+                    covered by each school category.
+                </p>
+
+            </div>
+            <!-- END CHART 11 -->
+             
+            <!-- CHART 12 -->
+            <!-- ========================================
+                CHART 12 — LANGUAGE ENROLMENT GAPS
+            ========================================= -->
+
+            <div class="chart-card chart12-card">
+
+                <h3>Where Are the Largest Language Enrolment Gaps?</h3>
+
+                <p>
+                    Compare the differences in language enrolments
+                    between Primary and Secondary schools in 2024.
+
+                    The diverging dot plot highlights the 12 languages
+                    with the largest absolute enrolment gaps, showing
+                    which school level records more enrolments.
+                </p>
+
+                <!-- MAIN LAYOUT -->
+                <div class="chart12-layout">
+
+                <div class="chart12-left">
+
+                    <!-- DOT PLOT -->
+                    <div class="chart12-visualisation">
+
+                        <div id="chart12"></div>
+
+                    </div>
+
+                    <!-- DATA NOTE -->
+                    <div class="chart12-data-note">
+
+                        <span>DATA NOTE</span>
+
+                        <p>
+                            The enrolment gap is calculated as
+                            <strong>Primary enrolments minus Secondary
+                            (Years 7–9) enrolments</strong>.
+                        </p>
+
+                        <p>
+                            These are absolute differences, not enrolment
+                            rates. Differences in student populations and
+                            year-level coverage should be considered when
+                            interpreting the results.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                    <!-- RIGHT: KEY INSIGHTS -->
+                    <div class="chart12-side-insights">
+
+                        <h4>Key Insights</h4>
+
+                        <!-- INSIGHT 1 -->
+                        <div class="chart12-side-card">
+
+                            <span>SECONDARY SCHOOLS</span>
+
+                            <h5>Japanese Has the Largest Gap</h5>
+
+                            <p>
+                                Japanese records approximately 23,000
+                                more Secondary enrolments than Primary
+                                enrolments, representing the largest
+                                absolute difference among the
+                                languages compared.
+                            </p>
+
+                        </div>
+
+                        <!-- INSIGHT 2 -->
+                        <div class="chart12-side-card">
+
+                            <span>PRIMARY SCHOOLS</span>
+
+                            <h5>Arabic and Mandarin Lead</h5>
+
+                            <p>
+                                Arabic and Chinese (Mandarin) have
+                                the largest positive enrolment gaps,
+                                with approximately 8,500 and 8,000
+                                more Primary enrolments respectively.
+                            </p>
+
+                        </div>
+
+                        <!-- INSIGHT 3 -->
+                        <div class="chart12-side-card">
+
+                            <span>SCHOOL-LEVEL DIFFERENCES</span>
+
+                            <h5>Secondary Gaps Are More Extreme</h5>
+
+                            <p>
+                                Japanese and French show particularly
+                                large Secondary enrolment advantages,
+                                while the largest Primary advantages
+                                are comparatively smaller.
+                            </p>
+
+                        </div>
+
+                        <!-- READING GUIDE -->
+                        <div class="chart12-reading-guide">
+
+                            <h5>Reading the Enrolment Gap</h5>
+
+                            <div class="chart12-guide-item">
+
+                                <span class="chart12-guide-dot primary"></span>
+
+                                <p>
+                                    <strong>Positive values:</strong>
+                                    More Primary enrolments.
+                                </p>
+
+                            </div>
+
+                            <div class="chart12-guide-item">
+
+                                <span class="chart12-guide-dot secondary"></span>
+
+                                <p>
+                                    <strong>Negative values:</strong>
+                                    More Secondary enrolments.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <!-- OVERALL TAKEAWAY -->
+                        <div class="chart12-guide-conclusion">
+
+                            <span>OVERALL TAKEAWAY</span>
+
+                            <p>
+                                Language enrolment differences vary
+                                considerably across school levels,
+                                with Japanese showing the strongest
+                                Secondary advantage and Arabic
+                                the strongest Primary advantage.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- TRANSITION TO CHAPTER 5 -->
+            <div class="chapter-transition">
+
+                <p>
+                    Language enrolments differ across school
+                    levels. But where are NSW government
+                    schools located, and how are they
+                    distributed geographically?
+                </p>
+
+                <span>
+                    COMING NEXT — THE GEOGRAPHY OF EDUCATION ↓
+                </span>
+
+            </div>
+
         </section>
 
-        <section>
-            <h2>How Do Government School Counts Vary Across NSW?</h2>
+        <!-- ========================================
+             CHAPTER 5 — THE GEOGRAPHY OF EDUCATION
+        ========================================= -->
 
-            <p>
-                This choropleth map shows the number of NSW
-                government schools in each Local Government Area.
+        <section class="chapter">
 
-                Darker blue areas represent LGAs containing more
-                government schools, while lighter areas represent
-                fewer schools.
+            <!-- Chapter introduction -->
+            <div class="chapter-header">
 
-                Use the slider to highlight LGAs with at least
-                the selected number of schools.
+                <p class="chapter-label">
+                    CHAPTER 05 — THE GEOGRAPHY
+                </p>
 
-                Hover over an area to view its name and school count.
-            </p>
+                <h2>The Geography of Education</h2>
 
-            <div id="chart15"></div>
+                <p class="chapter-description">
+                    Beyond enrolment trends, the geographical
+                    distribution of schools provides another
+                    perspective on education in New South Wales.
+                    Explore where government schools are located
+                    and how their numbers vary across regions.
+                </p>
 
-            <p>
-                Source: NSW Government school locations and
-                LGA boundaries.
+            </div>
 
-                This map shows school counts, not school density
-                or language-specific enrolments. Two schools
-                with unassigned LGA boundaries are excluded.
-            </p>
+            <!-- CHAPTER 5 — DATA CONTEXT -->
+            <div class="geography-context">
+
+                <div class="geography-context-label">
+                    DATA CONTEXT
+                </div>
+
+                <p>
+                    The following maps use <strong>2026 NSW government school data</strong>
+                    to explore school locations and regional distribution.
+                    Unlike the earlier visualisations, these maps do not
+                    represent language enrolments or language availability.
+                    They provide geographical context for the
+                    <strong>2012–2024 language enrolment analysis.</strong>
+                </p>
+
+            </div>
+
+            <!-- ========================================
+                CHART 13 — NSW GOVERNMENT SCHOOL MAP
+            ========================================= -->
+
+            <div class="chart-card chart13-card">
+
+                <h3>Where Are NSW Government Schools Located?</h3>
+
+                <p>
+                    Explore the locations of individual NSW government
+                    schools across the state. Each point represents
+                    a school in the geographical dataset.
+
+                    Use the School Type filter to examine how
+                    different school categories are distributed.
+                </p>
+
+                <!-- MAIN TWO-COLUMN LAYOUT -->
+                <div class="chart13-layout">
+
+                    <!-- LEFT: INTERACTIVE MAP AND DATA NOTE -->
+                    <div class="chart13-left">
+
+                        <!-- INTERACTIVE MAP -->
+                        <div class="chart13-visualisation">
+
+                            <div id="chart13"></div>
+
+                        </div>
+
+                        <!-- DATA NOTE -->
+                        <div class="chart13-data-note">
+
+                            <span>DATA NOTE</span>
+
+                            <p>
+                                Each point represents a NSW government
+                                school recorded in the 2026 geographical
+                                dataset.
+                            </p>
+
+                            <p>
+                                The map displays school locations and
+                                school types, rather than language
+                                enrolments or language availability
+                                at individual schools.
+                            </p>
+
+                        </div>
+
+                    </div>
+                    <!-- END LEFT COLUMN -->
+
+                    <!-- RIGHT: KEY INSIGHTS -->
+                    <div class="chart13-side-insights">
+
+                        <h4>Key Insights</h4>
+
+                        <!-- INSIGHT 1 -->
+                        <div class="chart13-side-card">
+
+                            <span>COASTAL CONCENTRATION</span>
+
+                            <h5>Schools Cluster Along the Eastern Coast</h5>
+
+                            <p>
+                                School locations are more densely
+                                concentrated along the eastern coastal
+                                corridor, particularly around major
+                                population centres such as Sydney.
+                            </p>
+
+                        </div>
+
+                        <!-- INSIGHT 2 -->
+                        <div class="chart13-side-card">
+
+                            <span>REGIONAL DISTRIBUTION</span>
+
+                            <h5>Inland Schools Are More Dispersed</h5>
+
+                            <p>
+                                Schools across inland NSW appear
+                                more widely spaced, with fewer
+                                visible clusters compared with
+                                metropolitan and coastal areas.
+                            </p>
+
+                        </div>
+
+                        <!-- INSIGHT 3 -->
+                        <div class="chart13-side-card">
+
+                            <span>SCHOOL TYPES</span>
+
+                            <h5>Primary Schools Are Widely Distributed</h5>
+
+                            <p>
+                                Primary schools are visible throughout
+                                NSW, while Secondary and other
+                                specialised school categories show
+                                different geographical patterns.
+                            </p>
+
+                        </div>
+
+                        <!-- EXPLORE THE MAP -->
+                        <div class="chart13-explore-guide">
+
+                            <h5>Explore the Map</h5>
+
+                            <p>
+                                Select a school category using the
+                                dropdown to compare its geographical
+                                distribution across NSW.
+                            </p>
+
+                            <p>
+                                Hover over individual points to view
+                                school names, school types, suburbs,
+                                local government areas and enrolments.
+                            </p>
+
+                        </div>
+
+                        <!-- OVERALL TAKEAWAY -->
+                        <div class="chart13-summary">
+
+                            <span>OVERALL TAKEAWAY</span>
+
+                            <p>
+                                NSW government schools are unevenly
+                                distributed geographically, with
+                                dense coastal clusters and more
+                                dispersed inland locations.
+                            </p>
+
+                        </div>
+
+                    </div>
+                    <!-- END KEY INSIGHTS -->
+
+                </div>
+                <!-- END CHART 13 LAYOUT -->
+
+            </div>
+
+            <!-- END CHART 13 -->
+            <!-- ========================================
+                CHART 14 — SCHOOL CONCENTRATION BY LGA
+            ========================================= -->
+
+            <div class="chart-card chart14-card">
+
+                <h3>Which NSW Local Government Areas Have the Most Schools?</h3>
+
+                <p>
+                    Explore how NSW government schools are distributed
+                    across Local Government Areas (LGAs).
+
+                    Larger bubbles represent LGAs with more schools.
+                    Use the interactive filters to compare school
+                    categories and highlight areas with higher counts.
+                </p>
+
+                <!-- MAIN TWO-COLUMN LAYOUT -->
+                <div class="chart14-layout">
+
+                    <!-- LEFT: INTERACTIVE MAP -->
+                    <div class="chart14-left">
+
+                        <div class="chart14-visualisation">
+
+                            <div id="chart14"></div>
+
+                        </div>
+
+                        <!-- DATA NOTE -->
+                        <div class="chart14-data-note">
+
+                            <span>DATA NOTE</span>
+
+                            <p>
+                                Each bubble represents one Local
+                                Government Area (LGA), with its size
+                                determined by the number of government
+                                schools recorded in the dataset.
+                            </p>
+
+                            <p>
+                                Bubble positions are calculated using
+                                the average latitude and longitude
+                                of schools within each LGA.
+                            </p>
+
+                            <p>
+                                The map displays total school counts,
+                                not schools per resident or per square
+                                kilometre.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT: KEY INSIGHTS -->
+                    <div class="chart14-side-insights">
+
+                        <h4>Key Insights</h4>
+
+                        <!-- INSIGHT 1 -->
+                        <div class="chart14-side-card">
+
+                            <span>LGA CONCENTRATION</span>
+
+                            <h5>School Counts Vary Across LGAs</h5>
+
+                            <p>
+                                Larger bubbles identify Local Government
+                                Areas containing more government schools,
+                                highlighting differences in school counts
+                                across NSW.
+                            </p>
+
+                        </div>
+
+                        <!-- INSIGHT 2 -->
+                        <div class="chart14-side-card">
+
+                            <span>SCHOOL TYPES</span>
+
+                            <h5>Concentration Changes by School Type</h5>
+
+                            <p>
+                                Selecting different school categories
+                                reveals how the number of schools
+                                within each LGA changes depending
+                                on the selected type.
+                            </p>
+
+                        </div>
+
+                        <!-- INSIGHT 3 -->
+                        <div class="chart14-side-card">
+
+                            <span>INTERACTIVE THRESHOLD</span>
+
+                            <h5>Identify LGAs with More Schools</h5>
+
+                            <p>
+                                Increasing the minimum-school threshold
+                                removes LGAs with fewer schools,
+                                allowing areas with higher school counts
+                                to be examined more easily.
+                            </p>
+
+                        </div>
+
+                        <!-- EXPLORE GUIDE -->
+                        <div class="chart14-explore-guide">
+
+                            <h5>Explore the Map</h5>
+
+                            <p>
+                                Use the School Type dropdown to
+                                compare different categories of
+                                government schools.
+                            </p>
+
+                            <p>
+                                Adjust the minimum-school slider
+                                to highlight LGAs meeting your
+                                selected threshold.
+                            </p>
+
+                            <p>
+                                Hover over a bubble to view the
+                                LGA name and its school count.
+                            </p>
+
+                        </div>
+
+                        <!-- OVERALL TAKEAWAY -->
+                        <div class="chart14-summary">
+
+                            <span>OVERALL TAKEAWAY</span>
+
+                            <p>
+                                Government school counts vary
+                                across NSW Local Government Areas.
+                                However, higher school counts
+                                do not necessarily indicate
+                                better educational accessibility.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- END CHART 14 -->
+
+            <!-- ========================================
+                CHART 15 — NSW LGA CHOROPLETH MAP
+            ========================================= -->
+
+            <div class="chart-card chart15-card">
+
+                <h3>How Are Schools Distributed Across NSW?</h3>
+
+                <p>
+                    Explore the geographical distribution of NSW government
+                    schools using a choropleth map. Colour intensity
+                    represents the number of schools within each Local
+                    Government Area (LGA).
+                </p>
+
+                <!-- MAIN TWO-COLUMN LAYOUT -->
+                <div class="chart15-layout">
+
+                    <!-- ========================================
+                        LEFT: INTERACTIVE CHOROPLETH MAP
+                    ========================================= -->
+
+                    <div class="chart15-left">
+
+                        <!-- MAP -->
+                        <div class="chart15-visualisation">
+
+                            <div id="chart15"></div>
+
+                        </div>
+
+                        <!-- DATA NOTE -->
+                        <div class="chart15-data-note">
+
+                            <span>DATA NOTE</span>
+
+                            <p>
+                                Each coloured region represents a NSW
+                                Local Government Area. Darker blue
+                                indicates a higher number of government
+                                schools, while lighter blue indicates
+                                fewer schools.
+                            </p>
+
+                            <p>
+                                Grey areas fall below the selected
+                                minimum-school threshold or have
+                                unavailable school-count data.
+                            </p>
+
+                            <p>
+                                School counts are not adjusted for
+                                population size or geographical area.
+                                Therefore, higher counts do not
+                                necessarily indicate better access
+                                to education.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ========================================
+                        RIGHT: KEY INSIGHTS
+                    ========================================= -->
+
+                    <div class="chart15-side-insights">
+
+                        <h4>Key Insights</h4>
+
+                        <!-- INSIGHT 1 -->
+                        <div class="chart15-side-card">
+
+                            <span>GEOGRAPHICAL VARIATION</span>
+
+                            <h5>School Counts Differ Across NSW</h5>
+
+                            <p>
+                                The choropleth reveals differences
+                                in government school counts across
+                                NSW Local Government Areas.
+
+                                Darker regions represent higher
+                                school counts, while lighter
+                                regions indicate fewer schools.
+                            </p>
+
+                        </div>
+
+                        <!-- INSIGHT 2 -->
+                        <div class="chart15-side-card">
+
+                            <span>METROPOLITAN CONCENTRATION</span>
+
+                            <h5>Higher School Counts Around Sydney</h5>
+
+                            <p>
+                                Several LGAs around Sydney appear
+                                darker than many inland areas,
+                                indicating relatively high
+                                government school counts in
+                                parts of metropolitan NSW.
+                            </p>
+
+                        </div>
+
+                        <!-- INSIGHT 3 -->
+                        <div class="chart15-side-card">
+
+                            <span>REGIONAL COMPARISON</span>
+
+                            <h5>Large LGAs Do Not Necessarily Have More Schools</h5>
+
+                            <p>
+                                Some geographically large inland
+                                LGAs appear relatively light,
+                                demonstrating that geographical
+                                area and the total number of
+                                schools are different measures.
+                            </p>
+
+                        </div>
+
+                        <!-- EXPLORE GUIDE -->
+                        <div class="chart15-explore-guide">
+
+                            <h5>Explore the Map</h5>
+
+                            <p>
+                                Adjust the minimum-school slider
+                                to highlight LGAs containing at
+                                least the selected number of
+                                government schools.
+                            </p>
+
+                            <p>
+                                Hover over individual LGAs to
+                                view their names and government
+                                school counts.
+                            </p>
+
+                        </div>
+
+                        <!-- OVERALL TAKEAWAY -->
+                        <div class="chart15-summary">
+
+                            <span>OVERALL TAKEAWAY</span>
+
+                            <p>
+                                Government school counts vary
+                                geographically across NSW.
+                                Population size, geographical
+                                area and student demand should
+                                also be considered when
+                                evaluating educational access.
+                            </p>
+
+                        </div>
+
+                    </div>
+                    <!-- END KEY INSIGHTS -->
+
+                </div>
+                <!-- END TWO-COLUMN LAYOUT -->
+
+            </div>
+
+            <!-- END CHART 15 -->
+
+            <!-- CHAPTER CONCLUSION -->
+            <div class="chapter-transition">
+
+                <p>
+                    From language preferences to enrolment
+                    trends and school locations, these
+                    visualisations reveal different aspects
+                    of the NSW education landscape.
+                </p>
+
+                <span>
+                    CONTINUE — THE BIGGER PICTURE ↓
+                </span>
+
+            </div>
+
         </section>
 
-    </main>
+        <!-- ========================================
+             CONCLUSION — THE BIGGER PICTURE
+        ========================================= -->
 
+        <section class="conclusion-section">
+
+            <div class="chapter-header">
+
+                <p class="chapter-label">
+                    THE FINAL PICTURE
+                </p>
+
+                <h2>Beyond the Numbers</h2>
+
+                <p class="chapter-description">
+                    Language learning in NSW government schools
+                    is not defined by a single trend. Different
+                    languages lead at different school levels,
+                    and enrolment patterns continue to change
+                    over time.
+                </p>
+
+            </div>
+
+            <!-- KEY TAKEAWAYS -->
+            <div class="conclusion-grid">
+
+                <div class="conclusion-card">
+
+                    <span class="conclusion-number">01</span>
+
+                    <h3>Different Classrooms, Different Leaders</h3>
+
+                    <p>
+                        In 2024, Mandarin recorded the highest
+                        primary-school language enrolments,
+                        while Japanese led secondary-school
+                        enrolments in Years 7–9.
+                    </p>
+
+                </div>
+
+                <div class="conclusion-card">
+
+                    <span class="conclusion-number">02</span>
+
+                    <h3>Popularity Does Not Guarantee Growth</h3>
+
+                    <p>
+                        A language can remain widely studied
+                        while experiencing declining enrolments.
+                        Comparing enrolment counts and percentage
+                        changes provides a more complete
+                        understanding of language-learning trends.
+                    </p>
+
+                </div>
+
+                <div class="conclusion-card">
+
+                    <span class="conclusion-number">03</span>
+
+                    <h3>Geography Adds Another Perspective</h3>
+
+                    <p>
+                        Government schools are distributed
+                        across metropolitan, regional and rural
+                        NSW. Their locations provide useful
+                        geographical context, although they
+                        do not directly measure language-learning
+                        opportunities or participation.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- LIMITATIONS -->
+            <div class="conclusion-details">
+
+                <h3>Understanding the Limitations</h3>
+
+                <p>
+                    The language enrolment data covers 2012–2024,
+                    while the school location data represents 2026.
+                    These datasets describe different aspects of
+                    NSW education and should not be interpreted
+                    as directly linked observations.
+                </p>
+
+                <p>
+                    Primary and secondary enrolment counts may
+                    not be directly comparable because the
+                    student populations and year levels differ.
+                    In particular, the secondary-school analysis
+                    focuses on Years 7–9.
+                </p>
+
+                <p>
+                    Enrolment counts also do not reveal students'
+                    motivations, language proficiency or the
+                    reasons behind changing language preferences.
+                    Similarly, school locations and counts do
+                    not establish which languages are available
+                    at individual schools.
+                </p>
+
+            </div>
+
+            </div>
+
+            <!-- FINAL MESSAGE -->
+            <div class="conclusion-ending">
+
+                <p>
+                    Behind every enrolment number is a changing
+                    picture of the languages being learned
+                    in NSW classrooms.
+                </p>
+
+                <span>
+                    BEYOND ENGLISH · NSW GOVERNMENT SCHOOLS
+                </span>
+
+            </div>
+
+        </section>
+
+        </main>
+
+        <!-- ========================================
+            FOOTER — SOURCES & REFERENCES
+        ======================================== -->
+
+        <footer class="site-footer">
+
+            <div class="footer-container">
+
+                <div class="footer-heading">
+                    <h2>Sources &amp; References</h2>
+                    <p>
+                        Data sources, project information and acknowledgements
+                        for Beyond English.
+                    </p>
+                </div>
+
+                <div class="footer-grid">
+
+                    <!-- LEFT COLUMN -->
+                    <div class="footer-column">
+
+                        <div class="footer-section">
+
+                        <h3>Data Sources</h3>
+
+                        <!-- SOURCE 01 -->
+                        <div class="footer-source">
+
+                            <span class="footer-source-number">01</span>
+
+                            <div>
+                                <h4>NSW Government School Language Enrolments</h4>
+
+                                <p>
+                                    Historical language enrolment data covering
+                                    2012–2024, used to examine language popularity,
+                                    enrolment trends, percentage changes and differences
+                                    between primary and secondary education.
+                                </p>
+
+                                <a
+                                    href="https://www.data.nsw.gov.au/data/dataset/nsw-education-primary-students-in-nsw-government-schools-studying-a-language-other-than-english"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="footer-source-link"
+                                >
+                                    Primary School Language Enrolments ↗
+                                </a>
+
+                                <br>
+
+                                <a
+                                    href="https://www.data.nsw.gov.au/data/dataset/nsw-education-language-participation-for-years-7-9-by-gender-and-school-year"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="footer-source-link"
+                                >
+                                    Secondary School Language Participation ↗
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <!-- SOURCE 02 -->
+                        <div class="footer-source">
+
+                            <span class="footer-source-number">02</span>
+
+                            <div>
+                                <h4>NSW Government School Locations</h4>
+
+                                <p>
+                                    NSW government school location records representing
+                                    2026, used to examine the geographical distribution
+                                    of government schools across New South Wales.
+                                </p>
+
+                                <a
+                                    href="https://www.data.nsw.gov.au/data/en/dataset/nsw-education-nsw-public-schools-master-dataset"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="footer-source-link"
+                                >
+                                    NSW Public Schools Master Dataset ↗
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <!-- SOURCE 03 -->
+                        <div class="footer-source">
+
+                            <span class="footer-source-number">03</span>
+
+                            <div>
+                                <h4>NSW Local Government Area Boundaries</h4>
+
+                                <p>
+                                    Geographical boundary data used to aggregate
+                                    NSW government school counts by Local Government
+                                    Area (LGA) and create the choropleth map showing
+                                    school distribution across NSW.
+                                </p>
+
+                                <a
+                                    href="https://mapprod.environment.nsw.gov.au/arcgis/rest/services/EDP/Administrative_Boundaries/MapServer/1"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="footer-source-link"
+                                >
+                                    NSW Administrative Boundaries — ArcGIS ↗
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <!-- SOURCE 04 -->
+                        <div class="footer-source">
+
+                            <span class="footer-source-number">04</span>
+
+                            <div>
+                                <h4>NSW International Student Enrolments</h4>
+
+                                <p>
+                                    International student enrolment data for the NSW
+                                    Schools sector, covering 2012–2024. Used to compare
+                                    international school enrolment trends with language
+                                    subject enrolments in NSW government schools.
+                                    Both series were indexed to 100 in 2012 to
+                                    compare their relative changes over time.
+                                </p>
+
+                                <a
+                                    href="https://www.education.gov.au/international-education-data-and-research/international-student-monthly-summary-and-data-tables"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="footer-source-link"
+                                >
+                                    Australian Government — International Student Data ↗
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                        <!-- TOOLS -->
+                        <div class="footer-section">
+
+                            <h3>Tools &amp; Technologies</h3>
+
+                            <p>
+                                This interactive visualisation was developed
+                                using Vega-Lite, Vega-Embed, HTML, CSS
+                                and JavaScript.
+                            </p>
+
+                            <div class="footer-tags">
+                                <span>Vega-Lite</span>
+                                <span>Vega-Embed</span>
+                                <span>JavaScript</span>
+                                <span>HTML &amp; CSS</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT COLUMN -->
+                    <div class="footer-column">
+
+                        <!-- ABOUT -->
+                        <div class="footer-section">
+
+                            <h3>About This Project</h3>
+
+                            <p class="footer-project-title">
+                                Beyond English — The Changing Languages
+                                of NSW Classrooms
+                            </p>
+
+                            <p>
+                                Developed for FIT3179 Data Visualisation 2,
+                                Monash University, Semester 2, 2026.
+                            </p>
+
+                            <p>
+                                This project explores how language enrolments
+                                in NSW government schools have changed
+                                between 2012 and 2024, and how the
+                                geographical distribution of schools
+                                provides additional educational context.
+                            </p>
+
+                        </div>
+
+                        <!-- METHODOLOGY -->
+                        <div class="footer-section">
+
+                            <h3>Methodology &amp; Data Notes</h3>
+
+                            <p>
+                                Language enrolment data was analysed using
+                                enrolment totals, percentage changes,
+                                relative shares, historical averages
+                                and language rankings.
+                            </p>
+
+                            <p>
+                                School location records were used to
+                                visualise school distributions and
+                                aggregate school counts by Local
+                                Government Area.
+                            </p>
+
+                            <p>
+                                International school enrolments were compared
+                                with NSW government school language enrolments
+                                using an indexed time series, where 2012 = 100.
+                                This allows relative changes to be compared
+                                despite differences in enrolment totals.
+                            </p>
+
+                            <p class="footer-note">
+                                Language enrolment data covers 2012–2024,
+                                with observations for 2022 unavailable.
+                                School location data represents 2026.
+                                The geographical visualisations provide
+                                contextual information and do not directly
+                                measure language availability at individual schools.
+                            </p>
+
+                            <p class="footer-note">
+                                International school enrolments and language
+                                subject enrolments represent different student
+                                populations. Their trends should not be interpreted
+                                as evidence of a causal relationship.
+                            </p>
+
+                        </div>
+
+                        <!-- ACKNOWLEDGEMENTS -->
+                        <div class="footer-section">
+
+                            <h3>Acknowledgements</h3>
+
+                            <p>
+                                The project uses publicly available
+                                educational and geographical datasets.
+                                Data processing, calculations and
+                                visualisation design were undertaken
+                                as part of the FIT3179 assessment.
+                            </p>
+
+                            <!--
+                                Add an accurate AI-use acknowledgement here
+                                if required by your unit's assessment policy.
+                            -->
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- BOTTOM BAR -->
+                <div class="footer-bottom">
+
+                    <span>
+                        © 2026 Beyond English
+                    </span>
+
+                    <span>
+                        FIT3179 · Monash University
+                    </span>
+
+                </div>
+
+            </div>
+
+        </footer>
     <!-- JavaScript -->
     <script src="js/visualisation.js"></script>
 

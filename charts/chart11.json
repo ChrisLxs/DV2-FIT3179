@@ -1,7 +1,14 @@
-
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Language Enrolments Relative to Historical Average (2012–2024)",
+    "background": null,
+    "title": {
+        "text": "Language Enrolments Relative to Historical Average (2012–2024)",
+        "fontSize": 16,
+        "fontWeight": 600,
+        "color": "#5C6861",
+        "anchor": "start",
+        "offset": 15
+    },
     "width": 750,
     "height": 400,
     "data": {
@@ -80,7 +87,7 @@
     ],
     "mark": {
         "type": "rect",
-        "stroke": "white",
+        "stroke": "#FFFFFF",
         "strokeWidth": 2
     },
     "encoding": {
@@ -90,7 +97,11 @@
             "title": "Year",
             "sort": "ascending",
             "axis": {
-                "labelAngle": 0
+                "labelAngle": 0,
+                "labelColor": "#5C6861",
+                "titleColor": "#5C6861",
+                "labelFontSize": 11,
+                "titleFontSize": 12
             }
         },
         "y": {
@@ -104,7 +115,13 @@
                 "Italian",
                 "Spanish",
                 "Arabic"
-            ]
+            ],
+            "axis": {
+                "labelColor": "#5C6861",
+                "titleColor": "#5C6861",
+                "labelFontSize": 11,
+                "titleFontSize": 12
+            }
         },
         "color": {
             "field": "difference_percent",
@@ -116,7 +133,15 @@
                 "reverse": true
             },
             "legend": {
-                "gradientLength": 250
+                "orient": "bottom",
+                "direction": "horizontal",
+                "gradientLength": 280,
+                "gradientThickness": 14,
+                "titleFontSize": 12,
+                "labelFontSize": 11,
+                "titleColor": "#5C6861",
+                "labelColor": "#5C6861",
+                "offset": 16
             }
         },
         "tooltip": [
@@ -133,8 +158,8 @@
             {
                 "field": "annual_enrolments",
                 "type": "quantitative",
-                "title": "Enrolments",
-                "format": ","
+                "title": "Annual Enrolments",
+                "format": ",.0f"
             },
             {
                 "field": "historical_average",
@@ -145,18 +170,25 @@
             {
                 "field": "difference_percent",
                 "type": "quantitative",
-                "title": "Difference from Average",
+                "title": "Difference from Average (%)",
                 "format": "+.1f"
             }
         ]
     },
     "config": {
         "view": {
+            "fill": null,
             "stroke": null
         },
         "axis": {
             "labelFontSize": 11,
-            "titleFontSize": 12
+            "titleFontSize": 12,
+            "labelColor": "#5C6861",
+            "titleColor": "#5C6861"
+        },
+        "legend": {
+            "labelColor": "#5C6861",
+            "titleColor": "#5C6861"
         }
     }
 }

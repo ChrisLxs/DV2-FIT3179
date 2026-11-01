@@ -1,9 +1,16 @@
-
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Primary vs Secondary Language Enrolments (2024)",
-    "width": 750,
-    "height": 450,
+    "background": null,
+    "title": {
+        "text": "Primary vs Secondary Enrolments (2024)",
+        "fontSize": 16,
+        "fontWeight": 600,
+        "color": "#5C6861",
+        "anchor": "start",
+        "offset": 18
+    },
+    "width": 520,
+    "height": 390,
     "data": {
         "url": "data/nsw_language_analysis_ready.csv",
         "format": {
@@ -45,15 +52,26 @@
         }
     ],
     "mark": {
-        "type": "bar"
+        "type": "bar",
+        "cornerRadiusTopLeft": 3,
+        "cornerRadiusTopRight": 3
     },
     "encoding": {
         "x": {
             "field": "language",
             "type": "nominal",
             "title": "Language",
+            "sort": {
+                "op": "sum",
+                "field": "total_enrolments",
+                "order": "descending"
+            },
             "axis": {
-                "labelAngle": -30
+                "labelAngle": -30,
+                "labelFontSize": 11,
+                "titleFontSize": 12,
+                "labelPadding": 8,
+                "labelLimit": 140
             }
         },
         "xOffset": {
@@ -67,16 +85,39 @@
         "y": {
             "field": "total_enrolments",
             "type": "quantitative",
-            "title": "Number of Enrolments"
+            "title": "Number of Enrolments",
+            "scale": {
+                "zero": true
+            },
+            "axis": {
+                "format": ",",
+                "labelFontSize": 11,
+                "titleFontSize": 12,
+                "grid": true,
+                "tickCount": 6
+            }
         },
         "color": {
             "field": "school_level",
             "type": "nominal",
-            "title": "School Level",
-            "sort": [
-                "Primary",
-                "Secondary (Years 7–9)"
-            ]
+            "title": null,
+            "scale": {
+                "domain": [
+                    "Primary",
+                    "Secondary (Years 7–9)"
+                ],
+                "range": [
+                    "#0072B2",
+                    "#D55E00"
+                ]
+            },
+            "legend": {
+                "orient": "bottom",
+                "direction": "horizontal",
+                "labelFontSize": 11,
+                "symbolSize": 120,
+                "offset": 14
+            }
         },
         "tooltip": [
             {
@@ -96,5 +137,23 @@
                 "format": ","
             }
         ]
+    },
+    "config": {
+        "view": {
+            "fill": null,
+            "stroke": null
+        },
+        "axis": {
+            "labelColor": "#5C6861",
+            "titleColor": "#5C6861",
+            "domainColor": "#5C6861",
+            "tickColor": "#5C6861",
+            "gridColor": "#E5DDD0",
+            "gridOpacity": 0.6
+        },
+        "legend": {
+            "labelColor": "#5C6861",
+            "titleColor": "#5C6861"
+        }
     }
 }

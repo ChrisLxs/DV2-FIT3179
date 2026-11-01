@@ -1,0 +1,213 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+        "text": "Do International School Enrolments and Language Learning Follow Similar Trends?",
+        "subtitle": [
+            "NSW language subject enrolments vs international school enrolments",
+            "Indexed enrolments (2012 = 100) | 2012–2024"
+        ],
+        "anchor": "start",
+        "fontSize": 17,
+        "fontWeight": 600,
+        "color": "#26352D",
+        "subtitleFontSize": 12,
+        "subtitleColor": "#5C6861",
+        "offset": 18
+    },
+    "data": {
+        "url": "data/nsw_language_vs_international.csv",
+        "format": {
+            "type": "csv",
+            "parse": {
+                "year": "number",
+                "enrolments": "number",
+                "index": "number"
+            }
+        }
+    },
+    "width": "container",
+    "height": 380,
+    "padding": {
+        "left": 10,
+        "right": 20,
+        "top": 15,
+        "bottom": 10
+    },
+    "params": [
+        {
+            "name": "selectedCategory",
+            "value": "Both",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "Both",
+                    "NSW Language Enrolments",
+                    "NSW International School Enrolments"
+                ],
+                "labels": [
+                    "Both datasets",
+                    "Language enrolments",
+                    "International school enrolments"
+                ],
+                "name": "Highlight dataset: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "calculate": "datum.category === 'NSW Language Enrolments' ? 'Language enrolments' : 'International school enrolments'",
+            "as": "series"
+        },
+        {
+            "calculate": "datum.category === 'NSW Language Enrolments' && datum.year === 2022 ? null : datum.index",
+            "as": "display_index"
+        }
+    ],
+    "layer": [
+        {
+            "mark": {
+                "type": "rule",
+                "color": "#AAB4AC",
+                "strokeDash": [5, 5],
+                "strokeWidth": 1
+            },
+            "encoding": {
+                "y": {
+                    "datum": 100
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "line",
+                "strokeWidth": 3,
+                "interpolate": "linear",
+                "point": {
+                    "filled": true,
+                    "size": 65
+                }
+            },
+            "encoding": {
+                "x": {
+                    "field": "year",
+                    "type": "quantitative",
+                    "title": "Year",
+                    "scale": {
+                        "domain": [2012, 2024],
+                        "nice": false
+                    },
+                    "axis": {
+                        "format": "d",
+                        "tickMinStep": 1,
+                        "labelAngle": 0,
+                        "labelPadding": 8,
+                        "titlePadding": 15,
+                        "grid": false
+                    }
+                },
+                "y": {
+                    "field": "display_index",
+                    "type": "quantitative",
+                    "title": "Enrolment index (2012 = 100)",
+                    "scale": {
+                        "zero": false
+                    },
+                    "axis": {
+                        "labelPadding": 8,
+                        "titlePadding": 15,
+                        "tickCount": 6
+                    }
+                },
+                "color": {
+                    "field": "series",
+                    "type": "nominal",
+                    "title": null,
+                    "scale": {
+                        "domain": [
+                            "Language enrolments",
+                            "International school enrolments"
+                        ],
+                        "range": [
+                            "#467B67",
+                            "#D59B56"
+                        ]
+                    },
+                    "legend": {
+                        "orient": "bottom",
+                        "direction": "horizontal",
+                        "labelFontSize": 12,
+                        "labelColor": "#5C6861",
+                        "symbolSize": 130,
+                        "offset": 20
+                    }
+                },
+                "opacity": {
+                    "condition": {
+                        "test": "selectedCategory === 'Both' || datum.category === selectedCategory",
+                        "value": 1
+                    },
+                    "value": 0.15
+                },
+                "detail": {
+                    "field": "series"
+                },
+                "order": {
+                    "field": "year",
+                    "type": "quantitative"
+                },
+                "tooltip": [
+                    {
+                        "field": "year",
+                        "type": "quantitative",
+                        "title": "Year",
+                        "format": "d"
+                    },
+                    {
+                        "field": "series",
+                        "type": "nominal",
+                        "title": "Dataset"
+                    },
+                    {
+                        "field": "enrolments",
+                        "type": "quantitative",
+                        "title": "Reported enrolments",
+                        "format": ","
+                    },
+                    {
+                        "field": "display_index",
+                        "type": "quantitative",
+                        "title": "Enrolment index",
+                        "format": ".1f"
+                    }
+                ]
+            }
+        }
+    ],
+    "config": {
+        "background": "white",
+        "font": "Arial",
+        "view": {
+            "stroke": null,
+            "continuousWidth": 700,
+            "continuousHeight": 380
+        },
+        "axis": {
+            "labelFont": "Arial",
+            "labelFontSize": 11,
+            "labelColor": "#5C6861",
+            "titleFont": "Arial",
+            "titleFontSize": 12,
+            "titleFontWeight": 500,
+            "titleColor": "#5C6861",
+            "gridColor": "#E8ECE9",
+            "gridOpacity": 0.8,
+            "domain": false,
+            "tickColor": "#D9E0DA"
+        },
+        "legend": {
+            "labelFont": "Arial",
+            "labelFontSize": 12,
+            "labelColor": "#5C6861"
+        }
+    }
+}
